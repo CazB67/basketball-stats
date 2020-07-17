@@ -11,10 +11,11 @@ This app  uses [Create React App](https://github.com/facebook/create-react-app) 
 ## Table of Contents
 1. [Installation](#Installation)
 2. [Usage](#Usage)
-3. [Credits](#Credits)
-4. [Contributing](#Contributing)
-5. [Licence](#License)
-6. [Create React App Details](#Create-React-App-Details)
+3. [Technologies](#Technologies)
+4. [Credits](#Credits)
+5. [Contributing](#Contributing)
+6. [Licence](#License)
+7. [Create React App Details](#Create-React-App-Details)
 
 ## Installation
 - npm install
@@ -28,6 +29,11 @@ This app  uses [Create React App](https://github.com/facebook/create-react-app) 
 The following GIF shows the application's functionality and how to use. 
 
 <img src="" width="541" height="423" title="Basketball Stats App">
+
+## Technologies
+- [React-bulma-components](https://www.npmjs.com/package/react-bulma-components)
+- [d3-shotchart](https://www.npmjs.com/package/d3-shotchart)
+- ? https://observablehq.com/@d3/gallery
 
 ## Credits
 - Team at UWA Coding Bootcamp
