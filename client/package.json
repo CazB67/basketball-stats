@@ -1,7 +1,7 @@
 {
-  "name": "mern",
+  "name": "basketball-stats",
   "version": "0.1.0",
-  "description": "Mern Demo",
+  "description": "Basketball Stats",
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
