@@ -8,13 +8,18 @@ function Nav() {
   return (
     <>
 
-<Navbar bg="navStyle" variant="dark" className="navStyle">
-    <Navbar.Brand href="">
-      <h1>BASKETBALL STATS <img src={basketball} alt="basketball"></img></h1> 
-      
+
+  
+  <br />
+  <Navbar bg="navStyle" className="navStyle" variant="dark">
+    <Navbar.Brand>BASKETBALL STATS 
+    <img src={basketball} alt="basketball"/>
     </Navbar.Brand>
   </Navbar>
+  
+  
 </>
+
       
   );
 }
