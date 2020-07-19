@@ -7,18 +7,13 @@ function Nav() {
 
   return (
     <>
-
-
-  
-  <br />
-  <Navbar bg="navStyle" className="navStyle" variant="dark">
-    <Navbar.Brand>BASKETBALL STATS 
-    <img src={basketball} alt="basketball"/>
-    </Navbar.Brand>
-  </Navbar>
-  
-  
-</>
+      <Navbar bg="navStyle" className="navStyle shadow p-3 mb-5" variant="dark">
+        <Navbar.Brand>
+          BASKETBALL STATS 
+          <img src={basketball} alt="basketball"/>
+        </Navbar.Brand>
+      </Navbar>
+    </>
 
       
   );
