@@ -13,7 +13,7 @@ const FooterPage = () => {
           <Col md="6">
             <h5 className="title">Basketball Stats</h5>
             <p>
-              BASKETBALL STATS is where you can record your performance, recognise your strengths and weaknesses; and view your progress over time.
+              BASKETBALL STATS is where you can record your performance, recognise your strengths and weaknesses; and view your progress over time. Use BASKETBALL STATS to be the best player you can be!
             </p>
           </Col>
         </Row>
