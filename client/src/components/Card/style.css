@@ -8,3 +8,11 @@
     color: black;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
+
+button.timer:hover {
+    background-color:orange;
+}
+
+button.timer {
+    font-weight: 900;
+}

@@ -25,14 +25,41 @@ export function StatsCard(props) {
 }
 
 export function ClockCard() {
+    const [seconds, setSeconds] = useState(0);
+    const [clockId, setClockId] = useState(0)
+    const [isRunning, setIsRunning] = useState(false)
+
+    function startTimer() {
+        setIsRunning(true)
+        setClockId(setInterval(() => {
+            setSeconds(seconds => seconds + 1);
+          }, 1000))
+    }
+
+    function stopTimer() {
+        clearInterval(clockId)
+        setIsRunning(false)
+    }
+    
+    function handleStartStop() {
+        isRunning ? stopTimer() : startTimer();
+    }
+
+    function handleReset() {
+        setIsRunning(false)
+        clearInterval(clockId)
+        setSeconds(0)
+    }
 
     return (
           <>
           <Card>
               <Card.Body bg="navStyle" className="navStyle shadow" variant="dark">
               <Card.Text className="text-white text-center">
-                  <div>ON THE COURT / ON THE BENCH</div>
-                  {' '}<button className="numberSpan">00:00</button>{' '}          
+                  <div>GAME TIME</div>
+                  {' '}<button className="timer" onClick={handleStartStop}>{isRunning ? "Stop" : "Start"}</button>{' '}  
+                  <button className="numberSpan">{seconds}</button>{' '} 
+                  <button className="timer" onClick={handleReset}>RESET</button>       
               </Card.Text>
               </Card.Body>
           </Card>
@@ -47,8 +74,6 @@ export function Deck({children}) {
           <CardDeck>
           {children}
           </CardDeck>
-              
-          
           </>
     );
   }
