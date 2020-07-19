@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import {Deck, StatsCard, ClockCard} from "../components/Card";
 
 function Stats() {
+    
     return (
       <>
      <Navbar/>
