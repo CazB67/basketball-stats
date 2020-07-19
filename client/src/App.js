@@ -1,20 +1,20 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Login from "./pages/Login";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container} from 'react-bootstrap'
 
 function App() {
   return (
-    <div className="App">
-      <div className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h2>Welcome to React</h2>
-      </div>
-      <p className="App-intro">
-        To get started, edit <code>src/App.js</code> and save to reload.
-      </p>
-    </div>
+    <Router>
+      <Container>
+
+          <Route exact path="/" component={Login} />
+          <Route exact path="/login" component={Login} />
+
+      </Container>
+    </Router>
   );
 }
-
 
 export default App;

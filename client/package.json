@@ -1,13 +1,17 @@
 {
-  "name": "basketball-stats",
+  "name": "mern",
   "version": "0.1.0",
-  "description": "Basketball Stats",
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "react-scripts": "^2.1.1"
+    "axios": "^0.19.2",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^2.1.1",
+    "react": "^16.13.1",
+    "react-bootstrap": "^1.2.2",
+    "react-dom": "^16.13.1",
+    "reactstrap": "^8.5.1",
+    "bootstrap": "^4.5.0"
   },
   "scripts": {
     "start": "react-scripts start",

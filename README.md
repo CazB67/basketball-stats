@@ -12,10 +12,11 @@ This app  uses [Create React App](https://github.com/facebook/create-react-app) 
 1. [Installation](#Installation)
 2. [Usage](#Usage)
 3. [Technologies](#Technologies)
-4. [Credits](#Credits)
-5. [Contributing](#Contributing)
-6. [Licence](#License)
-7. [Create React App Details](#Create-React-App-Details)
+4. [Wireframe](#Wireframe)
+5. [Credits](#Credits)
+6. [Contributing](#Contributing)
+7. [Licence](#License)
+8. [Create React App Details](#Create-React-App-Details)
 
 ## Installation
 - npm install
@@ -34,6 +35,9 @@ The following GIF shows the application's functionality and how to use.
 - [React-bulma-components](https://www.npmjs.com/package/react-bulma-components)
 - [d3-shotchart](https://www.npmjs.com/package/d3-shotchart)
 - ? https://observablehq.com/@d3/gallery
+
+## Wireframe
+- [Miro](https://miro.com/app/board/o9J_kpUZ7V8=/)
 
 ## Credits
 - Team at UWA Coding Bootcamp
