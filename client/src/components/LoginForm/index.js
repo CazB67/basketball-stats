@@ -3,12 +3,12 @@ import "./style.css";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
-function LoginForm() {
+function LoginForm(props) {
     
   return (
     <>
-        <h1 className="text-center">Sign in to your account</h1>
-        <p className="text-center">Need an account? <a href="/Login">Create one.</a></p>
+        <h1 className="text-center">{props.heading}</h1>
+        <p className="text-center">{props.account} <a href={props.linkto}>{props.link}</a></p>
         <Form className="p-4" style={{backgroundColor: "#26004d", color:"white"}}>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
@@ -25,7 +25,7 @@ function LoginForm() {
           <Form.Group controlId="formBasicCheckbox">
           </Form.Group>
           <Button variant="light" type="submit" size="sm"active>
-            Submit
+            {props.signin}
           </Button>
         </Form>
     </>
