@@ -11,9 +11,8 @@ function Nav() {
         <Navbar.Brand>
         <img
         src={logo}
-        
         className="d-inline-block align-top pr-5"
-        alt="React Bootstrap logo"
+        alt="Basketball Stats Logo"
       />
         </Navbar.Brand>
       </Navbar>
