@@ -4,19 +4,19 @@ const Schema = mongoose.Schema;
 const statSchema = new Schema(
     {
     user_id: {type: Schema.Types.ObjectId, ref:"User"},
-    three_point_made: { type: Number},
-    three_point_missed: { type: Number},
-    two_point_made: { type: Number},
-    two_point_missed: { type: Number},
-    one_point_made: { type: Number},
-    one_point_missed: { type: Number},
-    def_rebound: { type: Number},
-    off_rebound: { type: Number},
+    threePointerMade: { type: Number},
+    threePointerMissed: { type: Number},
+    twoPointerMade: { type: Number},
+    twoPointerMissed: { type: Number},
+    onePointerMade: { type: Number},
+    onePointerMissed: { type: Number},
+    defRebound: { type: Number},
+    offRebound: { type: Number},
     steal: { type: Number},
     assist: { type: Number},
     foul: { type: Number},
     turnover: { type: Number},
-    court_time:{type: Number}
+    courtTime:{type: Number}
     },
     {timestamps: true}
 );

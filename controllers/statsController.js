@@ -9,10 +9,10 @@ module.exports = {
     // },
     create: function(req, res) {
       console.log(req.body);
-    //   db.Stat
-    //     .create(req.body)
-    //     .then(dbModel => res.json(dbModel))
-    //     .catch(err => res.status(422).json(err));
+      db.Stat
+        .create(req.body)
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
     }
 };
    
