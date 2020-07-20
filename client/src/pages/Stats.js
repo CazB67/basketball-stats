@@ -18,13 +18,13 @@ function Stats() {
         </Deck>
           
           <Row>
-            <Col xs={6}md={4}><StatsCard skill="three points made"/></Col>
-            <Col xs={6}md={4}><StatsCard skill="3 points missed"/></Col>
-            <Col xs={6}md={4}><StatsCard skill="two points made"/></Col>
+            <Col xs={6}md={4}><StatsCard skill="3 points made"/></Col>
+            <Col xs={6}md={4}><StatsCard skill="3 points miss"/></Col>
+            <Col xs={6}md={4}><StatsCard skill="2 points made"/></Col>
           
-            <Col xs={6}md={4}><StatsCard skill="2 points missed"/></Col>
-            <Col xs={6}md={4}><StatsCard skill="one point made"/></Col>
-            <Col xs={6}md={4}><StatsCard skill="one point missed"/></Col>
+            <Col xs={6}md={4}><StatsCard skill="2 points miss"/></Col>
+            <Col xs={6}md={4}><StatsCard skill="1 point made"/></Col>
+            <Col xs={6}md={4}><StatsCard skill="1 point miss"/></Col>
          
             <Col xs={6}md={4}><StatsCard skill="defensive rebound"/></Col>
             <Col xs={6}md={4}><StatsCard skill="offensive rebound"/></Col>
