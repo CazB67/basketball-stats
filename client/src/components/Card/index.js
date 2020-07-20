@@ -2,21 +2,17 @@ import React, { useState} from "react";
 import { Card, CardDeck } from 'react-bootstrap'
 import "./style.css";
 
-
-
 export function StatsCard(props) {
     const [count, setCount] = useState(0);
   return (
         <>
-       
         <Card>
             <Card.Body bg="navStyle" className="navStyle shadow" variant="dark">
+            <Card.Text className="text-white text-center">{props.skill}</Card.Text> {' '}
             <Card.Text className="text-white text-center">
-                <div>{props.skill}</div> {' '}
                 <i className="fas fa-angle-up" onClick={() => setCount(count + 1)}/>
                 {' '}<button className="numberSpan">{count}</button>{' '}
                 <i className="fas fa-angle-down" onClick={() => setCount(count - 1)}/>
-                    
             </Card.Text>
             </Card.Body>
         </Card>
@@ -68,8 +64,8 @@ export function ClockCard() {
           <>
           <Card>
               <Card.Body bg="navStyle" className="navStyle shadow" variant="dark">
+              <Card.Title className="text-white text-center">COURT TIME</Card.Title>
               <Card.Text className="text-white text-center">
-                  <div>GAME TIME</div>
                   {' '}<button className="timer" onClick={handleStartStop}>{isRunning ? "STOP" : "START"}</button>{' '}  
                   <button className="numberSpan">{formatGameTime()}</button>{' '} 
                   <button className="timer" onClick={handleReset}>RESET</button>       
