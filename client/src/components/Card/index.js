@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React from "react";
 import { Card, CardDeck } from 'react-bootstrap'
 import "./style.css";
 
@@ -21,52 +21,14 @@ export function StatsCard(props) {
 export function CountButton(props) { 
   return (
         <>
-        <i className="fas fa-angle-up" onClick={props.upClick}/>
+        <i className="fas fa-angle-up" onClick={props.upclick}/>
   {' '}<button className="numberSpan" {...props}>{props.children}</button>{' '}
-        <i className="fas fa-angle-down" onClick={props.downClick}/>
+        <i className="fas fa-angle-down" onClick={props.downclick}/>
         </>
   );
 }
 
-export function ClockCard() {
-    const [seconds, setSeconds] = useState(0);
-    const [clockId, setClockId] = useState(0)
-    const [isRunning, setIsRunning] = useState(false)
-
-    function startTimer() {
-        setIsRunning(true)
-        setClockId(setInterval(() => {
-            setSeconds(seconds => seconds + 1);
-          }, 1000))
-          
-    }
-
-    function formatGameTime() {
-        let formattedTime = "";
-        let minutes = 0;
-        let secs = Math.floor(seconds % 60);
-        minutes = Math.floor(seconds / 60)
-        if(secs < 10) {
-            secs = "0" + secs
-        } 
-        formattedTime = minutes + ":" + secs;
-        return formattedTime;
-    }
-
-    function stopTimer() {
-        clearInterval(clockId)
-        setIsRunning(false)
-    }
-    
-    function handleStartStop() {
-        isRunning ? stopTimer() : startTimer();
-    }
-
-    function handleReset() {
-        setIsRunning(false)
-        clearInterval(clockId)
-        setSeconds(0)
-    }
+export function ClockCard(props) {
 
     return (
           <>
@@ -74,9 +36,9 @@ export function ClockCard() {
               <Card.Body bg="navStyle" className="navStyle shadow" variant="dark">
               <Card.Title className="text-white text-center">COURT TIME</Card.Title>
               <Card.Text className="text-white text-center">
-                  {' '}<button className="timer" onClick={handleStartStop}>{isRunning ? "STOP" : "START"}</button>{' '}  
-                  <button className="numberSpan">{formatGameTime()}</button>{' '} 
-                  <button className="timer" onClick={handleReset}>RESET</button>       
+                  {' '}<button className="timer" onClick={props.handleStartStop}>{props.isRunning}</button>{' '}  
+                  <button className="numberSpan">{props.formatGameTime}</button>{' '} 
+                  <button className="timer" onClick={props.handleReset}>RESET</button>       
               </Card.Text>
               </Card.Body>
           </Card>
