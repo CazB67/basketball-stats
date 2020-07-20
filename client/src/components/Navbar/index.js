@@ -7,7 +7,7 @@ function Nav() {
 
   return (
     <>
-      <Navbar bg="navStyle" className="navStyle shadow mb-5" variant="dark">
+      <Navbar bg="navStyle" className="navStyle shadow mb-3" variant="dark">
         <Navbar.Brand>
         <img
         src={logo}

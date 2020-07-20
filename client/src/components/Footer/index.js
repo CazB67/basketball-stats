@@ -4,10 +4,9 @@ import { Container } from 'react-bootstrap';
 import { Row } from 'react-bootstrap';
 import "./style.css";
 
-
 const FooterPage = () => {
   return (
-    <footer className="font-small pt-4 mt-5 footer text-white">
+    <footer className="font-small pt-4 mt-3 footer text-white">
       <Container fluid className="text-center text-md-left">
         <Row>
           <Col md="6">

@@ -1,32 +1,39 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Button from "../components/Button";
 import {Deck, StatsCard, ClockCard} from "../components/Card";
-
+import { Col, Row } from 'react-bootstrap'
 
 function Stats() {
     
     return (
       <>
      <Navbar/>
-        <Deck>
+        <Button/>
+        <Deck className="text-center">
+        
             <ClockCard skill="gametime"/>
             
         </Deck>
-        <Deck>
-          <StatsCard skill="3 points made"/>
-          <StatsCard skill="3 points missed"/> 
-          <StatsCard skill="2 points made"/>
-          <StatsCard skill="2 points missed"/>
-          <StatsCard skill="1 point made"/>
-          </Deck>
-          <Deck>
-          <StatsCard skill="1 point missed"/>
-          <StatsCard skill="defensive rebound"/> 
-          <StatsCard skill="offensive rebound"/>
-          <StatsCard skill="steal"/>
-          <StatsCard skill="assist"/>
-        </Deck>
+          
+          <Row>
+            <Col xs={6}md={4}><StatsCard skill="three points made"/></Col>
+            <Col xs={6}md={4}><StatsCard skill="3 points missed"/></Col>
+            <Col xs={6}md={4}><StatsCard skill="two points made"/></Col>
+          
+            <Col xs={6}md={4}><StatsCard skill="2 points missed"/></Col>
+            <Col xs={6}md={4}><StatsCard skill="one point made"/></Col>
+            <Col xs={6}md={4}><StatsCard skill="one point missed"/></Col>
+         
+            <Col xs={6}md={4}><StatsCard skill="defensive rebound"/></Col>
+            <Col xs={6}md={4}><StatsCard skill="offensive rebound"/></Col>
+            <Col xs={6}md={4}><StatsCard skill="steal"/></Col>
+            
+            <Col xs={6}md={4}><StatsCard skill="assist"/></Col>
+            <Col xs={6}md={4}><StatsCard skill="foul"/></Col>
+            <Col xs={6}md={4}><StatsCard skill="turnover"/></Col>
+          </Row>
      <Footer/>
       </>
     );
