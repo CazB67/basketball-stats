@@ -6,7 +6,8 @@ const Button = () => {
   return (
     
     <div className="text-center">
-      <button className="timer mb-3">BEGIN TRACKING STATS</button>
+      <button className="timer mb-3">START GAME</button>
+      <button className="timer mb-3 ml-2">END OF GAME</button>
     </div>
     
   );
