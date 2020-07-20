@@ -34,6 +34,19 @@ export function ClockCard() {
         setClockId(setInterval(() => {
             setSeconds(seconds => seconds + 1);
           }, 1000))
+          
+    }
+
+    function formatGameTime() {
+        let formattedTime = "";
+        let minutes = 0;
+        let secs = Math.floor(seconds % 60);
+        minutes = Math.floor(seconds / 60)
+        if(secs < 10) {
+            secs = "0" + secs
+        } 
+        formattedTime = minutes + ":" + secs;
+        return formattedTime;
     }
 
     function stopTimer() {
@@ -57,8 +70,8 @@ export function ClockCard() {
               <Card.Body bg="navStyle" className="navStyle shadow" variant="dark">
               <Card.Text className="text-white text-center">
                   <div>GAME TIME</div>
-                  {' '}<button className="timer" onClick={handleStartStop}>{isRunning ? "Stop" : "Start"}</button>{' '}  
-                  <button className="numberSpan">{seconds}</button>{' '} 
+                  {' '}<button className="timer" onClick={handleStartStop}>{isRunning ? "STOP" : "START"}</button>{' '}  
+                  <button className="numberSpan">{formatGameTime()}</button>{' '} 
                   <button className="timer" onClick={handleReset}>RESET</button>       
               </Card.Text>
               </Card.Body>
