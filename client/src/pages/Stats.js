@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Button from "../components/Button";
+import {OpponentModal, ScoreModal } from "../components/Modal";
 import API from "../utils/API";
 import {Deck, StatsCard, ClockCard, CountButton} from "../components/Card";
 import { Col, Row } from 'react-bootstrap'
@@ -21,30 +22,43 @@ function Stats() {
     assist: 0,
     foul: 0,
     turnover: 0,
-    courtTime: 0
+    courtTime: 0,
+    opponent:"",
+    opponentScore: 0,
+    teamScore: 0
   });
 
   const [seconds, setSeconds] = useState(0);
   const [clockId, setClockId] = useState(0)
   const [isRunning, setIsRunning] = useState(false)
+  const [show, setShow] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [opponent, setOpponent] =useState("")
+  const [opponentScore, setOpponentScore] =useState(0)
+  const [teamScore, setTeamScore] =useState(0)
+  // const [scoreObject, setScoreObject] = useState({
+  //   opponentScore: 0,
+  //   yourTeamScore: 0,
+  //   })
 
   function startTimer() {
       setIsRunning(true)
       setClockId(setInterval(() => {
           setSeconds(seconds => seconds + 1);
-        }, 1000))
-        
+        }, 1000))  
   }
 
   function formatGameTime() {
       let formattedTime = "";
       let minutes = 0;
+      //console.log(seconds);
       let secs = Math.floor(seconds % 60);
       minutes = Math.floor(seconds / 60)
       if(secs < 10) {
           secs = "0" + secs
       } 
       formattedTime = minutes + ":" + secs;
+      //console.log(formattedTime);
       return formattedTime;
   }
 
@@ -63,7 +77,11 @@ function Stats() {
       setSeconds(0)
   }
 
+  const handleClose = () => setShow(false) 
+  const handleClose2 = () => setOpen(false)
+
   function handleStartGame() {
+    setShow(true)
     setCount({
       threePointerMade: 0,
       threePointerMissed: 0,
@@ -77,27 +95,76 @@ function Stats() {
       assist: 0,
       foul: 0,
       turnover: 0,
-      courtTime: 0
+      courtTime: "",
+      opponent:"",
+      opponentScore: 0,
+      teamScore: 0,
     })
 }
 
 function handleEndGame(event) {
   event.preventDefault()
-  API.saveGame({
-    ...count
-  })
+  setOpen(true)
 }
 
+const handleSavingGameData = event => {
+  event.preventDefault();
+  setCount({...count, courtTime: seconds})
+  //setCount({...count, courtTime: formatGameTime()})
+  API.saveGame({
+    ...count
+  }, formatGameTime(), opponent, teamScore, opponentScore)
+  setOpen(false)
+}
+
+const handleInputChange = event => {
+  event.preventDefault()
+  const { value } = event.target;
+  console.log(value);
+  setOpponent(value)
+}
+const handleInputChangeTeamScore = event => {
+  event.preventDefault();
+  const { value } = event.target;
+  console.log(value);
+  setTeamScore(value)
+}
+const handleInputChangeOpponentScore = event => {
+  event.preventDefault()
+  const { value } = event.target;
+  console.log(value);
+  setOpponentScore(value)
+ }
     return (
       <>
      <Navbar/>
+     <ScoreModal
+          handleClose={handleClose2}
+          handleStartGame={handleStartGame}
+          show={open}
+          teamScoreInput={handleInputChangeTeamScore}
+           oppScoreInput={handleInputChangeOpponentScore}
+          value={teamScore}
+          value2={opponentScore}
+          handleSavingGameData={handleSavingGameData}
+          >
+          
+        </ScoreModal>
+        <OpponentModal
+          handleClose={handleClose}
+          handleStartGame={handleStartGame}
+          show={show}
+          onChange={handleInputChange}
+          value={opponent}>
+          
+        </OpponentModal>
         <Button
         onClick={handleStartGame}
         endClick={handleEndGame}/>
         <Deck className="text-center">
             <ClockCard skill="gametime"
             handleStartStop={handleStartStop}
-            formatGameTime={formatGameTime()}
+            gameTime={formatGameTime()}
             handleReset={handleReset}
             isRunning={isRunning ? "STOP" : "START"}/>
         </Deck>
