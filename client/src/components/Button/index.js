@@ -7,7 +7,7 @@ const Button = (props) => {
     
     <div className="text-center">
       <button className="timer mb-3" onClick={props.onClick}>START GAME</button>
-      <button className="timer mb-3 ml-2" onClick={props.endClick}>END OF GAME</button>
+      <button className="timer mb-3 ml-2" onClick={props.endClick}>END GAME</button>
     </div>
     
   );

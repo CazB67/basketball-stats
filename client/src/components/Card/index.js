@@ -36,11 +36,11 @@ export function ClockCard(props) {
           <>
           <Card>
               <Card.Body bg="navStyle" className="navStyle shadow" variant="dark">
-              <Card.Title className="text-white text-center">COURT TIME</Card.Title>
+              <Card.Title className="text-white text-center court">COURT TIME</Card.Title>
               <Card.Text className="text-white text-center">
-                  {' '}<button className="timer" onClick={props.handleStartStop}>{props.isRunning}</button>{' '}  
+                  {' '}<button className="timer court mr-2" onClick={props.handleStartStop}>{props.isRunning}</button>{' '}  
                   <button className="numberSpan">{props.gameTime}</button>{' '} 
-                  <button className="timer" onClick={props.handleReset}>RESET</button>       
+                  <button className="timer court ml-2" onClick={props.handleReset}>RESET</button>       
               </Card.Text>
               </Card.Body>
           </Card>
