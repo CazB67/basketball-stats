@@ -8,7 +8,7 @@ export function StatsCard(props) {
     
   return (
         <>
-        <Card className="mb-3">
+        <Card className="mb-1 mt-1">
             <Card.Body bg="navStyle" className="navStyle shadow" variant="dark">
             <Card.Text className="text-white text-center">{props.skill}</Card.Text> {' '}
             <Card.Text className="text-white text-center">

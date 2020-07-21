@@ -3,14 +3,15 @@ import { Col } from 'react-bootstrap';
 import { Container } from 'react-bootstrap';
 import { Row } from 'react-bootstrap';
 import "./style.css";
+import logo from '../../images/logo.PNG'
 
 const FooterPage = () => {
   return (
-    <footer className="font-small pt-4 mt-3 footer text-white">
+    <footer className="font-small pt-4 mt-1 footer text-white">
       <Container fluid className="text-center text-md-left">
         <Row>
           <Col md="6">
-            <h5 className="title">Basketball Stats</h5>
+            <img src={logo} alt="logo"/>
             <p>
               BASKETBALL STATS is where you can record your performance, recognise your strengths and weaknesses; and view your progress over time. Use BASKETBALL STATS to be the best player you can be!
             </p>

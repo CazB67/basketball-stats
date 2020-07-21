@@ -35,6 +35,7 @@ The following GIF shows the application's functionality and how to use.
 - [React-bulma-components](https://www.npmjs.com/package/react-bulma-components)
 - [d3-shotchart](https://www.npmjs.com/package/d3-shotchart)
 - ? https://observablehq.com/@d3/gallery
+- https://www.npmjs.com/package/react-google-login
 
 ## Wireframe
 - [Miro](https://miro.com/app/board/o9J_kpUZ7V8=/)
