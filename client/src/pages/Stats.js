@@ -95,6 +95,7 @@ function Stats() {
   };
   
   const handleClose2 = () => setOpen(false)
+  const handleClose3 = () => setShow(false)
 
   function handleStartGame() {
     setShow(true)
@@ -202,6 +203,7 @@ const handleInputChangeOpponentScore = event => {
         
         <OpponentModal
           handleClose={handleClose}
+          handleClose3={handleClose3}
           handleStartGame={handleStartGame}
           show={show}
           onChange={handleInputChange}

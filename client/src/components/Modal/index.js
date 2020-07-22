@@ -6,7 +6,7 @@ export function OpponentModal(props) {
     
     return (
           <>
-          <Modal show={props.show} onHide={props.handleClose}>
+          <Modal show={props.show} onHide={props.handleClose3}>
             <Modal.Header closeButton>
               <Modal.Title className="court">Opponent</Modal.Title>
             </Modal.Header>
