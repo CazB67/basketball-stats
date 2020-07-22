@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const statSchema = new Schema(
+const StatSchema = new Schema(
     {
     user_id: {type: Schema.Types.ObjectId, ref:"User"},
     threePointerMade: { type: Number},
@@ -19,11 +19,19 @@ const statSchema = new Schema(
     courtTime:{type: String},
     opponent: {type: String},
     opponentScore: {type: Number},
-    teamScore: { type: Number}
-    },
-    {timestamps: true}
-);
+    teamScore: { type: Number},
+    finalScore: { type: String}
   
-  const Stat = mongoose.model("Stat", statSchema);
+  },
+  {timestamps: true}
+);
+
+    StatSchema.methods.setFinalScore = function() {
+      this.finalScore = `${this.teamScore} - ${this.opponentScore}`;
+      return this.finalScore;
+    };
+    
+  
+  const Stat = mongoose.model("Stat", StatSchema);
   
   module.exports = Stat;
