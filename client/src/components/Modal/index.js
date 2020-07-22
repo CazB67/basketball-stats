@@ -7,7 +7,7 @@ export function OpponentModal(props) {
     return (
           <>
           <Modal show={props.show} onHide={props.handleClose}>
-            <Modal.Header>
+            <Modal.Header closeButton>
               <Modal.Title className="court">Opponent</Modal.Title>
             </Modal.Header>
             <Modal.Body>
@@ -35,7 +35,7 @@ export function OpponentModal(props) {
     return (
           <>
           <Modal show={props.show} onHide={props.handleClose}>
-            <Modal.Header>
+            <Modal.Header closeButton>
               <Modal.Title className="court">Score</Modal.Title>
             </Modal.Header>
             <Modal.Body>
