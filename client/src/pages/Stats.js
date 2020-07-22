@@ -29,13 +29,14 @@ function Stats() {
   });
 
   const [seconds, setSeconds] = useState(0);
-  const [clockId, setClockId] = useState(0)
-  const [isRunning, setIsRunning] = useState(false)
+  const [clockId, setClockId] = useState(0);
+  const [isRunning, setIsRunning] = useState(false);
   const [show, setShow] = useState(false);
   const [open, setOpen] = useState(false);
-  const [opponent, setOpponent] =useState("")
-  const [opponentScore, setOpponentScore] =useState(0)
-  const [teamScore, setTeamScore] =useState(0)
+  const [opponent, setOpponent] =useState("");
+  const [opponentScore, setOpponentScore] =useState(0);
+  const [teamScore, setTeamScore] =useState(0);
+  const [validated, setValidated] = useState(true);
   
   function startTimer() {
       setIsRunning(true)
@@ -73,7 +74,26 @@ function Stats() {
       setSeconds(0)
   }
 
-  const handleClose = () => setShow(false) 
+  const handleClose = (event) => { 
+    if (typeof(event) === 'undefined') {
+      console.log("booooo");
+      return;
+    }
+    event.preventDefault();
+    const form = event.currentTarget;
+    console.log(opponent + "***************");
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+      
+    }else {
+      console.log(show + "show");
+      setValidated(true);
+      setShow(false) 
+    }
+  
+  };
+  
   const handleClose2 = () => setOpen(false)
 
   function handleStartGame() {
@@ -104,9 +124,20 @@ function handleEndGame(event) {
 }
 
 const handleSavingGameData = event => {
+  console.log("hi");
   event.preventDefault();
+  const form = event.currentTarget;
+  if (form.checkValidity() === false) {
+    console.log("false");
+    event.preventDefault();
+    event.stopPropagation();
+    
+  }else {
+    console.log("true");
+    setValidated(true);
+    setShow(false) 
+ 
   setCount({...count, courtTime: seconds})
-  //setCount({...count, courtTime: formatGameTime()})
   API.saveGame({
     ...count
   }, formatGameTime(), opponent, teamScore, opponentScore)
@@ -132,6 +163,7 @@ const handleSavingGameData = event => {
   setIsRunning(false)
   clearInterval(clockId)
   setSeconds(0)
+}
 }
 
 const handleInputChange = event => {
@@ -165,6 +197,7 @@ const handleInputChangeOpponentScore = event => {
             value={teamScore}
             value2={opponentScore}
             handleSavingGameData={handleSavingGameData}
+            validated={validated}
         />
         
         <OpponentModal
@@ -173,6 +206,7 @@ const handleInputChangeOpponentScore = event => {
           show={show}
           onChange={handleInputChange}
           value={opponent}
+          validated={validated}
         />
 
         <Button

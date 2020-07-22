@@ -11,7 +11,10 @@ const FooterPage = () => {
       <Container fluid className="text-center text-md-left">
         <Row>
           <Col md="6">
-            <img src={logo} alt="logo"/>
+            <img src={logo}
+                width="65%"
+                height="30%"
+                 alt="logo"/>
             <p>
               BASKETBALL STATS is where you can record your performance, recognise your strengths and weaknesses; and view your progress over time. Use BASKETBALL STATS to be the best player you can be!
             </p>

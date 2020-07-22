@@ -3,7 +3,7 @@ import axios from 'axios';
 export default {
     saveGame: function(gameData, gameTime, opponent,  teamScore, opponentScore) {
         //let x = gameData;
-        console.log(teamScore +" ____________");
+        console.log(opponent +" ____________");
         console.log(opponentScore +" ____________");
         gameData.courtTime = gameTime;
         gameData.opponent = opponent;

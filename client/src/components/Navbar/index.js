@@ -11,7 +11,9 @@ function Nav() {
         <Navbar.Brand>
         <img
         src={logo}
-        className="d-inline-block align-top pr-5"
+        className="d-inline-block align-top"
+        width="80%"
+        height="80%"
         alt="Basketball Stats Logo"
       />
         </Navbar.Brand>
