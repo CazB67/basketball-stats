@@ -1,9 +1,11 @@
 const router = require("express").Router();
 const statsController = require("../../controllers/statsController");
 
-router.route("/").post(statsController.create);
+router.route("/")
+  .get(statsController.findAll)
+  .post(statsController.create);
   
-  //.get(statsController.findAll)
+  
   
   
 

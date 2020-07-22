@@ -4,36 +4,7 @@ import { Table } from 'react-bootstrap'
 export function DataTable(props) {
     return (
       <>
-          <thead>
-            <tr>
-              <th>GameDate</th>
-              <th>Opponent</th>
-              <th>Score</th>
-              <th>1PMade</th>
-              <th>1PMissed</th>
-              <th>2PMade</th>
-              <th>2PMissed</th>
-              <th>3PMade</th>
-              <th>3PMissed</th>
-              <th>DefReb</th>
-              <th>OffReb</th>
-              <th>Steal</th>
-              <th>Assist</th>
-              <th>Foul</th>
-              <th>Turnover</th>
-              <th>CourtTime</th>
-            </tr>
-          </thead>
-              </>
-  
-        
-    );
-  }
-  
-  export function TableHeader (props) {
-    return (
-      <>
-          <tbody>
+         <tbody>
             <tr>
               <td>{props.date}</td>
               <td>{props.opponent}</td>
@@ -54,8 +25,33 @@ export function DataTable(props) {
             </tr>
           </tbody>
               </>
+    );
+  }
   
-        
+  export function TableHeader (props) {
+    return (
+      <>
+       <thead>
+            <tr>
+              <th>DateOfGame</th>
+              <th>Opponent</th>
+              <th>FinalScore</th>
+              <th>1PMade</th>
+              <th>1PMissed</th>
+              <th>2PMade</th>
+              <th>2PMissed</th>
+              <th>3PMade</th>
+              <th>3PMissed</th>
+              <th>DefReb</th>
+              <th>OffReb</th>
+              <th>Steal</th>
+              <th>Assist</th>
+              <th>Foul</th>
+              <th>Turnover</th>
+              <th>CourtTime</th>
+            </tr>
+          </thead>
+              </>
     );
   }
   
