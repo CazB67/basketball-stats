@@ -228,7 +228,7 @@ const handleInputChangeOpponentScore = event => {
         <Row>
           <Col xs={6}md={4}>
             <StatsCard 
-              skill="3 pointer made" 
+              skill="3 pts made" 
               value=""
             >
               <CountButton 
@@ -238,7 +238,7 @@ const handleInputChangeOpponentScore = event => {
             </StatsCard>
           </Col>
           <Col xs={6}md={4}>
-            <StatsCard skill="3 pointer miss">
+            <StatsCard skill="3 pts missed">
               <CountButton 
                 upclick={() => setCount({...count,    threePointerMissed: count.threePointerMissed + 1})}
                 downclick={() => count.threePointerMissed > 0 ? setCount({...count,  threePointerMissed: count.threePointerMissed - 1}) : 0}>{count.threePointerMissed}
@@ -246,7 +246,7 @@ const handleInputChangeOpponentScore = event => {
             </StatsCard>
           </Col>
           <Col xs={6}md={4}>
-            <StatsCard skill="2 pointer made">
+            <StatsCard skill="2 pts made">
               <CountButton 
                 upclick={() => setCount({...count,    twoPointerMade: count.twoPointerMade + 1})}
                 downclick={() => count.twoPointerMade > 0 ? setCount({...count,  twoPointerMade: count.twoPointerMade - 1}) : 0}>{count.twoPointerMade}
@@ -255,7 +255,7 @@ const handleInputChangeOpponentScore = event => {
           </Col>
         
           <Col xs={6}md={4}>
-            <StatsCard skill="2 pointer miss">
+            <StatsCard skill="2 pts missed">
               <CountButton 
                 upclick={() => setCount({...count,    twoPointerMissed: count.twoPointerMissed + 1})}
                 downclick={() => count.twoPointerMissed > 0 ? setCount({...count,  twoPointerMissed: count.twoPointerMissed - 1}) : 0}>{count.twoPointerMissed}
@@ -263,7 +263,7 @@ const handleInputChangeOpponentScore = event => {
             </StatsCard>
           </Col>
           <Col xs={6}md={4}>
-            <StatsCard skill="1 pointer made">
+            <StatsCard skill="1 pt made">
               <CountButton 
                 upclick={() => setCount({...count,    onePointerMade: count.onePointerMade + 1})}
                 downclick={() => count.onePointerMade > 0 ? setCount({...count,  onePointerMade: count.onePointerMade - 1}): 0}>{count.onePointerMade}
@@ -271,7 +271,7 @@ const handleInputChangeOpponentScore = event => {
             </StatsCard>
           </Col>
           <Col xs={6}md={4}>
-            <StatsCard skill="1 pointer miss">
+            <StatsCard skill="1 pt missed">
               <CountButton 
                 upclick={() => setCount({...count,    onePointerMissed: count.onePointerMissed + 1})}
                 downclick={() => count.onePointerMissed > 0 ? setCount({...count,  onePointerMissed: count.onePointerMissed - 1}): 0}>{count.onePointerMissed}
