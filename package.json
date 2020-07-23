@@ -22,9 +22,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "express": "^4.16.3",
-    "hooked-react-stopwatch": "^1.5.1",
     "if-env": "^1.0.4",
-    "moment": "^2.27.0",
     "mongoose": "^5.9.23"
   }
 }

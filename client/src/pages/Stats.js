@@ -187,8 +187,8 @@ const handleInputChangeOpponentScore = event => {
  }
     return (
       <>
+      
       <Navbar/>
-
       <ScoreModal
             handleClose={handleClose2}
             handleStartGame={handleStartGame}

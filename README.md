@@ -32,7 +32,7 @@ The following GIF shows the application's functionality and how to use.
 <img src="" width="541" height="423" title="Basketball Stats App">
 
 ## Technologies
-- [React-bulma-components](https://www.npmjs.com/package/react-bulma-components)
+- [React-Bootstrap](https://react-bootstrap.github.io/)
 - [d3-shotchart](https://www.npmjs.com/package/d3-shotchart)
 - ? https://observablehq.com/@d3/gallery
 - https://www.npmjs.com/package/react-google-login
