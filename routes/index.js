@@ -3,7 +3,7 @@ const router = require("express").Router();
 const auth = require('./api/auth/auth');
 const user = require('./api/userRoutes');
 const stat = require('./api/statRoutes');
-const AuthenticatedMiddleware = require("./../middleware/AuthenticatedMiddleware");
+const AuthenticatedMiddleware = require("../middleware/AuthenticatedMiddleware");
 
 // API Routes
 router.use(auth);

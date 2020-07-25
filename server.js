@@ -2,7 +2,7 @@ const express = require("express");
 const session = require("express-session");
 const bodyParser = require("body-parser"); // form data
 const cookieParser = require("cookie-parser");
-const dotenv = require("dotenv");
+//const dotenv = require("dotenv");
 const cors = require("cors");
 const corsConfig = require('./config/cors');
 //const path = require("path");
@@ -18,8 +18,6 @@ const app = express();
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/stats", { useNewUrlParser: true, useUnifiedTopology: true });
-
-
 
 // Define middleware here
 //app.use(express.urlencoded({ extended: true }));
