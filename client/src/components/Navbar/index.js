@@ -16,6 +16,7 @@ function StatsNav(props) {
         })
 }
 const store = GlobalStore.useGlobalContext()
+
   return (
     
     <>
