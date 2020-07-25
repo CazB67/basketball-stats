@@ -53,6 +53,7 @@ module.exports = {
         },
 
         findCurrentUser: function(req, res) {
+            console.log("----" + req.user);
             return res.json({
                 data: req.user,
             });

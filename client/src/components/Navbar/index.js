@@ -3,6 +3,8 @@ import "./style.css";
 import { Navbar, Nav } from 'react-bootstrap';
 import logo from '../../images/logo.PNG';
 import axios from 'axios';
+import GlobalStore from "../../utils/context/GlobalStore";
+import isEmpty from 'lodash/isEmpty'
 
 function StatsNav(props) {
   const logout = () => {
@@ -13,8 +15,9 @@ function StatsNav(props) {
             console.log(err);
         })
 }
-
+const store = GlobalStore.useGlobalContext()
   return (
+    
     <>
       <Navbar bg="navStyle" expand="lg" className="navStyle shadow mb-3" variant="dark">
         <Navbar.Brand>
@@ -27,7 +30,7 @@ function StatsNav(props) {
           <Navbar.Collapse  className="justify-content-end">
           
             <Nav className={
-                document.location.pathname === "/" || document.location.pathname === "/Login" || document.location.pathname === "/Signup"
+                !isEmpty(store.auth.currentUser)
                 ? "d-none"
                 : ""}>
               

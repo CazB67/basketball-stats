@@ -7,10 +7,10 @@ const AuthenticatedMiddleware = require("./../middleware/AuthenticatedMiddleware
 
 // API Routes
 router.use(auth);
-
+router.use(AuthenticatedMiddleware)
 router.use(user);
 router.use(stat);
-router.use(AuthenticatedMiddleware)
+
 
 // // If no API routes are hit, send the React app
 // router.use(function(req, res) {
