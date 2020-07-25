@@ -4,7 +4,7 @@ const bodyParser = require("body-parser"); // form data
 const cookieParser = require("cookie-parser");
 //const dotenv = require("dotenv");
 const cors = require("cors");
-const corsConfig = require('./config/cors');
+//const corsConfig = require('./config/cors');
 //const path = require("path");
 const passport = require("passport");
 const mongoose = require("mongoose");
@@ -50,7 +50,7 @@ app.use(
   })
 );
 
-app.use(cors(corsConfig));
+app.use(cors());
 
 app.use(passport.initialize());
 app.use(passport.session());

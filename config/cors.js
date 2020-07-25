@@ -1,17 +1,17 @@
-const config = require('./app');
-const whitelist = [
-    "*",
-    "http://localhost:3000",
-    "localhost:3000"
-];
+// const config = require('./app');
+// const whitelist = [
+//     "*",
+//     "http://localhost:3000",
+//     "localhost:3000"
+// ];
 
-module.exports =  {
-    origin: function (origin, callback) {
-        if (whitelist.indexOf(origin) !== -1) {
-            callback(null, true);
-        } else {
-            callback(new Error("Not allowed by CORS"));
-        }
-    },
-    credentials: true,
-};
+// module.exports =  {
+//     origin: function (origin, callback) {
+//         if (whitelist.indexOf(origin) !== -1) {
+//             callback(null, true);
+//         } else {
+//             callback(new Error("Not allowed by CORS"));
+//         }
+//     },
+//     credentials: true,
+// };
