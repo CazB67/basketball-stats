@@ -1,11 +1,33 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import {DataTable, TableHeader, TableWrapper} from "../components/Table";
 import API from "../utils/API";
-
+import GlobalStore from "../utils/context/GlobalStore";
+import { useHistory } from "react-router-dom";
+import axios from 'axios';
 
 function Display() {
+  const store = GlobalStore.useGlobalContext()
+  const history = useHistory()
+  //console.log(store.currentPage + "----------")
+  useEffect(() => {
+      axios.get('http://localhost:3001/current-user', {
+          withCredentials: true,
+      })
+          .then((response) => {
+            console.log(response.data.data + "-----");
+              store.auth.dispatchAuth({
+                  type: 'set-user',
+                  payload: response.data.data
+              })
+          }).catch((err) => {
+              if(err.response.status === 401){
+                //store.currentPage.setCurrentPage("/")
+                  return history.push('/')
+              }
+              console.log("Error " + {err});
+          })
+  }, [])
+
   const [stats, setStats] = useState([]);
 
   useEffect(() => {
@@ -20,7 +42,6 @@ function Display() {
   
     return (
       <>
-     <Navbar/>
      <TableWrapper>
       <TableHeader/>
       {stats.map(stat => (
@@ -45,7 +66,6 @@ function Display() {
       />
       ))}
      </TableWrapper>
-     <Footer/>
       </>
     );
   }

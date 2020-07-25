@@ -3,14 +3,14 @@ const db = require("../models");
 module.exports = {
     findAll: function(req, res) {
       db.Stat
-        .find(req.query)
+        .find({user_id: req.user._id})
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
     },
     create: function(req, res) {
-      console.log(req.body);
       const data = new db.Stat(req.body)
       data.setFinalScore();
+      data.user_id = req.user._id;
       db.Stat
         .create(data)
         .then(dbModel => res.json(dbModel))

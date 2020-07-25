@@ -20,7 +20,8 @@ const StatSchema = new Schema(
     opponent: {type: String},
     opponentScore: {type: Number},
     teamScore: { type: Number},
-    finalScore: { type: String}
+    finalScore: { type: String},
+    //user_id: { type: Schema.Types.ObjectId, ref: "User", required: true },
   
   },
   {timestamps: true}
@@ -31,6 +32,15 @@ const StatSchema = new Schema(
       return this.finalScore;
     };
     
+// we want to load the user resource in a virtual field
+// to be populated later on
+ StatSchema.virtual('user', {
+   ref: "User",
+   localField: 'user_id',
+   foreignField: '_id',
+   justOne: true
+ })
+
   
   const Stat = mongoose.model("Stat", StatSchema);
   

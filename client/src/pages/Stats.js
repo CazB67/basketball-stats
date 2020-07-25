@@ -1,13 +1,35 @@
-import React, { useState} from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import React, { useState, useEffect } from "react";
 import Button from "../components/Button";
 import {OpponentModal, ScoreModal } from "../components/Modal";
 import API from "../utils/API";
 import {Deck, StatsCard, ClockCard, CountButton} from "../components/Card";
-import { Col, Row } from 'react-bootstrap'
+import { Col, Row } from 'react-bootstrap';
+import GlobalStore from "../utils/context/GlobalStore";
+import { useHistory } from "react-router-dom";
+import axios from 'axios';
 
 function Stats() {
+  const store = GlobalStore.useGlobalContext()
+  const history = useHistory()
+
+  useEffect(() => {
+    
+      axios.get('http://localhost:3001/current-user', {
+          withCredentials: true,
+      })
+          .then((response) => {
+              store.auth.dispatchAuth({
+                  type: 'set-user',
+                  payload: response.data.data
+              })
+          }).catch((err) => {
+            console.log(err.response.status);
+              if(err.response.status === 401){
+                  return history.push('/')
+              }
+              console.log("ererererer" + {err});
+          })
+  }, [])
 
   const [count, setCount] = useState({
     threePointerMade: 0,
@@ -187,8 +209,6 @@ const handleInputChangeOpponentScore = event => {
  }
     return (
       <>
-      
-      <Navbar/>
       <ScoreModal
             handleClose={handleClose2}
             handleStartGame={handleStartGame}
@@ -232,24 +252,24 @@ const handleInputChangeOpponentScore = event => {
               value=""
             >
               <CountButton 
-                upclick={() => setCount({...count,    threePointerMade: count.threePointerMade + 1})}
-                downclick={() => count.threePointerMade > 0 ? setCount({...count,  threePointerMade: count.threePointerMade - 1}): 0}>{count.threePointerMade} 
+                up={() => setCount({...count,    threePointerMade: count.threePointerMade + 1})}
+                down={() => count.threePointerMade > 0 ? setCount({...count,  threePointerMade: count.threePointerMade - 1}): 0}>{count.threePointerMade} 
               </CountButton>   
             </StatsCard>
           </Col>
           <Col xs={6}md={4}>
             <StatsCard skill="3 pts missed">
               <CountButton 
-                upclick={() => setCount({...count,    threePointerMissed: count.threePointerMissed + 1})}
-                downclick={() => count.threePointerMissed > 0 ? setCount({...count,  threePointerMissed: count.threePointerMissed - 1}) : 0}>{count.threePointerMissed}
+                up={() => setCount({...count,    threePointerMissed: count.threePointerMissed + 1})}
+                down={() => count.threePointerMissed > 0 ? setCount({...count,  threePointerMissed: count.threePointerMissed - 1}) : 0}>{count.threePointerMissed}
               </CountButton>
             </StatsCard>
           </Col>
           <Col xs={6}md={4}>
             <StatsCard skill="2 pts made">
               <CountButton 
-                upclick={() => setCount({...count,    twoPointerMade: count.twoPointerMade + 1})}
-                downclick={() => count.twoPointerMade > 0 ? setCount({...count,  twoPointerMade: count.twoPointerMade - 1}) : 0}>{count.twoPointerMade}
+                up={() => setCount({...count,    twoPointerMade: count.twoPointerMade + 1})}
+                down={() => count.twoPointerMade > 0 ? setCount({...count,  twoPointerMade: count.twoPointerMade - 1}) : 0}>{count.twoPointerMade}
               </CountButton>
             </StatsCard>
           </Col>
@@ -257,48 +277,48 @@ const handleInputChangeOpponentScore = event => {
           <Col xs={6}md={4}>
             <StatsCard skill="2 pts missed">
               <CountButton 
-                upclick={() => setCount({...count,    twoPointerMissed: count.twoPointerMissed + 1})}
-                downclick={() => count.twoPointerMissed > 0 ? setCount({...count,  twoPointerMissed: count.twoPointerMissed - 1}) : 0}>{count.twoPointerMissed}
+                up={() => setCount({...count,    twoPointerMissed: count.twoPointerMissed + 1})}
+                down={() => count.twoPointerMissed > 0 ? setCount({...count,  twoPointerMissed: count.twoPointerMissed - 1}) : 0}>{count.twoPointerMissed}
               </CountButton>
             </StatsCard>
           </Col>
           <Col xs={6}md={4}>
             <StatsCard skill="1 pt made">
               <CountButton 
-                upclick={() => setCount({...count,    onePointerMade: count.onePointerMade + 1})}
-                downclick={() => count.onePointerMade > 0 ? setCount({...count,  onePointerMade: count.onePointerMade - 1}): 0}>{count.onePointerMade}
+                up={() => setCount({...count,    onePointerMade: count.onePointerMade + 1})}
+                down={() => count.onePointerMade > 0 ? setCount({...count,  onePointerMade: count.onePointerMade - 1}): 0}>{count.onePointerMade}
               </CountButton>
             </StatsCard>
           </Col>
           <Col xs={6}md={4}>
-            <StatsCard skill="1 pt missed">
+            <StatsCard skill="1 pt miss">
               <CountButton 
-                upclick={() => setCount({...count,    onePointerMissed: count.onePointerMissed + 1})}
-                downclick={() => count.onePointerMissed > 0 ? setCount({...count,  onePointerMissed: count.onePointerMissed - 1}): 0}>{count.onePointerMissed}
+                up={() => setCount({...count,    onePointerMissed: count.onePointerMissed + 1})}
+                down={() => count.onePointerMissed > 0 ? setCount({...count,  onePointerMissed: count.onePointerMissed - 1}): 0}>{count.onePointerMissed}
               </CountButton>
             </StatsCard>
           </Col>
           <Col xs={6}md={4}>
             <StatsCard skill="defensive rebound">
               <CountButton 
-                upclick={() => setCount({...count,    defRebound: count.defRebound + 1})}
-                downclick={() => count.defRebound > 0 ? setCount({...count,  defRebound: count.defRebound - 1}): 0}>{count.defRebound}
+                up={() => setCount({...count,    defRebound: count.defRebound + 1})}
+                down={() => count.defRebound > 0 ? setCount({...count,  defRebound: count.defRebound - 1}): 0}>{count.defRebound}
               </CountButton>
             </StatsCard>
           </Col>
           <Col xs={6}md={4}>
             <StatsCard skill="offensive rebound">
               <CountButton 
-                upclick={() => setCount({...count,    offRebound: count.offRebound + 1})}
-                downclick={() => count.offRebound > 0 ? setCount({...count,  offRebound: count.offRebound - 1}): 0}>{count.offRebound}
+                up={() => setCount({...count,    offRebound: count.offRebound + 1})}
+                down={() => count.offRebound > 0 ? setCount({...count,  offRebound: count.offRebound - 1}): 0}>{count.offRebound}
               </CountButton>
             </StatsCard>
           </Col>
           <Col xs={6}md={4}>
             <StatsCard skill="steal">
               <CountButton 
-                upclick={() => setCount({...count,    steal: count.steal + 1})}
-                downclick={() => count.steal > 0 ? setCount({...count,  steal: count.steal - 1}) : 0}>{count.steal}
+                up={() => setCount({...count,    steal: count.steal + 1})}
+                down={() => count.steal > 0 ? setCount({...count,  steal: count.steal - 1}) : 0}>{count.steal}
               </CountButton>
             </StatsCard>
           </Col>
@@ -306,29 +326,29 @@ const handleInputChangeOpponentScore = event => {
           <Col xs={6}md={4}>
             <StatsCard skill="assist">
               <CountButton 
-                upclick={() => setCount({...count, assist: count.assist + 1})}
-                downclick={() => count.assist > 0 ? setCount({...count, assist: count.assist - 1}): 0}>{count.assist}
+                up={() => setCount({...count, assist: count.assist + 1})}
+                down={() => count.assist > 0 ? setCount({...count, assist: count.assist - 1}): 0}>{count.assist}
               </CountButton>
             </StatsCard>
           </Col>
           <Col xs={6}md={4}>
             <StatsCard skill="foul">
               <CountButton 
-                  upclick={() => setCount({...count, foul: count.foul + 1})}
-                  downclick={() => count.foul > 0 ? setCount({...count, foul: count.foul - 1}): 0}>{count.foul}
+                  up={() => setCount({...count, foul: count.foul + 1})}
+                  down={() => count.foul > 0 ? setCount({...count, foul: count.foul - 1}): 0}>{count.foul}
               </CountButton>
             </StatsCard>
           </Col>
           <Col xs={6}md={4}>
             <StatsCard skill="turnover">
               <CountButton 
-                upclick={() => setCount({...count, turnover: count.turnover + 1})}
-                downclick={() => count.turnover > 0 ? setCount({...count, turnover: count.turnover - 1}): 0}>{count.turnover}
+                up={() => setCount({...count, turnover: count.turnover + 1})}
+                down={() => count.turnover > 0 ? setCount({...count, turnover: count.turnover - 1}): 0}>{count.turnover}
               </CountButton>
             </StatsCard>
           </Col>
         </Row>
-     <Footer/>
+    
       </>
     );
   }

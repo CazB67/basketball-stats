@@ -23,15 +23,14 @@ export function StatsCard(props) {
 export function CountButton(props) { 
   return (
         <>
-        <img src={upArrow} className="mr-2" alt="uparrow" onClick={props.upclick}/>
+        <img src={upArrow} className="mr-2" alt="uparrow" onClick={props.up}/>
         <button className="numberSpan" {...props}>{props.children}</button>
-        <img src={downArrow} className="ml-2" alt="downarrow" onClick={props.downclick}/>
+        <img src={downArrow} className="ml-2" alt="downarrow" onClick={props.down}/>
         </>
   );
 }
 
 export function ClockCard(props) {
-
     return (
           <>
           <Card>
