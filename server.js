@@ -45,7 +45,7 @@ app.use(
           maxAge: 1000 * 60 * 5 ,
       }, // two weeks in milliseconds
       store: new MongoStore({
-          url: "mongodb://localhost/stats",
+          url: process.env.MONGODB_URI || "mongodb://localhost/stats",
           autoReconnect: true,
       }),
   })
