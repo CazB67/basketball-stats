@@ -18,7 +18,6 @@ const app = express();
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/stats", { useNewUrlParser: true, useUnifiedTopology: true });
-console.log(process.env.MONGODB_URI);
 // Define middleware here
 //app.use(express.urlencoded({ extended: true }));
 //app.use(express.json());

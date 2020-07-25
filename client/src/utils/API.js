@@ -8,9 +8,9 @@ export default {
         gameData.opponentScore = opponentScore;
         gameData.teamScore = teamScore
         //gameData.user_id =  store.auth.authState.id;
-        return axios.post("http://localhost:3001/api/stats", gameData, {withCredentials: true})
+        return axios.post("/api/stats", gameData, {withCredentials: true})
     },
     getSavedStats: function() {
-        return axios.get("http://localhost:3001/api/stats", {withCredentials: true})
+        return axios.get("/api/stats", {withCredentials: true})
     }
 }

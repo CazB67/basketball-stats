@@ -25,7 +25,7 @@ const onSubmit = async (event) => {
     // call api to login
     await axios
         .post(
-            "http://localhost:3001/login",
+            "/login",
             {
                 email: payload.email,
                 password: payload.password,

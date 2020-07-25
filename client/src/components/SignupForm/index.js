@@ -28,7 +28,7 @@ function SignupForm() {
 
     // call api to login
     console.log(payload);
-    axios.post("http://localhost:3001/register", payload, {
+    axios.post("/register", payload, {
             withCredentials: true
         })
         .then((res) => {

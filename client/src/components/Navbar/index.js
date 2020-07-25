@@ -8,7 +8,7 @@ import isEmpty from 'lodash/isEmpty'
 
 function StatsNav(props) {
   const logout = () => {
-    axios.get('http://localhost:3001/logout', {withCredentials: true})
+    axios.get('/logout', {withCredentials: true})
         .then((response) => {
             window.location.href = '/'
         }).catch((err) => {
