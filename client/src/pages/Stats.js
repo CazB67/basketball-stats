@@ -14,7 +14,7 @@ function Stats() {
 
   useEffect(() => {
     
-      axios.get('http://localhost:3001/current-user', {
+      axios.get('/current-user', {
           withCredentials: true,
       })
           .then((response) => {

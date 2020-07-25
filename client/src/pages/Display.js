@@ -10,7 +10,7 @@ function Display() {
   const history = useHistory()
   //console.log(store.currentPage + "----------")
   useEffect(() => {
-      axios.get('http://localhost:3001/current-user', {
+      axios.get('/current-user', {
           withCredentials: true,
       })
           .then((response) => {
