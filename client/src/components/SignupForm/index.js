@@ -43,8 +43,8 @@ function SignupForm() {
 };
   return (
     <>
-        <h1 className="text-center">Create an account</h1>
-        <p className="text-center">Already have an account? <a href="/login">Sign in.</a></p>
+        <h1 className="text-center mt-5">Create an account</h1>
+        <p className="text-center mb-5">Already have an account? <a href="/login">Sign in.</a></p>
         <Form onSubmit={onSubmit} className="p-4" style={{backgroundColor: "#26004d", color:"white"}}>
           <Form.Group controlId="formBasicEmail">
             <Form.Label className="timer">Email address</Form.Label>

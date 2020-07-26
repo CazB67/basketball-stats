@@ -126,7 +126,11 @@ useEffect(() => {
       <DataTable
         key={stat._id}
         date={stat.createdAt.substring(0,10)}
-        opponent={stat.opponent}
+        opponent={stat.opponent
+          .toLowerCase()
+          .split(' ')
+          .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(' ')}
         score={stat.finalScore}
         onemade={stat.onePointerMade}
         onemissed={stat.onePointerMissed}
