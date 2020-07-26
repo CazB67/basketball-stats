@@ -100,8 +100,8 @@ export const Tooltip = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: ${radius * 0.7}px;
-  height: ${radius * 0.7}px;
+  width: ${300 * 0.7}px;
+  height: ${300 * 0.7}px;
   display: grid;
   align-items: center;
   justify-items: center;

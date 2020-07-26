@@ -20,29 +20,37 @@ export function StatsCard(props) {
   );
 }
 
-export function CountButton(props) { 
+export function CountButtonUp(props) { 
   return (
-        <>
         <img src={upArrow} className="mr-2" alt="uparrow" onClick={props.onClick}/>
+  );
+}
+
+export function CountButtonShow(props) { 
+  return (
         <button className="numberSpan" {...props}>{props.children}</button>
-        <img src={downArrow} className="ml-2" alt="downarrow" onClick={props.down}/>
-        </>
+  );
+}
+
+export function CountButtonDown(props) { 
+  return (
+        <img src={downArrow} className="ml-2" alt="downarrow" onClick={props.onClick}/>
   );
 }
 
 export function ClockCard(props) {
     return (
           <>
-          <Card>
-              <Card.Body bg="navStyle" className="navStyle shadow" variant="dark">
-              <Card.Title className="text-white text-center court">COURT TIME</Card.Title>
-              <Card.Text className="text-white text-center">
-                  {' '}<button className="timer court mr-2" onClick={props.handleStartStop}>{props.isRunning}</button>{' '}  
-                  <button className="numberSpan">{props.gameTime}</button>{' '} 
-                  <button className="timer court ml-2" onClick={props.handleReset}>RESET</button>       
-              </Card.Text>
-              </Card.Body>
-          </Card>
+            <Card>
+                  <Card.Body bg="navStyle" className="navStyle shadow" variant="dark">
+                        <Card.Title className="text-white text-center court">COURT TIME</Card.Title>
+                              <Card.Text className="text-white text-center">
+                                    {' '}<button className="timer court mr-2" onClick={props.handleStartStop}>{props.isRunning}</button>{' '}  
+                                    <button className="numberSpan">{props.gameTime}</button>{' '} 
+                                    <button className="timer court ml-2" onClick={props.handleReset}>RESET</button>       
+                              </Card.Text>
+                  </Card.Body>
+            </Card>
           </>
     );
   }

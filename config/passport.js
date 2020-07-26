@@ -4,23 +4,16 @@ const User = require('./../models/User');
 const { Strategy: LocalStrategy } = require("passport-local");
 
 passport.serializeUser((user, done) => {
-  console.log('serialize user');
-  console.log({user});
   done(null, user.id);
 });
 
 passport.deserializeUser((id, done) => {
-    console.log("deserialize user");
-
     User.findById(id, (err, user) => {
-        console.log('deserialise');
-        console.log({user});
         done(err, user);
     });
 });
 
 passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
-  console.log({email});
   User.findOne({ email }, (err, user) => {
     if (err) { return done(err); }
     if (!user) {

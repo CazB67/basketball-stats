@@ -2,12 +2,10 @@ const express = require('express');
 const passport = require('./../../../config/passport');
 const validator = require('validator');
 const User = require('./../../../models/User');
-
 const router = express.Router();
 
 router.post('/register', (req, res, next) => {
   const validationErrors = [];
-  console.log(req.body);
   // validator is expecting a string
   if (!validator.isEmail(req.body.email || ''))
       validationErrors.push({ msg: "Please enter a valid email address." });
@@ -79,7 +77,6 @@ router.post('/login',  (req, res, next) => {
                 ],
             });
         }
-        console.log("asdfadfafasdf" + {user});
         req.logIn(user, (err) => {
             if(err){
                 return res.status(400).json({
@@ -96,7 +93,6 @@ router.post('/login',  (req, res, next) => {
 
 router.get('/logout', (req, res) => {
     req.session.destroy((err) => {
-        //res.redirect('/');
         if (err){
             console.log("Error Logging Out");
             res.json({
@@ -115,7 +111,5 @@ router.get('/logout', (req, res) => {
         });
     });
 });
-
-
 
 module.exports = router

@@ -5,13 +5,5 @@ const statsController = require("../../controllers/statsController");
 router.route("/api/stats")
   .get(statsController.findAll)
   .post(statsController.create);
-  
-  
-  
-  
-
-// router
-//   .route("/:id")
-//   .get(statsController.findById)
 
 module.exports = router;

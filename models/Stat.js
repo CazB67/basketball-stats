@@ -21,7 +21,6 @@ const StatSchema = new Schema(
     opponentScore: {type: Number},
     teamScore: { type: Number},
     finalScore: { type: String},
-    //user_id: { type: Schema.Types.ObjectId, ref: "User", required: true },
   
   },
   {timestamps: true}
@@ -41,7 +40,6 @@ const StatSchema = new Schema(
    justOne: true
  })
 
-  
   const Stat = mongoose.model("Stat", StatSchema);
   
   module.exports = Stat;

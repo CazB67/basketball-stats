@@ -24,39 +24,38 @@ module.exports = {
             })
         })
         },
-        findByIdAndUpdate: function(req, res) {
-            db.User
-            findByIdAndUpdate(req.params.id, 
-                {
-                    $push: {
-                        email: req.body.email,
-                        name: req.body.name,
-                        password: req.body.password,
-                    },
+    findByIdAndUpdate: function(req, res) {
+        db.User
+        findByIdAndUpdate(req.params.id, 
+            {
+                $push: {
+                    email: req.body.email,
+                    name: req.body.name,
+                    password: req.body.password,
                 },
-                { new: true, runValidators: true }
-            ).then((updated) => {
-                res.json({
-                    data: updated,
-                });
+            },
+            { new: true, runValidators: true }
+        ).then((updated) => {
+            res.json({
+                data: updated,
             });
-            
-        
-        },
-        delete: function(req, res) {
-            db.User
-            findByIdAndDelete(req.params.id).then((deleted) => {
-                res.json({
-                    data: true
-                })
-            })
-        },
+        });
 
-        findCurrentUser: function(req, res) {
-            console.log("----" + req.user);
-            return res.json({
-                data: req.user,
-            });
-        
-        }
+    },
+
+    delete: function(req, res) {
+        db.User
+        findByIdAndDelete(req.params.id).then((deleted) => {
+            res.json({
+                data: true
+            })
+        })
+    },
+
+    findCurrentUser: function(req, res) {
+        return res.json({
+            data: req.user,
+        });
+    
+    }
 };

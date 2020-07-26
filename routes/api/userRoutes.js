@@ -1,5 +1,3 @@
-// I dont reckon this is used
-
 const router = require("express").Router();
 const userController = require("../../controllers/userController");
 

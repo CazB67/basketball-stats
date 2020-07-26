@@ -12,12 +12,10 @@ function LoginForm(props) {
 
   const handleChange = async (event) => {
     const type = event.target.name;
-    console.log(type);
     setPayload({
         ...payload,
         [type]: event.target.value, // dynamically set the type of payload
     });
-    console.log(payload);
 };
 
 const onSubmit = async (event) => {

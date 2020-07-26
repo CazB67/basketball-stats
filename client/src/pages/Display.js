@@ -22,35 +22,30 @@ function Display() {
   const [generalPlay, setGeneralPlay] = useState([])
   const [dataGeneralPlay, setDataGeneralPlay] = useState([])
 
-
   const [stats, setStats] = useState([]);
   
   const generateReboundData = (value, length = 5) =>
     d3.range(length).map((item, index) => ({
       date: index,
       value: rebounds[index]
-      //value: value === null || value === undefined ? Math.random() * 100 : value
     }));
 
     const generateTwoPointData = (value, length = 5) =>
     d3.range(length).map((item, index) => ({
       date: index,
       value: twoPoints[index]
-      //value: value === null || value === undefined ? Math.random() * 100 : value
     }));
 
     const generateThreePointData = (value, length = 5) =>
     d3.range(length).map((item, index) => ({
       date: index,
       value: value === null || value === undefined ? threePoints[index] : value
-      //value: value === null || value === undefined ? Math.random() * 100 : value
     }));
 
     const generatePlayData = (value, length = 5) =>
     d3.range(length).map((item, index) => ({
       date: index,
       value: generalPlay[index]
-      //value: value === null || value === undefined ? Math.random() * 100 : value
     }));
 
     useEffect(
@@ -59,43 +54,36 @@ function Display() {
       },
       [!data]
     );
-    // Chain the useEffects
 
-useEffect(() => {
-  getSavedStats();
-}, [])
+    useEffect(() => {
+      getSavedStats();
+    }, [])
 
-useEffect(() => {
-  setRebounds(getRebounds);
-}, [stats])
+    useEffect(() => {
+      setRebounds(getRebounds);
+    }, [stats])
 
   useEffect(() => {
       setData(generateReboundData());
       setDataTwoPoints(generateTwoPointData());
       setDataThreePoints(generateThreePointData());
       setDataGeneralPlay(generatePlayData());
-      console.log(rebounds.length);
-      console.log(twoPoints[0] + "---------------------------")
     },[rebounds, twoPoints, threePoints, generalPlay]);
-
-    
 
   const store = GlobalStore.useGlobalContext()
   const history = useHistory()
-  //console.log(store.currentPage + "----------")
+ 
   useEffect(() => {
       axios.get('/current-user', {
           withCredentials: true,
       })
           .then((response) => {
-            console.log(response.data.data + "-----");
               store.auth.dispatchAuth({
                   type: 'set-user',
                   payload: response.data.data
               })
           }).catch((err) => {
               if(err.response.status === 401){
-                //store.currentPage.setCurrentPage("/")
                   return history.push('/')
               }
               console.log("Error " + {err});
@@ -120,70 +108,72 @@ useEffect(() => {
       <StatsNav>
         <NavLink/>
       </StatsNav>
-     <TableWrapper>
-      <TableHeader/>
-      {stats.map(stat => (
-      <DataTable
-        key={stat._id}
-        date={stat.createdAt.substring(0,10)}
-        opponent={stat.opponent
-          .toLowerCase()
-          .split(' ')
-          .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-          .join(' ')}
-        score={stat.finalScore}
-        onemade={stat.onePointerMade}
-        onemissed={stat.onePointerMissed}
-        twomade={stat.twoPointerMade}
-        twomissed={stat.twoPointerMissed}
-        threemade={stat.threePointerMade}
-        threemissed={stat.threePointerMissed}
-        defreb={stat.defRebound}
-        offreb={stat.offRebound}
-        steal={stat.steal}
-        assist={stat.assist}
-        foul={stat.foul}
-        turnover={stat.turnover}
-        courttime={stat.courtTime}
-      />
-      ))}
-     </TableWrapper>
-     <Row className="text-center">
-       <Col xs={12} md={6}>
-     <PieChart data={data}
-          title={"Rebounds"}
-          width={200}
-          height={200}
-          innerRadius={60}
-          outerRadius={100}/>
-          </Col>
-          <Col xs={12} md={6}>
+      <TableWrapper>
+        <TableHeader/>
+          {stats.map(stat => (
+          <DataTable
+            key={stat._id}
+            date={stat.createdAt.substring(0,10)}
+            opponent={stat.opponent
+              .toLowerCase()
+              .split(' ')
+              .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+              .join(' ')}
+            score={stat.finalScore}
+            onemade={stat.onePointerMade}
+            onemissed={stat.onePointerMissed}
+            twomade={stat.twoPointerMade}
+            twomissed={stat.twoPointerMissed}
+            threemade={stat.threePointerMade}
+            threemissed={stat.threePointerMissed}
+            defreb={stat.defRebound}
+            offreb={stat.offRebound}
+            steal={stat.steal}
+            assist={stat.assist}
+            foul={stat.foul}
+            turnover={stat.turnover}
+            courttime={stat.courtTime}
+          />
+          ))}
+      </TableWrapper>
+      <Row className="text-center">
+        <Col xs={12} md={6}>
+          <PieChart data={data}
+                title={"Rebounds"}
+                label1={"Offensive"}
+                label2={"Defensive"}
+                width={200}
+                height={200}
+                innerRadius={60}
+                outerRadius={100}/>
+        </Col>
+        <Col xs={12} md={6}>
           <PieChart data={dataTwoPoints}
-           title={"Two Pointers"}
-          width={200}
-          height={200}
-          innerRadius={60}
-          outerRadius={100}/>
-          </Col>
-          </Row>
-          <Row className="text-center">
-       <Col xs={12} md={6}>
-     <PieChart data={dataThreePoints}
-          title={"Three Pointers"}
-          width={200}
-          height={200}
-          innerRadius={60}
-          outerRadius={100}/>
-          </Col>
-          <Col xs={12} md={6}>
+              title={"Two Pointers"}
+              width={200}
+              height={200}
+              innerRadius={60}
+              outerRadius={100}/>
+        </Col>
+      </Row>
+      <Row className="text-center">
+        <Col xs={12} md={6}>
+          <PieChart data={dataThreePoints}
+              title={"Three Pointers"}
+              width={200}
+              height={200}
+              innerRadius={60}
+              outerRadius={100}/>
+        </Col>
+        <Col xs={12} md={6}>
           <PieChart data={dataGeneralPlay}
-           title={"General Play"}
-          width={200}
-          height={200}
-          innerRadius={60}
-          outerRadius={100}/>
-          </Col>
-          </Row>
+              title={"General Play"}
+              width={200}
+              height={200}
+              innerRadius={60}
+              outerRadius={100}/>
+        </Col>
+      </Row>
       </>
     );
   }
