@@ -9,21 +9,34 @@ import PieChart from "../components/PieChart";
 import * as d3 from "d3";
 
 function Display() {
+  const [rebounds, setRebounds] = useState([]);
+  const [data, setData] = useState([]);
+  const [stats, setStats] = useState([]);
+  
   const generateData = (value, length = 5) =>
     d3.range(length).map((item, index) => ({
       date: index,
-      value: value === null || value === undefined ? Math.random() * 100 : value
+      value: rebounds[index]
+      //value: value === null || value === undefined ? Math.random() * 100 : value
     }));
 
-  const [data, setData] = useState(generateData(0));
-  
+    // Chain the useEffects
 
-  useEffect(
-    () => {
+useEffect(() => {
+  getSavedStats();
+}, [])
+
+useEffect(() => {
+  setRebounds(getRebounds);
+}, [stats])
+
+  useEffect(() => {
       setData(generateData());
-    },
-    [!data]
-  );
+      console.log(rebounds.length);
+    },[rebounds]);
+
+    
+
   const store = GlobalStore.useGlobalContext()
   const history = useHistory()
   //console.log(store.currentPage + "----------")
@@ -46,11 +59,13 @@ function Display() {
           })
   }, [])
 
-  const [stats, setStats] = useState([]);
+ 
 
-  useEffect(() => {
-    getSavedStats()
-  }, [])
+
+
+  function getRebounds() {
+    setRebounds([stats.reduce((acc, stat) => acc + stat.offRebound, 0), stats.reduce((acc, stat) => acc + stat.defRebound, 0)]);
+  }
 
   function getSavedStats() {
     API.getSavedStats()
