@@ -53,10 +53,11 @@ const PieChart = props => {
 
   return (
       <>
-      <h3 className="mt-3">Rebounds</h3>
+      <h4 className="mt-3">{props.title}</h4>
     <svg className="mb-3" width={props.width} height={props.height}>
     
       <g
+      
         ref={ref}
         transform={`translate(${props.outerRadius} ${props.outerRadius})`}
       />
