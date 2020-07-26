@@ -5,6 +5,7 @@ import GlobalStore from "../utils/context/GlobalStore";
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
 import{ StatsNav, NavLink} from "../components/Navbar";
+import {PieChart} from "../components/PieChart";
 
 function Display() {
   const store = GlobalStore.useGlobalContext()
@@ -70,6 +71,7 @@ function Display() {
       />
       ))}
      </TableWrapper>
+     <PieChart/>
       </>
     );
   }
