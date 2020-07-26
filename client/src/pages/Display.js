@@ -5,9 +5,25 @@ import GlobalStore from "../utils/context/GlobalStore";
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
 import{ StatsNav, NavLink} from "../components/Navbar";
-import {PieChart} from "../components/PieChart";
+import PieChart from "../components/PieChart";
+import * as d3 from "d3";
 
 function Display() {
+  const generateData = (value, length = 5) =>
+    d3.range(length).map((item, index) => ({
+      date: index,
+      value: value === null || value === undefined ? Math.random() * 100 : value
+    }));
+
+  const [data, setData] = useState(generateData(0));
+  
+
+  useEffect(
+    () => {
+      setData(generateData());
+    },
+    [!data]
+  );
   const store = GlobalStore.useGlobalContext()
   const history = useHistory()
   //console.log(store.currentPage + "----------")
@@ -71,7 +87,11 @@ function Display() {
       />
       ))}
      </TableWrapper>
-     <PieChart/>
+     <PieChart data={data}
+          width={200}
+          height={200}
+          innerRadius={60}
+          outerRadius={100}/>
       </>
     );
   }

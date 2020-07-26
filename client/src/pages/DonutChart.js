@@ -36,7 +36,7 @@ var pie = d3
 // inner arc used for pie chart
 var arc = d3
   .arc()
-  .outerRadius(radius * 0.7)
+  .outerRadius(radius * 0.6)
   .innerRadius(radius * 0.4)
 
 // outer arc used for labels

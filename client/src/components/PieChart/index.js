@@ -1,36 +1,68 @@
-import * as React from "react";
+import React, { useEffect, useRef } from "react";
 import * as d3 from "d3";
 
-const data = [1, 2, 3, 4];
+const PieChart = props => {
+  const ref = useRef(null);
+  const createPie = d3
+    .pie()
+    .value(d => d.value)
+    .sort(null);
+  const createArc = d3
+    .arc()
+    .innerRadius(props.innerRadius)
+    .outerRadius(props.outerRadius);
+  const colors = d3.scaleOrdinal(d3.schemeCategory10);
+  const format = d3.format(".2f");
 
-export const PieChart = () => {
-  const height = 400;
-  const width = 400;
+  useEffect(
+    () => {
+      const data = createPie(props.data);
+      const group = d3.select(ref.current);
+      const groupWithData = group.selectAll("g.arc").data(data);
 
-  let pie = d3.pie()(data);
+      groupWithData.exit().remove();
+
+      const groupWithUpdate = groupWithData
+        .enter()
+        .append("g")
+        .attr("class", "arc");
+
+      const path = groupWithUpdate
+        .append("path")
+        .merge(groupWithData.select("path.arc"));
+
+      path
+        .attr("class", "arc")
+        .attr("d", createArc)
+        .attr("fill", (d, i) => colors(i));
+
+      const text = groupWithUpdate
+        .append("text")
+        .merge(groupWithData.select("text"));
+
+      text
+        .attr("text-anchor", "middle")
+        .attr("alignment-baseline", "middle")
+        .attr("transform", d => `translate(${createArc.centroid(d)})`)
+        .style("fill", "white")
+        .style("font-size", 10)
+        .text(d => format(d.value));
+    },
+    [props.data]
+  );
 
   return (
-    <svg height={height} width={width}>
-      <g transform={`translate(${width / 2},${height / 2})`}>
-        <Slice pie={pie} />
-      </g>
+      <>
+      <h3 className="mt-3">Rebounds</h3>
+    <svg className="mb-3" width={props.width} height={props.height}>
+    
+      <g
+        ref={ref}
+        transform={`translate(${props.outerRadius} ${props.outerRadius})`}
+      />
     </svg>
+    </>
   );
 };
 
-const Slice = props => {
-  let { pie } = props;
-
-  let arc = d3
-    .arc()
-    .innerRadius(60)
-    .outerRadius(100);
-
-  let interpolate = d3.interpolateRgb("#eaaf79", "#bc3358");
-
-  return pie.map((slice, index) => {
-    let sliceColor = interpolate(index / (pie.length - 1));
-
-    return <path key={index} d={arc(slice)} fill={sliceColor} />;
-  });
-};
+export default PieChart;
