@@ -7,6 +7,8 @@ import { Col, Row } from 'react-bootstrap';
 import GlobalStore from "../utils/context/GlobalStore";
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
+import{ StatsNav, NavLink} from "../components/Navbar";
+
 
 function Stats() {
   const store = GlobalStore.useGlobalContext()
@@ -209,6 +211,9 @@ const handleInputChangeOpponentScore = event => {
  }
     return (
       <>
+      <StatsNav>
+        <NavLink/>
+      </StatsNav>
       <ScoreModal
             handleClose={handleClose2}
             handleStartGame={handleStartGame}

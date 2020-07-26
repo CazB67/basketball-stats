@@ -4,6 +4,7 @@ import API from "../utils/API";
 import GlobalStore from "../utils/context/GlobalStore";
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
+import{ StatsNav, NavLink} from "../components/Navbar";
 
 function Display() {
   const store = GlobalStore.useGlobalContext()
@@ -42,6 +43,9 @@ function Display() {
   
     return (
       <>
+      <StatsNav>
+        <NavLink/>
+      </StatsNav>
      <TableWrapper>
       <TableHeader/>
       {stats.map(stat => (

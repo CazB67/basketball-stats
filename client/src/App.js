@@ -6,7 +6,6 @@ import Stats from "./pages/Stats";
 import Display from "./pages/Display";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container } from 'react-bootstrap'
-import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import GlobalStore from "./utils/context/GlobalStore";
 
@@ -16,7 +15,6 @@ function App() {
     <Router>
           <Container>
           <GlobalStore.GlobalProvider>
-              <Navbar/>
               <Switch>
                 <Route exact path="/" component={Login} />
                 <Route exact path="/login" component={Login} />

@@ -3,19 +3,10 @@ import "./style.css";
 import { Navbar, Nav } from 'react-bootstrap';
 import logo from '../../images/logo.PNG';
 import axios from 'axios';
-import GlobalStore from "../../utils/context/GlobalStore";
-import isEmpty from 'lodash/isEmpty'
+//import GlobalStore from "../../utils/context/GlobalStore";
+//import isEmpty from 'lodash/isEmpty'
 
-function StatsNav(props) {
-  const logout = () => {
-    axios.get('/logout', {withCredentials: true})
-        .then((response) => {
-            window.location.href = '/'
-        }).catch((err) => {
-            console.log(err);
-        })
-}
-const store = GlobalStore.useGlobalContext()
+export function StatsNav(props) {
 
   return (
     
@@ -27,20 +18,7 @@ const store = GlobalStore.useGlobalContext()
         alt="Basketball Stats Logo"
       />
       </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse  className="justify-content-end">
-          
-            <Nav className={
-                !isEmpty(store.auth.currentUser)
-                ? "d-none"
-                : ""}>
-              
-              <Nav.Link href={"/stats"}>Game</Nav.Link>
-              <Nav.Link href={"/display"}>View</Nav.Link>
-              <Nav.Link href={"/"}  onClick={logout}>Logout </Nav.Link> 
-              </Nav>
-          </Navbar.Collapse>
-    
+        {props.children}
 
   
     
@@ -51,4 +29,37 @@ const store = GlobalStore.useGlobalContext()
   );
 }
 
-export default StatsNav;
+export function NavLink(props) {
+  const logout = () => {
+    axios.get('/logout', {withCredentials: true})
+        .then((response) => {
+            window.location.href = '/'
+        }).catch((err) => {
+            console.log(err);
+        })
+}
+
+
+  return (
+    
+    <>
+      
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse  className="justify-content-end">
+          
+            <Nav>
+              <Nav.Link href={"/stats"}>Game</Nav.Link>
+              <Nav.Link href={"/display"}>View</Nav.Link>
+              <Nav.Link href={"/"}  onClick={logout}>Logout </Nav.Link> 
+            </Nav>
+          </Navbar.Collapse>
+    
+
+  
+    
+      
+    </>
+
+      
+  );
+}
