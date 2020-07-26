@@ -54,7 +54,7 @@ const onSubmit = async (event) => {
   return (
     <>
         <h1 className="text-center">Sign in to your account</h1>
-        <p className="text-center">Need an account? <a href="/Signup">Create one.</a></p>
+        <p className="text-center">Need an account? <a href="/signup">Create one.</a></p>
         <Form onSubmit={onSubmit} className="p-4" style={{backgroundColor: "#26004d", color:"white"}}>
           <Form.Group controlId="formBasicEmail">
             <Form.Label className="timer">Email address</Form.Label>
