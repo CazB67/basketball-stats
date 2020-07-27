@@ -66,7 +66,6 @@ function Stats() {
   const [visibilityStart, setVisibilityStart] = useState("timer mb-3 btn-lg");
   const [visibilityEnd, setVisibilityEnd] = useState("d-none");
   
-  
   function startTimer() {
       setIsRunning(true)
       setClockId(setInterval(() => {
@@ -158,7 +157,6 @@ function handleEndGame(event) {
 }
 
 const handleSavingGameData = event => {
-  console.log("hi");
   event.preventDefault();
   const form = event.currentTarget;
   if (form.checkValidity() === false) {
@@ -194,11 +192,10 @@ const handleSavingGameData = event => {
     opponentScore: 0,
     teamScore: 0,
   })
-  window.location.pathname = "/display"
   setIsRunning(false)
   clearInterval(clockId)
   setSeconds(0)
-  
+  window.location.pathname = "/display"
 }
 }
 
@@ -254,7 +251,7 @@ const handleInputChangeOpponentScore = event => {
         endClick={handleEndGame}
         />
 
-        <Row className="text-center"><Col><img  className={visibilityStart} alt="basketballers" src={basketballers}/></Col></Row>
+        <Row className="text-center"><Col><img className={visibilityStart} alt="basketballers" src={basketballers}/></Col></Row>
         
         <Deck className="text-center">
             <ClockCard skill="gametime"
