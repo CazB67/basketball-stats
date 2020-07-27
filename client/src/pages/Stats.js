@@ -9,6 +9,7 @@ import { useHistory } from "react-router-dom";
 import axios from 'axios';
 import{ StatsNav, NavLink} from "../components/Navbar";
 import Footer from "../components/Footer";
+import basketballers from '../images/basketballers.png'
 
 function Stats() {
   const store = GlobalStore.useGlobalContext()
@@ -254,6 +255,8 @@ const handleInputChangeOpponentScore = event => {
         endClick={handleEndGame}
         />
 
+        <Row className="text-center"><Col><img  className={visibilityStart} alt="basketballers" src={basketballers}/></Col></Row>
+        
         <Deck className="text-center">
             <ClockCard skill="gametime"
             handleStartStop={handleStartStop}
@@ -399,7 +402,7 @@ const handleInputChangeOpponentScore = event => {
           </Col>
           
         </Row>
-        <Footer visibility={visibility}/>
+        <Footer/>
       </>
     );
   }

@@ -8,7 +8,7 @@ import logo from '../../images/logo.PNG'
 const FooterPage = (props) => {
   return (
     <div className={props.visibility}>
-    <footer className=" font-small pt-4 mt-1 footer text-white">
+    <footer className=" font-small pt-4 mt-4 footer text-white">
       <Container fluid className="text-center text-md-left">
         <Row>
           <Col md="6">
