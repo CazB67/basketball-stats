@@ -3,8 +3,8 @@ import * as d3 from "d3";
 
 const PieChart = props => {
   const ref = useRef(null);
-  const width = 400
-const height = 400
+  const width = 250
+const height = 250
   const createPie = d3
     .pie()
     .value(d => d.value)
@@ -63,7 +63,7 @@ let group2;
         text2
         .text("hi")
         .style("fill", "black")
-        .style("font-size", 14)
+        .style("font-size", 20)
         .attr('class', 'middletext')
         .style('text-anchor', 'middle')
         .style('visibility', 'hidden')
@@ -73,8 +73,8 @@ let group2;
             .attr('stroke-width', 1).attr('transform', 'scale(1.1)')
           switch (i) {
               case 0:
-                d3.select('.middletext').text(props.label1)
-                d3.select('.middletext').style('visibility', 'visible')
+                group2.select('.middletext').text(props.label1)
+                group2.select('.middletext').style('visibility', 'visible')
                   break;
               case 1:
                 group2.select('.middletext').text(props.label2)
@@ -104,7 +104,7 @@ let group2;
 
   return (
       <>
-      <h4 className="mt-3">{props.title}</h4>
+     <h4 className="mt-3">{props.title}</h4>
       <svg className="mb-3" width={width} height={height}>
         <g
           ref={ref}
