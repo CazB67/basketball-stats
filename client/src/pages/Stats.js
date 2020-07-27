@@ -120,7 +120,6 @@ function Stats() {
       setValidated(true);
       setShow(false) 
     }
-  
   };
   
   const handleClose2 = () => setOpen(false)
