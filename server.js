@@ -31,8 +31,8 @@ app.use(
       secret: "SecretSecretSecret",
       cookie: {
           secure: false, // not using https
-          maxAge: 1000 * 60 * 20 ,
-      }, // two weeks in milliseconds
+          maxAge: 1000 * 60 * 60 ,
+      },
       store: new MongoStore({
           url: process.env.MONGODB_URI || "mongodb://localhost/stats",
           autoReconnect: true,

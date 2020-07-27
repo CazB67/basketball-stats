@@ -64,7 +64,7 @@ let group2;
         text2
         .text("hi")
         .style("fill", "black")
-        .style("font-size", 12)
+        .style("font-size", 14)
         .attr('class', 'middletext')
         .style('text-anchor', 'middle')
         .style('visibility', 'hidden')
@@ -83,6 +83,10 @@ let group2;
                   break;
               case 2: 
               group2.select('.middletext').text(props.label3)
+              group2.select('.middletext').style('visibility', 'visible')
+                  break;
+              case 3: 
+              group2.select('.middletext').text(props.label4)
               group2.select('.middletext').style('visibility', 'visible')
                   break;
               default:

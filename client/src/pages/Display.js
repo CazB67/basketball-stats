@@ -155,8 +155,8 @@ function Display() {
               height={200}
               innerRadius={60}
               outerRadius={100}
-              label3={"Made"}
-              label4={"Missed"}
+              label1={"Made"}
+              label2={"Missed"}
               />   
         </Col>
       </Row>
@@ -168,8 +168,8 @@ function Display() {
               height={200}
               innerRadius={60}
               outerRadius={100}
-              label5={"Made"}
-              label6={"Missed"}/>
+              label1={"Made"}
+              label2={"Missed"}/>
         </Col>
         <Col xs={12} md={6}>
           <PieChart data={dataGeneralPlay}
@@ -178,10 +178,10 @@ function Display() {
               height={200}
               innerRadius={60}
               outerRadius={100}
-              label7={"Fouls"}
-              label8={"Assists"}
-              label9={"Turnovers"}
-              label10={"Steals"}/>
+              label1={"Assists"}
+              label2={"Steals"}
+              label3={"Turnovers"}
+              label4={"Fouls"}/>
         </Col>
       </Row>
       </>
