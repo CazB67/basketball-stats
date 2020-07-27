@@ -22,7 +22,7 @@ export function StatsCard(props) {
 
 export function CountButtonUp(props) { 
   return (
-        <img src={upArrow} className="mr-2" alt="uparrow" onClick={props.onClick}/>
+        <img src={upArrow} className="mr-2 arrows" alt="uparrow" onClick={props.onClick}/>
   );
 }
 
@@ -34,7 +34,7 @@ export function CountButtonShow(props) {
 
 export function CountButtonDown(props) { 
   return (
-        <img src={downArrow} className="ml-2" alt="downarrow" onClick={props.onClick}/>
+        <img src={downArrow} className="ml-2 arrows" alt="downarrow" onClick={props.onClick}/>
   );
 }
 

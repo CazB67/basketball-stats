@@ -21,3 +21,7 @@ button.timer {
 .court {
     font-family: 'Red Rose', cursive;
 }
+
+.arrows:hover {
+    background-color:orange;
+}

@@ -62,6 +62,9 @@ function Stats() {
   const [teamScore, setTeamScore] =useState(0);
   const [validated, setValidated] = useState(true);
   const [visibility, setVisibility] = useState("d-none");
+  const [visibilityStart, setVisibilityStart] = useState("timer mb-3 btn-lg");
+  const [visibilityEnd, setVisibilityEnd] = useState("d-none");
+  
   
   function startTimer() {
       setIsRunning(true)
@@ -123,6 +126,8 @@ function Stats() {
   const handleClose3 = () => setShow(false)
 
   function handleStartGame() {
+    setVisibilityStart("d-none")
+    setVisibilityEnd("timer mb-3 btn-lg ml-2")
     setVisibility("")
     setShow(true)
     setCount({
@@ -149,6 +154,7 @@ function handleEndGame(event) {
   event.preventDefault()
   setOpen(true)
   setVisibility("d-none")
+  
 }
 
 const handleSavingGameData = event => {
@@ -188,9 +194,11 @@ const handleSavingGameData = event => {
     opponentScore: 0,
     teamScore: 0,
   })
+  window.location.pathname = "/display"
   setIsRunning(false)
   clearInterval(clockId)
   setSeconds(0)
+  
 }
 }
 
@@ -240,6 +248,8 @@ const handleInputChangeOpponentScore = event => {
         />
 
         <Button
+        visibilityStart={visibilityStart}
+        visibilityEnd={visibilityEnd}
         onClick={handleStartGame}
         endClick={handleEndGame}
         />

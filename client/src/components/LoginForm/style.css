@@ -1,0 +1,7 @@
+.timer:hover {
+    background-color: orange;
+}
+
+.errorMessage {
+    font-family: 'Red Rose', cursive;
+}

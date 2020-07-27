@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import "./style.css";
 
 function SignupForm() {
     const history = useHistory();
@@ -46,7 +47,7 @@ function SignupForm() {
         <p className="text-center mb-5">Already have an account? <a href="/login">Sign in.</a></p>
         <Form onSubmit={onSubmit} className="p-4" style={{backgroundColor: "#26004d", color:"white"}}>
           <Form.Group controlId="formBasicEmail">
-            <Form.Label className="timer">Email address</Form.Label>
+            <Form.Label className="errorMessage">Email address</Form.Label>
             <Form.Control name="email" onChange={handleChange} className="timer" type="email" placeholder="Enter email" />
             <Form.Text className="text-muted">
               We'll never share your email with anyone else.
@@ -54,17 +55,17 @@ function SignupForm() {
           </Form.Group>
 
           <Form.Group controlId="formBasicPassword">
-            <Form.Label className="timer">Password</Form.Label>
+            <Form.Label className="errorMessage">Password</Form.Label>
             <Form.Control  name="password" onChange={handleChange} className="timer" type="password" placeholder="Password"  />
           </Form.Group>
           <Form.Group controlId="formBasicPassword-check">
-            <Form.Label className="timer">Password</Form.Label>
+            <Form.Label className="errorMessage">Password</Form.Label>
             <Form.Control name="password_again" onChange={handleChange} className="timer" type="password" placeholder="Password Again" />
             {errors.map((error) => (
-            <Form.Text key={error}>{error}</Form.Text> 
+            <Form.Text style={{color:"orange"}} key={error}>{error}</Form.Text> 
             ))}
           </Form.Group>
-          <Button onClick={onSubmit} className="timer" variant="light" type="submit" size="sm"active>
+          <Button onClick={onSubmit} className="timer" variant="light" type="submit" active>
           SIGN UP
           </Button>
         </Form>
