@@ -3,27 +3,28 @@ import * as d3 from "d3";
 
 const PieChart = props => {
   const ref = useRef(null);
-
+  const width = 400
+const height = 400
   const createPie = d3
     .pie()
     .value(d => d.value)
-    .sort(null);
-
+    .sort(null)
+    
   const createArc = d3
     .arc()
     .innerRadius(props.innerRadius)
-    .outerRadius(props.outerRadius);
-
+    .outerRadius(props.outerRadius)
+    .padAngle(.02)
   const colors = d3.scaleOrdinal(d3.schemeCategory10);
-  const format = d3.format(".2f");
+  const format = d3.format(".0f");
 
 let group2;
 
   useEffect(
     () => {
       const data = createPie(props.data);
-      const group = d3.select(ref.current);
-
+      const group = d3.select(ref.current)
+      .attr('transform', `translate(${width / 2}, ${height / 2})`)
       group2 = group;
       const groupWithData = group.selectAll("g.arc").data(data);
       groupWithData.exit().remove();
@@ -34,14 +35,15 @@ let group2;
         
       const path = groupWithUpdate
         .append("path")
-        .merge(groupWithData.select("path.arc"));
+        .merge(groupWithData.select("path.arc"))
+        .on('mouseover', onMouseOver)
+        .on('mouseout', onMouseOut)
 
       path
         .attr("class", "arc")
         .attr("d", createArc)
         .attr("fill", (d, i) => colors(i))
-        .on('mouseover', onMouseOver)
-        .on('mouseout', onMouseOut)
+        
 
       const text = groupWithUpdate
         .append("text")
@@ -51,13 +53,10 @@ let group2;
         .attr("text-anchor", "middle")
         .attr("alignment-baseline", "middle")
         .attr("transform", d => `translate(${createArc.centroid(d)})`)
-        .style("fill", "white")
-        .style("font-size", 10)
+        .style("fill", "black")
+        .style("font-size", 14)
         .text(d => format(d.value) === "NaN" ? "":  format(d.value))
-        .on('mouseover', onMouseOver)
-        .on('mouseout', onMouseOut)
         
-      
         const text2 = groupWithUpdate
         .append("text")
         ;
@@ -70,12 +69,12 @@ let group2;
         .style('visibility', 'hidden')
 
         function onMouseOver(d, i) {
-          group2
-            .attr('stroke-width', 2)
+          d3.select(this)
+            .attr('stroke-width', 1).attr('transform', 'scale(1.1)')
           switch (i) {
               case 0:
-                group2.select('.middletext').text(props.label1)
-                group2.select('.middletext').style('visibility', 'visible')
+                d3.select('.middletext').text(props.label1)
+                d3.select('.middletext').style('visibility', 'visible')
                   break;
               case 1:
                 group2.select('.middletext').text(props.label2)
@@ -99,12 +98,14 @@ let group2;
 
   function onMouseOut(d, i) {
     group2.select('.middletext').style('visibility', 'hidden')
+    d3.select(this)
+            .attr('stroke-width', 1).attr('transform', 'scale(1)')
   }
 
   return (
       <>
       <h4 className="mt-3">{props.title}</h4>
-      <svg className="mb-3" width={props.width} height={props.height}>
+      <svg className="mb-3" width={width} height={height}>
         <g
           ref={ref}
           transform={`translate(${props.outerRadius} ${props.outerRadius})`}

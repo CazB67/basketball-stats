@@ -33,7 +33,7 @@ const onSubmit = async (event) => {
             }
         )
         .then((response) => {
-            history.push("/stats");
+            history.push("/display");
         })
         .catch((err) => {
             // not authenticated

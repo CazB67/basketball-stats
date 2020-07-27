@@ -30,7 +30,7 @@ app.use(
       saveUninitialized: true,
       secret: "SecretSecretSecret",
       cookie: {
-          secure: false, // not using https
+          secure: false,
           maxAge: 1000 * 60 * 60 ,
       },
       store: new MongoStore({
