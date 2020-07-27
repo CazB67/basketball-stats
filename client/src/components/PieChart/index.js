@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
 import * as d3 from "d3";
-import { Alert } from 'react-bootstrap';
 
 const PieChart = props => {
   const ref = useRef(null);
@@ -18,10 +17,14 @@ const PieChart = props => {
   const colors = d3.scaleOrdinal(d3.schemeCategory10);
   const format = d3.format(".2f");
 
+let group2;
+
   useEffect(
     () => {
       const data = createPie(props.data);
       const group = d3.select(ref.current);
+
+      group2 = group;
       const groupWithData = group.selectAll("g.arc").data(data);
       groupWithData.exit().remove();
       const groupWithUpdate = groupWithData
@@ -38,6 +41,7 @@ const PieChart = props => {
         .attr("d", createArc)
         .attr("fill", (d, i) => colors(i))
         .on('mouseover', onMouseOver)
+        .on('mouseout', onMouseOut)
 
       const text = groupWithUpdate
         .append("text")
@@ -51,26 +55,48 @@ const PieChart = props => {
         .style("font-size", 10)
         .text(d => format(d.value) === "NaN" ? "":  format(d.value))
         .on('mouseover', onMouseOver)
+        .on('mouseout', onMouseOut)
+        
+      
+        const text2 = groupWithUpdate
+        .append("text")
         ;
+        text2
+        .text("hi")
+        .style("fill", "black")
+        .style("font-size", 12)
+        .attr('class', 'middletext')
+        .style('text-anchor', 'middle')
+        .style('visibility', 'hidden')
+
+        function onMouseOver(d, i) {
+          group2
+            .attr('stroke-width', 2)
+          switch (i) {
+              case 0:
+                group2.select('.middletext').text(props.label1)
+                group2.select('.middletext').style('visibility', 'visible')
+                  break;
+              case 1:
+                group2.select('.middletext').text(props.label2)
+                group2.select('.middletext').style('visibility', 'visible')
+                  break;
+              case 2: 
+              group2.select('.middletext').text(props.label3)
+              group2.select('.middletext').style('visibility', 'visible')
+                  break;
+              default:
+                  break;
+          }
+        }
     },
     [props.data]
   );
 
-  function onMouseOver(d, i) {
-    switch (i) {
-        case 0:
-            alert(props.label1)
-            break;
-        case 1:
-            alert(props.label2)
-            break;
-        case 2: 
-            alert(props.label3)
-            break;
-        default:
-            break;
-    }
+  function onMouseOut(d, i) {
+    group2.select('.middletext').style('visibility', 'hidden')
   }
+
   return (
       <>
       <h4 className="mt-3">{props.title}</h4>
@@ -80,9 +106,6 @@ const PieChart = props => {
           transform={`translate(${props.outerRadius} ${props.outerRadius})`}
         />
       </svg>
-      <Alert  className="d-none" variant="dark">
-      {props.label1}
-      </Alert>
     </>
   );
 };

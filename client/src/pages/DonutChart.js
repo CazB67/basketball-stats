@@ -196,6 +196,7 @@ export default () => {
     function onMouseOver(d, i) {
       hideTotal()
       setPlayer(d.data)
+      console.log(this);
       d3.select(this)
         .attr('fill', d3.rgb(lakersColors(i % 4)).brighter(0.5))
         .attr('stroke-width', 2)

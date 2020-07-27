@@ -146,6 +146,7 @@ function Display() {
                 height={200}
                 innerRadius={60}
                 outerRadius={100}/>
+                
         </Col>
         <Col xs={12} md={6}>
           <PieChart data={dataTwoPoints}
@@ -153,7 +154,10 @@ function Display() {
               width={200}
               height={200}
               innerRadius={60}
-              outerRadius={100}/>
+              outerRadius={100}
+              label3={"Made"}
+              label4={"Missed"}
+              />   
         </Col>
       </Row>
       <Row className="text-center">
@@ -163,7 +167,9 @@ function Display() {
               width={200}
               height={200}
               innerRadius={60}
-              outerRadius={100}/>
+              outerRadius={100}
+              label5={"Made"}
+              label6={"Missed"}/>
         </Col>
         <Col xs={12} md={6}>
           <PieChart data={dataGeneralPlay}
@@ -171,7 +177,11 @@ function Display() {
               width={200}
               height={200}
               innerRadius={60}
-              outerRadius={100}/>
+              outerRadius={100}
+              label7={"Fouls"}
+              label8={"Assists"}
+              label9={"Turnovers"}
+              label10={"Steals"}/>
         </Col>
       </Row>
       </>
