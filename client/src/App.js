@@ -7,7 +7,6 @@ import DonutChart from "./pages/DonutChart";
 import Display from "./pages/Display";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container } from 'react-bootstrap'
-import Footer from "./components/Footer";
 import GlobalStore from "./utils/context/GlobalStore";
 
 function App() {
@@ -25,7 +24,7 @@ function App() {
                 <Route exact path="/donut" component={DonutChart} />
                 </Switch>
           </GlobalStore.GlobalProvider>
-          <Footer/>
+          
           </Container>
     </Router>
   );

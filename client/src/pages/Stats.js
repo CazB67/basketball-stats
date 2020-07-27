@@ -8,6 +8,7 @@ import GlobalStore from "../utils/context/GlobalStore";
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
 import{ StatsNav, NavLink} from "../components/Navbar";
+import Footer from "../components/Footer";
 
 function Stats() {
   const store = GlobalStore.useGlobalContext()
@@ -60,6 +61,7 @@ function Stats() {
   const [opponentScore, setOpponentScore] =useState(0);
   const [teamScore, setTeamScore] =useState(0);
   const [validated, setValidated] = useState(true);
+  const [visibility, setVisibility] = useState("d-none");
   
   function startTimer() {
       setIsRunning(true)
@@ -121,6 +123,7 @@ function Stats() {
   const handleClose3 = () => setShow(false)
 
   function handleStartGame() {
+    setVisibility("")
     setShow(true)
     setCount({
       threePointerMade: 0,
@@ -145,6 +148,7 @@ function Stats() {
 function handleEndGame(event) {
   event.preventDefault()
   setOpen(true)
+  setVisibility("d-none")
 }
 
 const handleSavingGameData = event => {
@@ -245,13 +249,15 @@ const handleInputChangeOpponentScore = event => {
             handleStartStop={handleStartStop}
             gameTime={formatGameTime()}
             handleReset={handleReset}
-            isRunning={isRunning ? "STOP" : "START"}
+            isRunning={isRunning ? "ON" : "OFF"}
+            visibility={visibility}
             />
         </Deck>
           
         <Row>
           <Col xs={6}md={4}>
             <StatsCard 
+              visibility={visibility}
               skill="3 pts made" 
               value=""
             >
@@ -262,6 +268,7 @@ const handleInputChangeOpponentScore = event => {
           </Col>
           <Col xs={6}md={4}>
             <StatsCard 
+              visibility={visibility}
               skill="3 pts missed" 
               value=""
             >
@@ -272,6 +279,7 @@ const handleInputChangeOpponentScore = event => {
           </Col>
           <Col xs={6}md={4}>
             <StatsCard 
+              visibility={visibility}
               skill="2 pts made" 
               value=""
             >
@@ -282,6 +290,7 @@ const handleInputChangeOpponentScore = event => {
           </Col>
           <Col xs={6}md={4}>
             <StatsCard 
+              visibility={visibility}
               skill="2 pts missed" 
               value=""
             >
@@ -292,6 +301,7 @@ const handleInputChangeOpponentScore = event => {
           </Col>
           <Col xs={6}md={4}>
             <StatsCard 
+              visibility={visibility}
               skill="1 pt made" 
               value=""
             >
@@ -302,6 +312,7 @@ const handleInputChangeOpponentScore = event => {
           </Col>
           <Col xs={6}md={4}>
             <StatsCard 
+              visibility={visibility}
               skill="1 pt miss" 
               value=""
             >
@@ -312,6 +323,7 @@ const handleInputChangeOpponentScore = event => {
           </Col>
           <Col xs={6}md={4}>
             <StatsCard 
+              visibility={visibility}
               skill="Defensive Rebound" 
               value=""
             >
@@ -322,6 +334,7 @@ const handleInputChangeOpponentScore = event => {
           </Col>
           <Col xs={6}md={4}>
             <StatsCard 
+              visibility={visibility}
               skill="Offensive Rebound" 
               value=""
             >
@@ -332,6 +345,7 @@ const handleInputChangeOpponentScore = event => {
           </Col>
           <Col xs={6}md={4}>
             <StatsCard 
+              visibility={visibility}
               skill="Steal" 
               value=""
             >
@@ -342,6 +356,7 @@ const handleInputChangeOpponentScore = event => {
           </Col>
           <Col xs={6}md={4}>
             <StatsCard 
+              visibility={visibility}
               skill="Assist" 
               value=""
             >
@@ -352,6 +367,7 @@ const handleInputChangeOpponentScore = event => {
           </Col>
           <Col xs={6}md={4}>
             <StatsCard 
+              visibility={visibility}
               skill="Foul" 
               value=""
             >
@@ -362,6 +378,7 @@ const handleInputChangeOpponentScore = event => {
           </Col>
           <Col xs={6}md={4}>
             <StatsCard 
+              visibility={visibility}
               skill="Turnover" 
               value=""
             >
@@ -372,7 +389,7 @@ const handleInputChangeOpponentScore = event => {
           </Col>
           
         </Row>
-    
+        <Footer visibility={visibility}/>
       </>
     );
   }

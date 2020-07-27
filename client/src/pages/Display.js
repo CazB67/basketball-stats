@@ -8,6 +8,7 @@ import{ StatsNav, NavLink} from "../components/Navbar";
 import PieChart from "../components/PieChart";
 import * as d3 from "d3";
 import { Col, Row } from 'react-bootstrap';
+import Footer from "../components/Footer";
 
 function Display() {
   const [rebounds, setRebounds] = useState([]);
@@ -184,6 +185,7 @@ function Display() {
               label4={"Fouls"}/>
         </Col>
       </Row>
+      <Footer/>
       </>
     );
   }

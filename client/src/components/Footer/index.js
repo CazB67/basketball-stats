@@ -5,9 +5,10 @@ import { Row } from 'react-bootstrap';
 import "./style.css";
 import logo from '../../images/logo.PNG'
 
-const FooterPage = () => {
+const FooterPage = (props) => {
   return (
-    <footer className="font-small pt-4 mt-1 footer text-white">
+    <div className={props.visibility}>
+    <footer className=" font-small pt-4 mt-1 footer text-white">
       <Container fluid className="text-center text-md-left">
         <Row>
           <Col md="6">
@@ -26,6 +27,7 @@ const FooterPage = () => {
         <hr style={{width:"98%", height:"5px", color:"white", backgroundColor:"white"}}></hr>
       </div>
     </footer>
+    </div>
   );
 }
 

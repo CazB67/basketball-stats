@@ -8,8 +8,8 @@ export function StatsCard(props) {
     
   return (
         <>
-        <Card className="mb-1 mt-1">
-            <Card.Body bg="navStyle" className="navStyle shadow" variant="dark">
+        <Card className={props.visibility}>
+            <Card.Body bg="navStyle" className="navStyle shadow mb-1 mt-1" variant="dark">
             <Card.Text className="text-white text-center">{props.skill}</Card.Text> {' '}
             <Card.Text className="text-white text-center">
                 {props.children}
@@ -41,13 +41,12 @@ export function CountButtonDown(props) {
 export function ClockCard(props) {
     return (
           <>
-            <Card>
+            <Card className={props.visibility}>
                   <Card.Body bg="navStyle" className="navStyle shadow" variant="dark">
                         <Card.Title className="text-white text-center court">COURT TIME</Card.Title>
                               <Card.Text className="text-white text-center">
                                     {' '}<button className="timer court mr-2" onClick={props.handleStartStop}>{props.isRunning}</button>{' '}  
-                                    <button className="numberSpan">{props.gameTime}</button>{' '} 
-                                    <button className="timer court ml-2" onClick={props.handleReset}>RESET</button>       
+                                    <button className="numberSpan">{props.gameTime}</button>{' '}       
                               </Card.Text>
                   </Card.Body>
             </Card>

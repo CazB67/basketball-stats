@@ -104,8 +104,8 @@ let group2;
 
   return (
       <>
-     <h4 className="mt-3">{props.title}</h4>
-      <svg className="mb-3" width={width} height={height}>
+     <h4 style={{fontFamily:'Red Rose, cursive'}} className="mt-3">{props.title}</h4>
+      <svg style={{fontFamily:'Red Rose, cursive'}} className="mb-3" width={width} height={height}>
         <g
           ref={ref}
           transform={`translate(${props.outerRadius} ${props.outerRadius})`}
