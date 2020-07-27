@@ -1,14 +1,19 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { useHistory } from "react-router-dom";
 import "./style.css";
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+import {Button, Row, Col} from 'react-bootstrap';
 import axios from 'axios';
+import basketballers from '../../images/basketballers.png'
 
 function LoginForm(props) {
   const history = useHistory();
   const [errors, setErrors] = useState([]);
   const [payload, setPayload] = useState({});
+
+  useEffect(() => {
+    setPayload({})
+  }, [])
 
   const handleChange = async (event) => {
     const type = event.target.name;
@@ -51,8 +56,13 @@ const onSubmit = async (event) => {
 };
   return (
     <>
-        <h1 className="text-center mt-5">Sign in to your account</h1>
-        <p className="text-center mb-5">Need an account? <a href="/signup">Create one.</a></p>
+    <Row className="text-center mb-3">
+      <Col>
+        <h1 className="text-center mt-2">Sign in to your account</h1>
+        <p className="text-center">Need an account? <a href="/signup">Create one.</a></p>
+        <img  className="img-responsive" alt="basketballers" src={basketballers}/>
+        </Col>
+        </Row>
         <Form onSubmit={onSubmit} className="p-4" style={{backgroundColor: "#26004d", color:"white"}}>
           <Form.Group controlId="formBasicEmail">
             <Form.Label className="errorMessage">Email address</Form.Label>
@@ -64,7 +74,7 @@ const onSubmit = async (event) => {
 
           <Form.Group controlId="formBasicPassword">
             <Form.Label className="errorMessage">Password</Form.Label>
-            <Form.Control name="password"onChange={handleChange} className="timer" type="password" placeholder="Password" />
+            <Form.Control name="password" onChange={handleChange} className="timer" type="password" placeholder="Password" />
             {errors.map((error) => (
             <Form.Text style={{color:"orange"}} key={error}>{error}</Form.Text> 
             ))}

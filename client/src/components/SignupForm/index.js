@@ -2,8 +2,10 @@ import React, {useState} from "react";
 import { useHistory } from "react-router-dom";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import {Row, Col} from 'react-bootstrap';
 import axios from 'axios';
 import "./style.css";
+import basketballers from '../../images/basketballers.png'
 
 function SignupForm() {
     const history = useHistory();
@@ -42,9 +44,15 @@ function SignupForm() {
         });
 };
   return (
-    <>
-        <h1 className="text-center mt-5">Create an account</h1>
-        <p className="text-center mb-5">Already have an account? <a href="/login">Sign in.</a></p>
+    <>  <Row className="text-center mb-3">
+          <Col>
+            <h1 className="text-center mt-2">Create an account</h1>
+            <p className="text-center">Already have an account?  
+              <a href="/login"> Sign in. </a>
+            </p>
+            <img  className="img-responsive" alt="basketballers" src={basketballers}/>
+          </Col>
+        </Row>
         <Form onSubmit={onSubmit} className="p-4" style={{backgroundColor: "#26004d", color:"white"}}>
           <Form.Group controlId="formBasicEmail">
             <Form.Label className="errorMessage">Email address</Form.Label>
