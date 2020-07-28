@@ -2,7 +2,7 @@
 A MERN application that logs an individual's basketball stats
 
 ## Description 
-BASKETBALL STATS is where you can record your performance, recognise your strengths and weaknesses; and view your progress over time. Use BASKETBALL STATS to be the best player you can be! A user can log points, fouls, assists, rebounds, steals and game time. Once the game is over they are able to view their stats.
+BASKETBALL STATS is where you can record your performance, recognise your strengths and weaknesses; and view your progress over time. Use BASKETBALL STATS to be the best player you can be! A user can log points, fouls, assists, rebounds, steals and game time. Once the game is over they are able to view their stats graphically in a table and/or donut charts.
 
 ![Last Commit](https://img.shields.io/github/last-commit/cazb67/basketball-stats) ![Top Language](https://img.shields.io/github/languages/top/cazb67/basketball-stats)) ![GitHub repo size](https://img.shields.io/github/repo-size/cazb67/basketball-stats)) 
 
@@ -29,13 +29,12 @@ This app  uses [Create React App](https://github.com/facebook/create-react-app) 
 
 The following GIF shows the application's functionality and how to use. 
 
-<img src="" width="541" height="423" title="Basketball Stats App">
+<img src="./stats.gif" width="441" height="323" title="Basketball Stats App">
 
 ## Technologies
 - [React-Bootstrap](https://react-bootstrap.github.io/)
 - [d3-shotchart](https://www.npmjs.com/package/d3-shotchart)
-- ? https://observablehq.com/@d3/gallery
-- https://www.npmjs.com/package/react-google-login
+- 
 
 ## Wireframe
 - [Miro](https://miro.com/app/board/o9J_kpUZ7V8=/)
