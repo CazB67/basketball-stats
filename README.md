@@ -2,7 +2,7 @@
 A MERN application that logs an individual's basketball stats
 
 ## Description 
-BASKETBALL STATS is where you can record your performance, recognise your strengths and weaknesses; and view your progress over time. Use BASKETBALL STATS to be the best player you can be! A user can log points, fouls, assists, rebounds, steals and game time. Once the game is over they are able to view their stats graphically in a table and/or donut charts.
+BASKETBALL STATS is where you can record your performance, recognise your strengths and weaknesses; and view your progress over time. Use BASKETBALL STATS to be the best player you can be! A user can log points, fouls, assists, rebounds, steals and game time. Once the game is over they are able to view their stats graphically in a table and/or donut charts. This application uses Mongodb, Express, React, Node, React-Bootstrap, d3 for charts and Passport for authentication.
 
 ![Last Commit](https://img.shields.io/github/last-commit/cazb67/basketball-stats) ![Top Language](https://img.shields.io/github/languages/top/cazb67/basketball-stats)) ![GitHub repo size](https://img.shields.io/github/repo-size/cazb67/basketball-stats)) 
 
