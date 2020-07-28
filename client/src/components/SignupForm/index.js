@@ -34,7 +34,7 @@ function SignupForm() {
             withCredentials: true
         })
         .then((res) => {
-            history.push("/Login");
+            history.push("/stats");
         })
         .catch((err) => {
             console.log(err.response);
