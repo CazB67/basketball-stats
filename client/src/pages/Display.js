@@ -9,6 +9,7 @@ import PieChart from "../components/PieChart";
 import * as d3 from "d3";
 import { Col, Row } from 'react-bootstrap';
 import Footer from "../components/Footer";
+import LineChart from "../components/LineChart";
 
 function Display() {
   const [rebounds, setRebounds] = useState([]);
@@ -103,6 +104,59 @@ function Display() {
       .then(res => setStats(res.data))
       .catch(err => console.log(err));
   };
+
+  const state = {
+    dataLine: {
+      labels:  stats.map(stat => ( stat.opponent.toLowerCase()
+      .split(' ')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' '))),
+      datasets: [
+        {
+          label: "Points Per Game",
+          fill: true,
+          lineTension: 0.3,
+          backgroundColor: "rgba(225, 204,230, .3)",
+          borderColor: "rgb(205, 130, 158)",
+          borderCapStyle: "butt",
+          borderDash: [],
+          borderDashOffset: 0.0,
+          borderJoinStyle: "miter",
+          pointBorderColor: "rgb(205, 130,1 58)",
+          pointBackgroundColor: "rgb(255, 255, 255)",
+          pointBorderWidth: 10,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: "rgb(0, 0, 0)",
+          pointHoverBorderColor: "rgba(220, 220, 220,1)",
+          pointHoverBorderWidth: 2,
+          pointRadius: 1,
+          pointHitRadius: 10,
+          data: stats.map(stat => ( stat.totalPoints))
+        },
+        {
+          label: "Rebounds Per Game",
+          fill: true,
+          lineTension: 0.3,
+          backgroundColor: "rgba(181, 213, 232, .3)",
+          borderColor: "rgba(59, 143, 191, 1)",
+          borderCapStyle: "butt",
+          borderDash: [],
+          borderDashOffset: 0.0,
+          borderJoinStyle: "miter",
+          pointBorderColor: "rgb(205, 130,1 58)",
+          pointBackgroundColor: "rgb(255, 255, 255)",
+          pointBorderWidth: 10,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: "rgb(0, 0, 0)",
+          pointHoverBorderColor: "rgba(220, 220, 220,1)",
+          pointHoverBorderWidth: 2,
+          pointRadius: 1,
+          pointHitRadius: 10,
+          data: stats.map(stat => (stat.totalRebounds))
+        }
+      ]
+    }
+  };
   
     return (
       <>
@@ -136,7 +190,9 @@ function Display() {
             courttime={stat.courtTime}
           />
           ))}
+
       </TableWrapper>
+      <LineChart dataLine={state.dataLine}/>
       <Row className="text-center">
         <Col xs={12} md={6}>
           <PieChart data={data}

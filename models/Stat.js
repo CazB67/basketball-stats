@@ -21,7 +21,8 @@ const StatSchema = new Schema(
     opponentScore: {type: Number},
     teamScore: { type: Number},
     finalScore: { type: String},
-  
+    totalPoints: {type: Number},
+    totalRebounds: {type: Number}
   },
   {timestamps: true}
 );
@@ -29,6 +30,16 @@ const StatSchema = new Schema(
     StatSchema.methods.setFinalScore = function() {
       this.finalScore = `${this.teamScore} - ${this.opponentScore}`;
       return this.finalScore;
+    };
+
+    StatSchema.methods.setTotalPoints = function() {
+      this.totalPoints = (this.threePointerMade * 3) + (this.twoPointerMade * 2)+ (this.onePointerMade) ;
+      return this.totalPoints;
+    };
+
+    StatSchema.methods.setTotalRebounds = function() {
+      this.totalRebounds = (this.offRebound) + (this.defRebound);
+      return this.totalRebounds;
     };
     
 // we want to load the user resource in a virtual field

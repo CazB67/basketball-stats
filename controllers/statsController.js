@@ -10,6 +10,8 @@ module.exports = {
     create: function(req, res) {
       const data = new db.Stat(req.body)
       data.setFinalScore();
+      data.setTotalPoints();
+      data.setTotalRebounds();
       data.user_id = req.user._id;
       db.Stat
         .create(data)
