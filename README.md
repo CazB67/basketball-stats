@@ -34,14 +34,14 @@ The following GIF shows the application's functionality and how to use.
 ## Technologies
 - [React-Bootstrap](https://react-bootstrap.github.io/)
 - [d3-shotchart](https://www.npmjs.com/package/d3-shotchart)
-- 
+- [d3](https://www.npmjs.com/package/d3)
 
 ## Wireframe
 - [Miro](https://miro.com/app/board/o9J_kpUZ7V8=/)
 
 ## Credits
 - Team at UWA Coding Bootcamp
-- 
+- Donut charts were develop with help from this code https://dev.to/benjaminadk/basketball-stats-through-d3-react-4m10
 
 ## Contributing
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
