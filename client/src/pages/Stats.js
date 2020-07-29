@@ -369,7 +369,7 @@ const handleInputChangeOpponentScore = event => {
               skill="Foul" 
               value=""
             >
-              <CountButtonUp onClick={() => setCount({...count, foul: count.foul + 1})}/>
+              <CountButtonUp onClick={() => count.foul < 5 ? setCount({...count, foul: count.foul + 1}): 5}/>
               <CountButtonShow> {count.foul} </CountButtonShow>
               <CountButtonDown onClick={() => count.foul > 0 ? setCount({...count, foul: count.foul - 1}): 0}/>
             </StatsCard>

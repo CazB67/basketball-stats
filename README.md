@@ -38,6 +38,7 @@ The following GIF shows the application's functionality and how to use.
 
 ## Future Developments
 - Pie Chart labels with lines so that no button clicking is needed
+- Create context to keep code DRY
 - Team usability
 - Shot chart
 - Player profile page with key info eg. team, position, age etc
