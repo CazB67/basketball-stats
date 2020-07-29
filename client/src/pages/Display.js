@@ -7,7 +7,7 @@ import axios from 'axios';
 import{ StatsNav, NavLink} from "../components/Navbar";
 import PieChart from "../components/PieChart";
 import * as d3 from "d3";
-import { Col, Row } from 'react-bootstrap';
+import { Col, Row, Tabs, Tab } from 'react-bootstrap';
 import Footer from "../components/Footer";
 import LineChart from "../components/LineChart";
 
@@ -113,7 +113,7 @@ function Display() {
       .join(' '))),
       datasets: [
         {
-          label: "Points Per Game",
+          label: "Total Points",
           fill: true,
           lineTension: 0.3,
           backgroundColor: "rgba(225, 204,230, .3)",
@@ -134,7 +134,7 @@ function Display() {
           data: stats.map(stat => ( stat.totalPoints))
         },
         {
-          label: "Rebounds Per Game",
+          label: "Rebounds",
           fill: true,
           lineTension: 0.3,
           backgroundColor: "rgba(181, 213, 232, .3)",
@@ -153,6 +153,27 @@ function Display() {
           pointRadius: 1,
           pointHitRadius: 10,
           data: stats.map(stat => (stat.totalRebounds))
+        },
+        {
+          label: "Assists",
+          fill: true,
+          lineTension: 0.3,
+          backgroundColor: "rgba(181, 232, 189, 1)",
+          borderColor: "rgba(46, 148, 63, 1)",
+          borderCapStyle: "butt",
+          borderDash: [],
+          borderDashOffset: 0.0,
+          borderJoinStyle: "miter",
+          pointBorderColor: "rgb(205, 130,1 58)",
+          pointBackgroundColor: "rgb(255, 255, 255)",
+          pointBorderWidth: 10,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: "rgb(0, 0, 0)",
+          pointHoverBorderColor: "rgba(220, 220, 220,1)",
+          pointHoverBorderWidth: 2,
+          pointRadius: 1,
+          pointHitRadius: 10,
+          data: stats.map(stat => (stat.assist))
         }
       ]
     }
@@ -160,9 +181,13 @@ function Display() {
   
     return (
       <>
+      
       <StatsNav>
         <NavLink/>
       </StatsNav>
+      <Tabs defaultActiveKey="allstats" id="uncontrolled-tab-example" style={{fontFamily: 'Red Rose', backgroundColor: "#f4effa"}}>
+  <Tab eventKey="allstats" title="Stats"  >
+    <h3 className="mt-3 mb-3" style={{fontFamily: 'Red Rose'}}>All Stats</h3>
       <TableWrapper>
         <TableHeader/>
           {stats.map(stat => (
@@ -192,8 +217,14 @@ function Display() {
           ))}
 
       </TableWrapper>
-      <LineChart dataLine={state.dataLine}/>
-      <Row className="text-center">
+  </Tab>
+  <Tab eventKey="pergamestats" title="Per Game">
+  <LineChart dataLine={state.dataLine}/>
+  </Tab>
+  <Tab eventKey="careerstats" title="Career" >
+  <h3 className="mt-3 mb-3" style={{fontFamily: 'Red Rose'}}>Career Stats</h3>
+  <Row className="text-center">
+  
         <Col xs={12} md={6}>
           <PieChart data={data}
                 title={"Rebounds"}
@@ -241,6 +272,11 @@ function Display() {
               label4={"Fouls"}/>
         </Col>
       </Row>
+  </Tab>
+</Tabs>
+      
+      
+      
       <Footer/>
       </>
     );

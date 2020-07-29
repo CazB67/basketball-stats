@@ -8,7 +8,7 @@ export function StatsNav(props) {
 
   return (
     <>
-      <Navbar bg="navStyle" expand="lg" className="navStyle shadow mb-3" variant="dark">
+      <Navbar bg="navStyle" expand="lg" className="navStyle shadow" variant="dark">
         <Navbar.Brand>
           <img
           src={logo}
