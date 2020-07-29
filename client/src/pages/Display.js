@@ -10,6 +10,7 @@ import * as d3 from "d3";
 import { Col, Row, Tabs, Tab } from 'react-bootstrap';
 import Footer from "../components/Footer";
 import LineChart from "../components/LineChart";
+import "./style.css";
 
 function Display() {
   const [rebounds, setRebounds] = useState([]);
@@ -185,7 +186,7 @@ function Display() {
       <StatsNav>
         <NavLink/>
       </StatsNav>
-      <Tabs defaultActiveKey="allstats" id="uncontrolled-tab-example" style={{fontFamily: 'Red Rose', backgroundColor: "#f4effa"}}>
+      <Tabs defaultActiveKey="allstats" id="uncontrolled-tab-example" style={{fontFamily: 'Red Rose', backgroundColor: "#e0cdea"}}>
       <Tab eventKey="allstats" title="Stats"  >
         <h3 className="mt-3 mb-3" style={{fontFamily: 'Red Rose'}}>All Stats</h3>
           <TableWrapper>

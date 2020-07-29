@@ -64,6 +64,7 @@ function Stats() {
   const [validated, setValidated] = useState(true);
   const [visibility, setVisibility] = useState("d-none");
   const [visibilityStart, setVisibilityStart] = useState("timer mb-3 btn-lg mt-3");
+  const [visibilityStartTwo, setVisibilityStartTwo] = useState("mb-3 mt-3");
   const [visibilityEnd, setVisibilityEnd] = useState("d-none");
   
   function startTimer() {
@@ -121,6 +122,7 @@ function Stats() {
 
   function handleStartGame() {
     setVisibilityStart("d-none")
+    setVisibilityStartTwo("d-none")
     setVisibilityEnd("timer mb-3 btn-lg mt-3")
     setVisibility("")
     setShow(true)
@@ -240,7 +242,7 @@ const handleInputChangeOpponentScore = event => {
         endClick={handleEndGame}
         />
 
-        <Row className="text-center"><Col><img className={visibilityStart} alt="basketballers" src={basketballers}/></Col></Row>
+        <Row className="text-center"><Col><img className={visibilityStartTwo} alt="basketballers" src={basketballers}/></Col></Row>
         
         <Deck className="text-center">
             <ClockCard skill="gametime"

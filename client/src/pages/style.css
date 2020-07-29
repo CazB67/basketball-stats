@@ -1,0 +1,11 @@
+a#uncontrolled-tab-example-tab-pergamestats:hover, a#uncontrolled-tab-example-tab-allstats:hover, a#uncontrolled-tab-example-tab-careerstats:hover {
+    color: #0b53ef !important;
+ 
+}
+
+a#uncontrolled-tab-example-tab-pergamestats, a#uncontrolled-tab-example-tab-allstats, a#uncontrolled-tab-example-tab-careerstats {
+    color: black !important;
+ 
+}
+
+
