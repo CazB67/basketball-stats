@@ -63,7 +63,7 @@ function Stats() {
   const [teamScore, setTeamScore] =useState(0);
   const [validated, setValidated] = useState(true);
   const [visibility, setVisibility] = useState("d-none");
-  const [visibilityStart, setVisibilityStart] = useState("timer mb-3 btn-lg");
+  const [visibilityStart, setVisibilityStart] = useState("timer mb-3 btn-lg mt-3");
   const [visibilityEnd, setVisibilityEnd] = useState("d-none");
   
   function startTimer() {
@@ -126,7 +126,7 @@ function Stats() {
 
   function handleStartGame() {
     setVisibilityStart("d-none")
-    setVisibilityEnd("timer mb-3 btn-lg ml-2")
+    setVisibilityEnd("timer mb-3 btn-lg mt-3")
     setVisibility("")
     setShow(true)
     setCount({

@@ -6,7 +6,7 @@ export function OpponentModal(props) {
     
     return (
           <>
-          <Modal show={props.show} onHide={props.handleClose3}>
+          <Modal backdrop="static" show={props.show} onHide={props.handleClose3}>
 
             <Modal.Header closeButton>
               <Modal.Title className="court">Opponent</Modal.Title>
@@ -17,7 +17,7 @@ export function OpponentModal(props) {
                 <Form.Group as={Row} controlId="validationCustom01">
                   <Col>
                   <Form.Control required className="court" onChange={props.onChange} type="text" placeholder="Opposing Team Name" />
-                  <Form.Control.Feedback type="invalid">Please provide an opponent.</Form.Control.Feedback>
+                  <Form.Control.Feedback type="invalid">Please provide score.</Form.Control.Feedback>
                   </Col>
                 </Form.Group>
                 <Button className="mt-3" style={{fontFamily: 'Red Rose', boxShadow: "5px 5px 3px rgba(46, 46, 46, 0.62)", backgroundColor: "#26004d"}} type="submit" >
@@ -36,7 +36,7 @@ export function OpponentModal(props) {
   export function ScoreModal(props) {
     return (
           <>
-          <Modal show={props.show} onHide={props.handleClose}>
+          <Modal backdrop="static" show={props.show} onHide={props.handleClose}>
             <Modal.Header closeButton>
               <Modal.Title className="court">Score</Modal.Title>
             </Modal.Header>
