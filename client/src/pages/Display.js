@@ -219,8 +219,11 @@ function Display() {
 
           </TableWrapper>
       </Tab>
-  <Tab eventKey="pergamestats" title="Per Game">
+  <Tab eventKey="pergamestats" title="Per Game Stats">
   <LineChart dataLine={state.dataLine}/>
+  </Tab>
+  <Tab eventKey="pergameminutes" title="Per Game Minutes">
+  <h3 className="mt-3 mb-3" style={{fontFamily: 'Red Rose'}}>Per Game Minutes</h3>
   </Tab>
   <Tab eventKey="careerstats" title="Career" >
   <h3 className="mt-3 mb-3" style={{fontFamily: 'Red Rose'}}>Career Stats</h3>

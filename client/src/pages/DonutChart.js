@@ -217,6 +217,7 @@ export default () => {
 
   return (
     <>
+      
       <GlobalStyle />
       <Container>
         <div className='title'>{title}</div>

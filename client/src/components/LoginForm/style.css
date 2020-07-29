@@ -5,3 +5,7 @@
 .errorMessage {
     font-family: 'Red Rose', cursive;
 }
+
+button.timer.btn.active.btn-light:hover {
+    background-color: orange;
+}
