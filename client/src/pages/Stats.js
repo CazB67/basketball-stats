@@ -76,14 +76,12 @@ function Stats() {
   function formatGameTime() {
       let formattedTime = "";
       let minutes = 0;
-      //console.log(seconds);
       let secs = Math.floor(seconds % 60);
       minutes = Math.floor(seconds / 60)
       if(secs < 10) {
           secs = "0" + secs
       } 
       formattedTime = minutes + ":" + secs;
-      //console.log(formattedTime);
       return formattedTime;
   }
 
@@ -104,18 +102,15 @@ function Stats() {
 
   const handleClose = (event) => { 
     if (typeof(event) === 'undefined') {
-      console.log("booooo");
       return;
     }
     event.preventDefault();
     const form = event.currentTarget;
-    console.log(opponent + "***************");
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
       
     }else {
-      console.log(show + "show");
       setValidated(true);
       setShow(false) 
     }
@@ -160,12 +155,9 @@ const handleSavingGameData = event => {
   event.preventDefault();
   const form = event.currentTarget;
   if (form.checkValidity() === false) {
-    console.log("false");
     event.preventDefault();
     event.stopPropagation();
-    
   }else {
-    console.log("true");
     setValidated(true);
     setShow(false) 
  
@@ -202,19 +194,16 @@ const handleSavingGameData = event => {
 const handleInputChange = event => {
   event.preventDefault()
   const { value } = event.target;
-  console.log(value);
   setOpponent(value)
 }
 const handleInputChangeTeamScore = event => {
   event.preventDefault();
   const { value } = event.target;
-  console.log(value);
   setTeamScore(value)
 }
 const handleInputChangeOpponentScore = event => {
   event.preventDefault()
   const { value } = event.target;
-  console.log(value);
   setOpponentScore(value)
  }
     return (

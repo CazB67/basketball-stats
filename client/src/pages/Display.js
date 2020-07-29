@@ -107,10 +107,10 @@ function Display() {
 
   const state = {
     dataLine: {
-      labels:  stats.map(stat => ( stat.opponent.toLowerCase()
+      labels:  stats.map(stat => (stat.opponent.toLowerCase()
       .split(' ')
       .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' '))),
+      .join(' ') + " " + stat.createdAt.substring(5,10))),
       datasets: [
         {
           label: "Total Points",
@@ -186,38 +186,38 @@ function Display() {
         <NavLink/>
       </StatsNav>
       <Tabs defaultActiveKey="allstats" id="uncontrolled-tab-example" style={{fontFamily: 'Red Rose', backgroundColor: "#f4effa"}}>
-  <Tab eventKey="allstats" title="Stats"  >
-    <h3 className="mt-3 mb-3" style={{fontFamily: 'Red Rose'}}>All Stats</h3>
-      <TableWrapper>
-        <TableHeader/>
-          {stats.map(stat => (
-          <DataTable
-            key={stat._id}
-            date={stat.createdAt.substring(0,10)}
-            opponent={stat.opponent
-              .toLowerCase()
-              .split(' ')
-              .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-              .join(' ')}
-            score={stat.finalScore}
-            onemade={stat.onePointerMade}
-            onemissed={stat.onePointerMissed}
-            twomade={stat.twoPointerMade}
-            twomissed={stat.twoPointerMissed}
-            threemade={stat.threePointerMade}
-            threemissed={stat.threePointerMissed}
-            defreb={stat.defRebound}
-            offreb={stat.offRebound}
-            steal={stat.steal}
-            assist={stat.assist}
-            foul={stat.foul}
-            turnover={stat.turnover}
-            courttime={stat.courtTime}
-          />
-          ))}
+      <Tab eventKey="allstats" title="Stats"  >
+        <h3 className="mt-3 mb-3" style={{fontFamily: 'Red Rose'}}>All Stats</h3>
+          <TableWrapper>
+            <TableHeader/>
+              {stats.map(stat => (
+              <DataTable
+                key={stat._id}
+                date={stat.createdAt.substring(0,10)}
+                opponent={stat.opponent
+                  .toLowerCase()
+                  .split(' ')
+                  .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                  .join(' ')}
+                score={stat.finalScore}
+                onemade={stat.onePointerMade}
+                onemissed={stat.onePointerMissed}
+                twomade={stat.twoPointerMade}
+                twomissed={stat.twoPointerMissed}
+                threemade={stat.threePointerMade}
+                threemissed={stat.threePointerMissed}
+                defreb={stat.defRebound}
+                offreb={stat.offRebound}
+                steal={stat.steal}
+                assist={stat.assist}
+                foul={stat.foul}
+                turnover={stat.turnover}
+                courttime={stat.courtTime}
+              />
+              ))}
 
-      </TableWrapper>
-  </Tab>
+          </TableWrapper>
+      </Tab>
   <Tab eventKey="pergamestats" title="Per Game">
   <LineChart dataLine={state.dataLine}/>
   </Tab>

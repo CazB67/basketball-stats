@@ -17,7 +17,7 @@ export function OpponentModal(props) {
                 <Form.Group as={Row} controlId="validationCustom01">
                   <Col>
                   <Form.Control required className="court" onChange={props.onChange} type="text" placeholder="Opposing Team Name" />
-                  <Form.Control.Feedback type="invalid">Please provide score.</Form.Control.Feedback>
+                  <Form.Control.Feedback type="invalid">Please provide opponent.</Form.Control.Feedback>
                   </Col>
                 </Form.Group>
                 <Button className="mt-3" style={{fontFamily: 'Red Rose', boxShadow: "5px 5px 3px rgba(46, 46, 46, 0.62)", backgroundColor: "#26004d"}} type="submit" >
@@ -47,13 +47,13 @@ export function OpponentModal(props) {
                   <Col>
                     <Form.Group controlId="validationCustom02">
                       <Form.Control required type="number" className="court"onChange={props.teamScoreInput} placeholder="Team Score" />
-                      <Form.Control.Feedback type="invalid">Please provide an opponent.</Form.Control.Feedback>
+                      <Form.Control.Feedback type="invalid">Please provide a score.</Form.Control.Feedback>
                     </Form.Group>
                   </Col>
                   <Col>
                     <Form.Group controlId="validationCustom03">
                       <Form.Control required type="number" className="court" onChange={props.oppScoreInput} placeholder="Opponent's Score" />
-                      <Form.Control.Feedback type="invalid">Please provide an opponent.</Form.Control.Feedback> 
+                      <Form.Control.Feedback type="invalid">Please provide a score.</Form.Control.Feedback> 
                     </Form.Group>
                   </Col>
                 </Row>

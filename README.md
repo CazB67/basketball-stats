@@ -12,7 +12,7 @@ This app  uses [Create React App](https://github.com/facebook/create-react-app) 
 1. [Installation](#Installation)
 2. [Usage](#Usage)
 3. [Technologies](#Technologies)
-4. [Wireframe](#Wireframe)
+4. [Future Developments](#Future-Developments)
 5. [Credits](#Credits)
 6. [Contributing](#Contributing)
 7. [Licence](#License)
@@ -36,8 +36,11 @@ The following GIF shows the application's functionality and how to use.
 - [d3-shotchart](https://www.npmjs.com/package/d3-shotchart)
 - [d3](https://www.npmjs.com/package/d3)
 
-## Wireframe
-- [Miro](https://miro.com/app/board/o9J_kpUZ7V8=/)
+## Future Developments
+- Pie Chart labels with lines so that no button clicking is needed
+- Team usability
+- Shot chart
+- Player profile page with key info eg. team, position, age etc
 
 ## Credits
 - Team at UWA Coding Bootcamp
