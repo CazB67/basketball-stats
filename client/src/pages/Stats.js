@@ -81,7 +81,7 @@ function Stats() {
       if(secs < 10) {
           secs = "0" + secs
       } 
-      formattedTime = minutes + "." + secs;
+      formattedTime = minutes + ":" + secs;
       return formattedTime;
   }
 
