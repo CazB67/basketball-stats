@@ -35,6 +35,7 @@ The following GIF shows the application's functionality and how to use.
 - [React-Bootstrap](https://react-bootstrap.github.io/)
 - [d3-shotchart](https://www.npmjs.com/package/d3-shotchart)
 - [d3](https://www.npmjs.com/package/d3)
+- https://www.image-map.net/
 
 ## Future Developments
 - Pie Chart labels with lines so that no button clicking is needed

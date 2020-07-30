@@ -9,6 +9,7 @@ import { useHistory } from "react-router-dom";
 import axios from 'axios';
 import{ StatsNav, NavLink} from "../components/Navbar";
 import Footer from "../components/Footer";
+import ShotChart from "../components/ShotChart";
 import basketballers from '../images/basketballers.png'
 
 function Stats() {
@@ -33,6 +34,8 @@ function Stats() {
           })
   }, [])
 
+
+
   const [count, setCount] = useState({
     threePointerMade: 0,
     threePointerMissed: 0,
@@ -52,10 +55,12 @@ function Stats() {
     teamScore: 0
   });
 
+
   const [seconds, setSeconds] = useState(0);
   const [clockId, setClockId] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
   const [show, setShow] = useState(false);
+  const [shotChartShow, setShotChartShow] = useState(false);
   const [open, setOpen] = useState(false);
   const [opponent, setOpponent] =useState("");
   const [opponentScore, setOpponentScore] =useState(0);
@@ -65,7 +70,7 @@ function Stats() {
   const [visibilityStart, setVisibilityStart] = useState("timer mb-3 btn-lg mt-3");
   const [visibilityStartTwo, setVisibilityStartTwo] = useState("mb-3 mt-3");
   const [visibilityEnd, setVisibilityEnd] = useState("d-none");
-  
+
   function startTimer() {
       setIsRunning(true)
       setClockId(setInterval(() => {
@@ -112,6 +117,7 @@ function Stats() {
   
   const handleClose2 = () => setOpen(false)
   const handleClose3 = () => setShow(false)
+  const handleClose4 = () => setShotChartShow(false)
 
   function handleStartGame() {
     setVisibilityStart("d-none")
@@ -204,6 +210,7 @@ const handleInputChangeOpponentScore = event => {
   const { value } = event.target;
   setOpponentScore(value)
  }
+
     return (
       <>
       <StatsNav>
@@ -230,6 +237,10 @@ const handleInputChangeOpponentScore = event => {
           value={opponent}
           validated={validated}
         />
+
+        <ShotChart
+          show={shotChartShow}
+          onHide={handleClose4}/>
 
         <Button
         visibilityStart={visibilityStart}
