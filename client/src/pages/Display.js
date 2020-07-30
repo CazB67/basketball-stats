@@ -53,6 +53,18 @@ function Display() {
       value: generalPlay[index]
     }));
 
+    function formatGameTime(seconds) {
+      let formattedTime = "";
+      let minutes = 0;
+      let secs = Math.floor(seconds % 60);
+      minutes = Math.floor(seconds / 60)
+      if(secs < 10) {
+          secs = "0" + secs
+      } 
+      formattedTime = minutes + "." + secs;
+      return formattedTime;
+  }
+
     useEffect(
       () => {
         setData(generateReboundData());
@@ -273,7 +285,7 @@ function Display() {
                 assist={stat.assist}
                 foul={stat.foul}
                 turnover={stat.turnover}
-                courttime={stat.courtTime}
+                courttime={formatGameTime(stat.courtTime)}
               />
               ))}
 
