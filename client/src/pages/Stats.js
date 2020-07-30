@@ -182,7 +182,7 @@ const handleSavingGameData = event => {
   setIsRunning(false)
   clearInterval(clockId)
   setSeconds(0)
-  window.location.pathname = "/display"
+  //window.location.pathname = "/display"
 }
 }
 
