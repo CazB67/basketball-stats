@@ -16,7 +16,7 @@ const StatSchema = new Schema(
     assist: { type: Number},
     foul: { type: Number},
     turnover: { type: Number},
-    courtTime:{type: String},
+    courtTime:{type: Number},
     opponent: {type: String},
     opponentScore: {type: Number},
     teamScore: { type: Number},
