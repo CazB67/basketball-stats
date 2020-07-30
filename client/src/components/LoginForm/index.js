@@ -66,7 +66,7 @@ const onSubmit = async (event) => {
         <Form onSubmit={onSubmit} className="p-4" style={{backgroundColor: "#26004d", color:"white"}}>
           <Form.Group controlId="formBasicEmail">
             <Form.Label className="errorMessage">Email address</Form.Label>
-            <Form.Control name="email" onChange={handleChange} className="timer" type="email" placeholder="Enter email" />
+            <Form.Control name="email" style={{fontFamily: 'Red Rose'}}  onChange={handleChange} className="timer" type="email" placeholder="Enter email" />
             <Form.Text className="text-muted">
               We'll never share your email with anyone else.
             </Form.Text>
@@ -74,7 +74,7 @@ const onSubmit = async (event) => {
 
           <Form.Group controlId="formBasicPassword">
             <Form.Label className="errorMessage">Password</Form.Label>
-            <Form.Control name="password" onChange={handleChange} className="timer" type="password" placeholder="Password" />
+            <Form.Control style={{fontFamily: 'Red Rose'}} name="password" onChange={handleChange} className="timer" type="password" placeholder="Password" />
             {errors.map((error) => (
             <Form.Text style={{color:"orange"}} key={error}>{error}</Form.Text> 
             ))}

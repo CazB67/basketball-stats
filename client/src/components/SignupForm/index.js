@@ -56,7 +56,7 @@ function SignupForm() {
         <Form onSubmit={onSubmit} className="p-4" style={{backgroundColor: "#26004d", color:"white"}}>
           <Form.Group controlId="formBasicEmail">
             <Form.Label className="errorMessage">Email address</Form.Label>
-            <Form.Control name="email" onChange={handleChange} className="timer" type="email" placeholder="Enter email" />
+            <Form.Control style={{fontFamily: 'Red Rose'}}name="email" onChange={handleChange} className="timer" type="email" placeholder="Enter email" />
             <Form.Text className="text-muted">
               We'll never share your email with anyone else.
             </Form.Text>
@@ -64,11 +64,11 @@ function SignupForm() {
 
           <Form.Group controlId="formBasicPassword">
             <Form.Label className="errorMessage">Password</Form.Label>
-            <Form.Control  name="password" onChange={handleChange} className="timer" type="password" placeholder="Password"  />
+            <Form.Control  style={{fontFamily: 'Red Rose'}} name="password" onChange={handleChange} className="timer" type="password" placeholder="Password"  />
           </Form.Group>
           <Form.Group controlId="formBasicPassword-check">
             <Form.Label className="errorMessage">Password</Form.Label>
-            <Form.Control name="password_again" onChange={handleChange} className="timer" type="password" placeholder="Password Again" />
+            <Form.Control style={{fontFamily: 'Red Rose'}} name="password_again" onChange={handleChange} className="timer" type="password" placeholder="Password Again" />
             {errors.map((error) => (
             <Form.Text style={{color:"orange"}} key={error}>{error}</Form.Text> 
             ))}
