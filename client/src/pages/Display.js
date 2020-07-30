@@ -130,7 +130,7 @@ function Display() {
         {
           label: "Minutes",
           barPercentage: 1,
-          data: stats.map(stat => ( parseFloat(stat.courtTime))),
+          data: stats.map(stat => ( formatGameTime(stat.courtTime))),
           backgroundColor: [
             "rgba(255, 134,159,0.4)",
             "rgba(98,  182, 239,0.4)",
