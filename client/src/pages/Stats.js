@@ -81,7 +81,7 @@ function Stats() {
       if(secs < 10) {
           secs = "0" + secs
       } 
-      formattedTime = minutes + ":" + secs;
+      formattedTime = minutes + "." + secs;
       return formattedTime;
   }
 
@@ -92,12 +92,6 @@ function Stats() {
   
   function handleStartStop() {
       isRunning ? stopTimer() : startTimer();
-  }
-
-  function handleReset() {
-      setIsRunning(false)
-      clearInterval(clockId)
-      setSeconds(0)
   }
 
   const handleClose = (event) => { 
@@ -247,7 +241,6 @@ const handleInputChangeOpponentScore = event => {
             <ClockCard skill="gametime"
             handleStartStop={handleStartStop}
             gameTime={formatGameTime()}
-            handleReset={handleReset}
             isRunning={isRunning ? "ON" : "OFF"}
             visibility={visibility}
             />
