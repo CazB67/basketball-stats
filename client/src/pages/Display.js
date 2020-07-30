@@ -207,7 +207,7 @@ function Display() {
           data: stats.map(stat => ( stat.totalPoints))
         },
         {
-          label: "Rebounds",
+          label: "Total Rebounds",
           fill: true,
           lineTension: 0.3,
           backgroundColor: "rgba(181, 213, 232, .3)",
@@ -291,10 +291,10 @@ function Display() {
 
           </TableWrapper>
       </Tab>
-  <Tab eventKey="pergamestats" title="Per Game Stats">
+  <Tab eventKey="pergamestats" title="Game Stats">
     <LineChart dataLine={state.dataLine}/>
   </Tab>
-  <Tab eventKey="minutes" title="Per Game Minutes">
+  <Tab eventKey="minutes" title="Minutes">
     <h3 className="mt-3 mb-3" style={{fontFamily: 'Red Rose'}}>Per Game Minutes</h3>
     <BarChart dataBar={barChartstate.dataBar} options={barChartstate.barChartOptions}/>
   </Tab>
