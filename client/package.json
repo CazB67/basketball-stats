@@ -14,13 +14,14 @@
     "mdbreact": "^4.27.0",
     "react": "^16.13.1",
     "react-bootstrap": "^1.2.2",
-    "styled-components": "^5.1.1",
+    
     "react-chartjs-2": "^2.9.0",
     "react-charts": "^2.0.0-beta.7",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^2.1.1",
-    "reactstrap": "^8.5.1"
+    "reactstrap": "^8.5.1",
+    "styled-components": "^5.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
