@@ -13,7 +13,6 @@ module.exports = {
       data.setFinalScore();
       data.setTotalPoints();
       data.setTotalRebounds();
-      data.courtTime="2.0"
       data.user_id = req.user._id;
       db.Stat
         .create(data)
