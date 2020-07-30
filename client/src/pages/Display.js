@@ -9,8 +9,10 @@ import PieChart from "../components/PieChart";
 import * as d3 from "d3";
 import { Col, Row, Tabs, Tab } from 'react-bootstrap';
 import Footer from "../components/Footer";
+import BarChart from "../components/BarChart";
 import LineChart from "../components/LineChart";
 import "./style.css";
+
 
 function Display() {
   const [rebounds, setRebounds] = useState([]);
@@ -105,6 +107,64 @@ function Display() {
       .then(res => setStats(res.data))
       .catch(err => console.log(err));
   };
+
+  const barChartstate = {
+    dataBar: {
+      labels: stats.map(stat => (stat.opponent.toLowerCase()
+      .split(' ')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ') + " " + stat.createdAt.substring(5,10))),
+      datasets: [
+        {
+          label: "Minutes",
+          barPercentage: 1,
+          data: stats.map(stat => ( parseFloat(stat.courtTime))),
+          backgroundColor: [
+            "rgba(255, 134,159,0.4)",
+            "rgba(98,  182, 239,0.4)",
+            "rgba(255, 218, 128,0.4)",
+            "rgba(113, 205, 205,0.4)",
+            "rgba(170, 128, 252,0.4)",
+            "rgba(255, 177, 101,0.4)"
+          ],
+          borderWidth: 2,
+          borderColor: [
+            "rgba(255, 134, 159, 1)",
+            "rgba(98,  182, 239, 1)",
+            "rgba(255, 218, 128, 1)",
+            "rgba(113, 205, 205, 1)",
+            "rgba(170, 128, 252, 1)",
+            "rgba(255, 177, 101, 1)"
+          ]
+        }
+      ]
+    },
+    barChartOptions: {
+      responsive: true,
+      maintainAspectRatio: true,
+      scales: {
+        xAxes: [
+          {
+            gridLines: {
+              display: false,
+              color: "rgba(0, 0, 0, 0.1)"
+            }
+          }
+        ],
+        yAxes: [
+          {
+            gridLines: {
+              display: true,
+              color: "rgba(0, 0, 0, 0.1)"
+            },
+            ticks: {
+              beginAtZero: true
+            }
+          }
+        ]
+      }
+    }
+  }
 
   const state = {
     dataLine: {
@@ -220,14 +280,15 @@ function Display() {
           </TableWrapper>
       </Tab>
   <Tab eventKey="pergamestats" title="Per Game Stats">
-  <LineChart dataLine={state.dataLine}/>
+    <LineChart dataLine={state.dataLine}/>
   </Tab>
-  <Tab eventKey="pergameminutes" title="Per Game Minutes">
-  <h3 className="mt-3 mb-3" style={{fontFamily: 'Red Rose'}}>Per Game Minutes</h3>
+  <Tab eventKey="minutes" title="Per Game Minutes">
+    <h3 className="mt-3 mb-3" style={{fontFamily: 'Red Rose'}}>Per Game Minutes</h3>
+    <BarChart dataBar={barChartstate.dataBar} options={barChartstate.barChartOptions}/>
   </Tab>
   <Tab eventKey="careerstats" title="Career" >
-  <h3 className="mt-3 mb-3" style={{fontFamily: 'Red Rose'}}>Career Stats</h3>
-  <Row className="text-center">
+    <h3 className="mt-3 mb-3" style={{fontFamily: 'Red Rose'}}>Career Stats</h3>
+    <Row className="text-center">
   
         <Col xs={12} md={6}>
           <PieChart data={data}
@@ -278,8 +339,6 @@ function Display() {
       </Row>
   </Tab>
 </Tabs>
-      
-      
       
       <Footer/>
       </>

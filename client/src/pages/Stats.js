@@ -30,7 +30,6 @@ function Stats() {
               if(err.response.status === 401){
                   return history.push('/')
               }
-              console.log("ererererer" + {err});
           })
   }, [])
 
@@ -82,7 +81,7 @@ function Stats() {
       if(secs < 10) {
           secs = "0" + secs
       } 
-      formattedTime = minutes + ":" + secs;
+      formattedTime = minutes + "." + secs;
       return formattedTime;
   }
 
