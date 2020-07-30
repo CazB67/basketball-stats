@@ -160,6 +160,7 @@ const handleSavingGameData = event => {
   API.saveGame({
     ...count
   }, formatGameTime(), opponent, teamScore, opponentScore)
+  .then(() => {
   setOpen(false)
   setCount({
     threePointerMade: 0,
@@ -182,7 +183,9 @@ const handleSavingGameData = event => {
   setIsRunning(false)
   clearInterval(clockId)
   setSeconds(0)
-  //window.location.pathname = "/display"
+  window.location.pathname = "/display"})
+  .catch(err => console.log(err));
+    
 }
 }
 
