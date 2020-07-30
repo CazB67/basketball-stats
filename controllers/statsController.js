@@ -9,9 +9,11 @@ module.exports = {
     },
     create: function(req, res) {
       const data = new db.Stat(req.body)
+      console.log(req.body);
       data.setFinalScore();
       data.setTotalPoints();
       data.setTotalRebounds();
+      data.courtTime="2.0"
       data.user_id = req.user._id;
       db.Stat
         .create(data)
