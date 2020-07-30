@@ -4,7 +4,7 @@ import axios from 'axios';
 export default {
     saveGame: function(gameData, courtTime, opponent,  teamScore, opponentScore) {
         gameData.courtTime = courtTime;
-        console.log(courtTime);
+        console.log(courtTime + "______________________");
         gameData.opponent = opponent;
         gameData.opponentScore = opponentScore;
         gameData.teamScore = teamScore

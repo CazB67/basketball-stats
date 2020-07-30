@@ -159,7 +159,7 @@ const handleSavingGameData = event => {
   setCount({...count, courtTime: seconds})
   API.saveGame({
     ...count
-  }, formatGameTime(), opponent, teamScore, opponentScore)
+  }, seconds, opponent, teamScore, opponentScore)
   .then(() => {
   setOpen(false)
   setCount({
