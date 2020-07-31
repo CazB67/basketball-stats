@@ -33,11 +33,18 @@ The following GIF shows the application's functionality and how to use.
 
 ## Technologies
 - [React-Bootstrap](https://react-bootstrap.github.io/)
-- [d3-shotchart](https://www.npmjs.com/package/d3-shotchart)
 - [d3](https://www.npmjs.com/package/d3)
 - [Image Map Generator](https://www.image-map.net/)
 - [MDB React](https://mdbootstrap.com/docs/react/)
 - [React Image Mapper](https://www.npmjs.com/package/react-image-mapper)
+- Javascript
+- Mongodb
+- Express
+- Passport authentication
+- Github
+- React
+- Nodejs
+- Axios
 
 ## Future Developments
 - Pie Chart labels with lines so that no button clicking is needed
