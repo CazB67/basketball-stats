@@ -353,8 +353,8 @@ const MAP = {
           coords: [3,1,31,4,29,46,0,47],
           value: 1,
           alt: "left three pointer baseline",
-          preFillColor: "rgba(255, 255, 255, 0.3)",
-          strokeColor: "rgba(43, 22, 106, 1)"
+          //preFillColor: "rgba(255, 255, 255, 0.3)",
+          //strokeColor: "rgba(43, 22, 106, 1)"
       },
       {
           name: "right three pointer baseline",
@@ -362,8 +362,8 @@ const MAP = {
           coords: [302,2,329,4,329,50,302,53],
           value: 2,
           alt:"right three pointer baseline",
-          preFillColor: "rgba(255, 255, 255, 0.3)",
-          strokeColor: "rgba(43, 22, 106, 1)"
+          //preFillColor: "rgba(255, 255, 255, 0.3)",
+          //strokeColor: "rgba(43, 22, 106, 1)"
       },
       {
           name: "left three pointer 33degrees",
@@ -371,8 +371,8 @@ const MAP = {
           coords: [2,48,28,47,31,69,41,101,53,122,2,129],
           alt:"left three pointer 33degrees",
           value: 3,
-          preFillColor: "rgba(255, 255, 255, 0.3)",
-          strokeColor: "rgba(43, 22, 106, 1)"
+          //preFillColor: "rgba(255, 255, 255, 0.3)",
+          //strokeColor: "rgba(43, 22, 106, 1)"
       },
       {
           name: "left three pointer 45degrees",
@@ -380,7 +380,7 @@ const MAP = {
           shape: "poly",
           coords: [3,131,55,125,107,169,4,285],
           alt:"left three pointer",
-          preFillColor: "rgba(43, 22, 106, 1)"
+          //preFillColor: "rgba(43, 22, 106, 1)"
       },
       {
           name: "right three pointer 33degrees",
@@ -388,8 +388,8 @@ const MAP = {
           value: 5,
           shape: "poly",
           coords: [302,56,327,54,329,133,274,131],
-          preFillColor: "rgba(255, 255, 255, 0.3)",
-          strokeColor: "rgba(43, 22, 106, 1)"
+          //preFillColor: "rgba(255, 255, 255, 0.3)",
+          //strokeColor: "rgba(43, 22, 106, 1)"
       },
       {
           name: "right three pointer 45degrees",
@@ -397,7 +397,7 @@ const MAP = {
           value: 6,
           shape: "poly",
           coords: [271,127,328,132,329,284,223,172],
-          preFillColor: "rgba(43, 22, 106, 1)"
+         // preFillColor: "rgba(43, 22, 106, 1)"
       },
       {
           name: "centre three pointer",
@@ -405,8 +405,8 @@ const MAP = {
           value: 7,
           shape: "poly",
           coords: [102,171,65,215,259,215,219,171,187,177,146,180],
-          preFillColor: "rgba(255, 255, 255, 0.3)",
-          strokeColor: "rgba(43, 22, 106, 1)"
+        //  preFillColor: "rgba(255, 255, 255, 0.3)",
+        //  strokeColor: "rgba(43, 22, 106, 1)"
       },
       {
           name: "centre deep three pointer",
@@ -414,8 +414,8 @@ const MAP = {
           value: 8,
           shape: "poly",
           coords: [1,290,325,292,326,284,260,218,66,219,59,228,51,236],
-          preFillColor: "rgba(255, 255, 255, 0.3)",
-          strokeColor: "rgba(43, 22, 106, 1)"
+        //  preFillColor: "rgba(255, 255, 255, 0.3)",
+        //  strokeColor: "rgba(43, 22, 106, 1)"
       },
       {
           name: "left under hoop",
@@ -423,8 +423,8 @@ const MAP = {
           value: 9,
           shape: "rect",
           coords: [127,24,166,58],
-          preFillColor: "rgba(255, 255, 255, 0.3)",
-          strokeColor: "rgba(43, 22, 106, 1)"
+        //  preFillColor: "rgba(255, 255, 255, 0.3)",
+         // strokeColor: "rgba(43, 22, 106, 1)"
       },
       {
           name: "right under hoop",
@@ -432,8 +432,8 @@ const MAP = {
           value: 10,
           shape: "rect",
           coords: [168,26,202,58],
-          preFillColor: "rgba(255, 255, 255, 0.3)",
-          strokeColor: "rgba(43, 22, 106, 1)"
+         // preFillColor: "rgba(255, 255, 255, 0.3)",
+         // strokeColor: "rgba(43, 22, 106, 1)"
       },
       {
           name: "right midrange",
@@ -441,7 +441,7 @@ const MAP = {
           value: 11,
           shape: "poly",
           coords: [206,28,301,26,302,46,296,66,288,84,280,104,271,123,249,142,229,162,213,169,204,171],
-          preFillColor: "rgba(43, 22, 106, 1)"
+         // preFillColor: "rgba(43, 22, 106, 1)"
       },
       {
           name: "left midrange",
@@ -449,7 +449,7 @@ const MAP = {
           value: 12,
           shape: "poly",
           coords: [125,25,31,26,33,49,37,80,47,110,64,129,81,142,89,153,112,166,123,175],
-          preFillColor: "rgba(43, 22, 106, 1)"
+          //preFillColor: "rgba(43, 22, 106, 1)"
       },
       {
           name: "deep midrange",
@@ -458,8 +458,8 @@ const MAP = {
           shape: "poly",
           coords: [124,131,203,126,201,176,126,174],
           lineWidth: 2,
-          preFillColor: "rgba(255, 255, 255, 0.3)",
-          strokeColor: "rgba(43, 22, 106, 1)"
+         // preFillColor: "rgba(255, 255, 255, 0.3)",
+        //  strokeColor: "rgba(43, 22, 106, 1)"
       },
       {
           name: "left keyway",
@@ -467,8 +467,8 @@ const MAP = {
           value: 14,
           shape: "poly",
           coords: [128,61,162,61,165,117,125,118],
-          preFillColor: "rgba(255, 255, 255, 0.3)",
-          strokeColor: "rgba(43, 22, 106, 1)"
+         // preFillColor: "rgba(255, 255, 255, 0.3)",
+          //strokeColor: "rgba(43, 22, 106, 1)"
       },
       {
           name: "right keyway",
@@ -476,8 +476,8 @@ const MAP = {
           value: 15,
           shape: "poly",
           coords: [165,63,202,63,202,114,168,115],
-          preFillColor: "rgba(255, 255, 255, 0.3)",
-          strokeColor: "rgba(43, 22, 106, 1)"
+         // preFillColor: "rgba(255, 255, 255, 0.3)",
+         // strokeColor: "rgba(43, 22, 106, 1)"
       },
       {
           name: "foul",
@@ -485,8 +485,8 @@ const MAP = {
           value: 16,
           shape: "poly",
           coords: [127,122,199,117,200,126,127,130],
-          preFillColor: "rgba(255, 255, 255, 0.3)",
-          strokeColor: "rgba(43, 22, 106, 1)"
+         // preFillColor: "rgba(255, 255, 255, 0.3)",
+         // strokeColor: "rgba(43, 22, 106, 1)"
       }
 
   ]

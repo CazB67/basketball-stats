@@ -436,18 +436,18 @@ function Display() {
             <td>{stats.reduce((acc, stat) => acc + stat.area14Missed,0)}</td>
             {/* <td>{stats.reduce((acc, stat) => acc + stat.area14Made,0) / (stats.reduce((acc, stat) => acc + stat.area14Made,0) + stats.reduce((acc, stat) => acc + stat.area14Missed,0)) * 100}</td> */}
           </tr>         
-          {/* <tr>
+          <tr>
             <td>15</td>
             <td>{stats.reduce((acc, stat) => acc + stat.area15Made,0)}</td>
             <td>{stats.reduce((acc, stat) => acc + stat.area15Missed,0)}</td>
-            <td>{stats.reduce((acc, stat) => acc + stat.area14Made,0) / (stats.reduce((acc, stat) => acc + stat.area14Made,0) + stats.reduce((acc, stat) => acc + stat.area14Missed,0)) * 100}</td>
-          </tr>   */}
-          {/* <tr>
+            {/* <td>{stats.reduce((acc, stat) => acc + stat.area14Made,0) / (stats.reduce((acc, stat) => acc + stat.area14Made,0) + stats.reduce((acc, stat) => acc + stat.area14Missed,0)) * 100}</td> */}
+          </tr>  
+          <tr>
             <td>16</td>
             <td>{stats.reduce((acc, stat) => acc + stat.area16Made,0)}</td>
             <td>{stats.reduce((acc, stat) => acc + stat.area16Missed,0)}</td>
-            <td>{stats.reduce((acc, stat) => acc + stat.area14Made,0) / (stats.reduce((acc, stat) => acc + stat.area14Made,0) + stats.reduce((acc, stat) => acc + stat.area14Missed,0)) * 100}</td>
-          </tr>                                            */}
+            {/* <td>{stats.reduce((acc, stat) => acc + stat.area14Made,0) / (stats.reduce((acc, stat) => acc + stat.area14Made,0) + stats.reduce((acc, stat) => acc + stat.area14Missed,0)) * 100}</td> */}
+          </tr>                                           
         </tbody>
     </Table></Col>
     </Row>
