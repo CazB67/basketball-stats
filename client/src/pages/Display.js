@@ -7,12 +7,12 @@ import axios from 'axios';
 import{ StatsNav, NavLink} from "../components/Navbar";
 import PieChart from "../components/PieChart";
 import * as d3 from "d3";
-import { Col, Row, Tabs, Tab } from 'react-bootstrap';
+import { Col, Row, Tabs, Tab, Table } from 'react-bootstrap';
 import Footer from "../components/Footer";
 import BarChart from "../components/BarChart";
 import LineChart from "../components/LineChart";
+import court2 from "../images/court2.png";
 import "./style.css";
-
 
 function Display() {
   const [rebounds, setRebounds] = useState([]);
@@ -21,14 +21,13 @@ function Display() {
   const [twoPoints, setTwoPoints] = useState([])
   const [dataTwoPoints, setDataTwoPoints] = useState([])
 
-  const [threePoints, setThreePoints] = useState([])
-  const [dataThreePoints, setDataThreePoints] = useState([])
+  const [threePoints, setThreePoints] = useState([]);
+  const [dataThreePoints, setDataThreePoints] = useState([]);
 
-  const [generalPlay, setGeneralPlay] = useState([])
-  const [dataGeneralPlay, setDataGeneralPlay] = useState([])
-
+  const [generalPlay, setGeneralPlay] = useState([]);
+  const [dataGeneralPlay, setDataGeneralPlay] = useState([]);
   const [stats, setStats] = useState([]);
-  
+
   const generateReboundData = (value, length = 5) =>
     d3.range(length).map((item, index) => ({
       date: index,
@@ -80,7 +79,7 @@ function Display() {
       setRebounds(getRebounds);
     }, [stats])
 
-  useEffect(() => {
+    useEffect(() => {
       setData(generateReboundData());
       setDataTwoPoints(generateTwoPointData());
       setDataThreePoints(generateThreePointData());
@@ -337,6 +336,122 @@ function Display() {
               label4={"Fouls"}/>
         </Col>
       </Row>
+  </Tab>
+  <Tab eventKey="shotchart" title="Shots">
+  <h3 className="mt-3 mb-3" style={{fontFamily: 'Red Rose'}}>Shot Tracking</h3>
+    <Row>
+      <Col xs={12} md={6}><img className="mt-3" alt="halfcourt" src={court2}/></Col>
+      <Col xs={12} md={6}>
+      <Table className="mt-3" striped bordered hover size="sm" responsive>
+        <thead>
+          <tr>
+            <th>Area</th>
+            <th>Shot Made</th>
+            <th>Shot Missed</th>
+            {/* <th>%</th> */}
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>{stats.reduce((acc, stat) => acc + stat.area1Made,0)}</td>
+            <td>{stats.reduce((acc, stat) => acc + stat.area1Missed,0)}</td>
+            {/* <td>{stats.reduce((acc, stat) => acc + stat.area1Made,0) / (stats.reduce((acc, stat) => acc + stat.area1Made,0) + stats.reduce((acc, stat) => acc + stat.area1Missed,0)) * 100}</td> */}
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>{stats.reduce((acc, stat) => acc + stat.area2Made,0)}</td>
+            <td>{stats.reduce((acc, stat) => acc + stat.area2Missed,0)}</td>
+            {/* <td>{stats.reduce((acc, stat) => acc + stat.area2Made,0) / (stats.reduce((acc, stat) => acc + stat.area2Made,0) + stats.reduce((acc, stat) => acc + stat.area2Missed,0)) * 100}</td> */}
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>{stats.reduce((acc, stat) => acc + stat.area3Made,0)}</td>
+            <td>{stats.reduce((acc, stat) => acc + stat.area3Missed,0)}</td>
+            {/* <td>{stats.reduce((acc, stat) => acc + stat.area3Made,0) / (stats.reduce((acc, stat) => acc + stat.area3Made,0) + stats.reduce((acc, stat) => acc + stat.area3Missed,0)) * 100}</td> */}
+          </tr>     
+          <tr>
+            <td>4</td>
+            <td>{stats.reduce((acc, stat) => acc + stat.area4Made,0)}</td>
+            <td>{stats.reduce((acc, stat) => acc + stat.area4Missed,0)}</td>
+            {/* <td>{stats.reduce((acc, stat) => acc + stat.area4Made,0) / (stats.reduce((acc, stat) => acc + stat.area4Made,0) + stats.reduce((acc, stat) => acc + stat.area4Missed,0)) * 100}</td> */}
+          </tr>   
+          <tr>
+            <td>5</td>
+            <td>{stats.reduce((acc, stat) => acc + stat.area5Made,0)}</td>
+            <td>{stats.reduce((acc, stat) => acc + stat.area5Missed,0)}</td>
+            {/* <td>{stats.reduce((acc, stat) => acc + stat.area5Made,0) / (stats.reduce((acc, stat) => acc + stat.area5Made,0) + stats.reduce((acc, stat) => acc + stat.area5Missed,0)) * 100}</td> */}
+          </tr>                      
+          <tr>
+            <td>6</td>
+            <td>{stats.reduce((acc, stat) => acc + stat.area6Made,0)}</td>
+            <td>{stats.reduce((acc, stat) => acc + stat.area6Missed,0)}</td>
+            {/* <td>{stats.reduce((acc, stat) => acc + stat.area6Made,0) / (stats.reduce((acc, stat) => acc + stat.area6Made,0) + stats.reduce((acc, stat) => acc + stat.area6Missed,0)) * 100}</td> */}
+          </tr>          
+          <tr>
+            <td>7</td>
+            <td>{stats.reduce((acc, stat) => acc + stat.area7Made,0)}</td>
+            <td>{stats.reduce((acc, stat) => acc + stat.area7Missed,0)}</td>
+            {/* <td>{stats.reduce((acc, stat) => acc + stat.area7Made,0) / (stats.reduce((acc, stat) => acc + stat.area7Made,0) + stats.reduce((acc, stat) => acc + stat.area7Missed,0)) * 100}</td> */}
+          </tr>     
+          <tr>
+            <td>8</td>
+            <td>{stats.reduce((acc, stat) => acc + stat.area8Made,0)}</td>
+            <td>{stats.reduce((acc, stat) => acc + stat.area8Missed,0)}</td>
+            {/* <td>{stats.reduce((acc, stat) => acc + stat.area8Made,0) / (stats.reduce((acc, stat) => acc + stat.area8Made,0) + stats.reduce((acc, stat) => acc + stat.area8Missed,0)) * 100}</td> */}
+          </tr>               
+          <tr>
+            <td>9</td>
+            <td>{stats.reduce((acc, stat) => acc + stat.area9Made,0)}</td>
+            <td>{stats.reduce((acc, stat) => acc + stat.area9Missed,0)}</td>
+            {/* <td>{stats.reduce((acc, stat) => acc + stat.area9Made,0) / (stats.reduce((acc, stat) => acc + stat.area9Made,0) + stats.reduce((acc, stat) => acc + stat.area9Missed,0)) * 100}</td> */}
+          </tr>          
+          <tr>
+            <td>10</td>
+            <td>{stats.reduce((acc, stat) => acc + stat.area10Made,0)}</td>
+            <td>{stats.reduce((acc, stat) => acc + stat.area10Missed,0)}</td>
+            {/* <td>{stats.reduce((acc, stat) => acc + stat.area10Made,0) / (stats.reduce((acc, stat) => acc + stat.area10Made,0) + stats.reduce((acc, stat) => acc + stat.area10Missed,0)) * 100}</td> */}
+          </tr>     
+          <tr>
+            <td>11</td>
+            <td>{stats.reduce((acc, stat) => acc + stat.area11Made,0)}</td>
+            <td>{stats.reduce((acc, stat) => acc + stat.area11Missed,0)}</td>
+            {/* <td>{stats.reduce((acc, stat) => acc + stat.area11Made,0) / (stats.reduce((acc, stat) => acc + stat.area11Made,0) + stats.reduce((acc, stat) => acc + stat.area11Missed,0)) * 100}</td> */}
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>{stats.reduce((acc, stat) => acc + stat.area12Made,0)}</td>
+            <td>{stats.reduce((acc, stat) => acc + stat.area12Missed,0)}</td>
+            {/* <td>{stats.reduce((acc, stat) => acc + stat.area12Made,0) / (stats.reduce((acc, stat) => acc + stat.area12Made,0) + stats.reduce((acc, stat) => acc + stat.area12Missed,0)) * 100}</td> */}
+          </tr>
+          <tr>
+            <td>13</td>
+            <td>{stats.reduce((acc, stat) => acc + stat.area13Made,0)}</td>
+            <td>{stats.reduce((acc, stat) => acc + stat.area13Missed,0)}</td>
+            {/* <td>{stats.reduce((acc, stat) => acc + stat.area13Made,0) / (stats.reduce((acc, stat) => acc + stat.area13Made,0) + stats.reduce((acc, stat) => acc + stat.area13Missed,0)) * 100}</td> */}
+          </tr>   
+          <tr>
+            <td>14</td>
+            <td>{stats.reduce((acc, stat) => acc + stat.area14Made,0)}</td>
+            <td>{stats.reduce((acc, stat) => acc + stat.area14Missed,0)}</td>
+            {/* <td>{stats.reduce((acc, stat) => acc + stat.area14Made,0) / (stats.reduce((acc, stat) => acc + stat.area14Made,0) + stats.reduce((acc, stat) => acc + stat.area14Missed,0)) * 100}</td> */}
+          </tr>         
+          {/* <tr>
+            <td>15</td>
+            <td>{stats.reduce((acc, stat) => acc + stat.area15Made,0)}</td>
+            <td>{stats.reduce((acc, stat) => acc + stat.area15Missed,0)}</td>
+            <td>{stats.reduce((acc, stat) => acc + stat.area14Made,0) / (stats.reduce((acc, stat) => acc + stat.area14Made,0) + stats.reduce((acc, stat) => acc + stat.area14Missed,0)) * 100}</td>
+          </tr>   */}
+          {/* <tr>
+            <td>16</td>
+            <td>{stats.reduce((acc, stat) => acc + stat.area16Made,0)}</td>
+            <td>{stats.reduce((acc, stat) => acc + stat.area16Missed,0)}</td>
+            <td>{stats.reduce((acc, stat) => acc + stat.area14Made,0) / (stats.reduce((acc, stat) => acc + stat.area14Made,0) + stats.reduce((acc, stat) => acc + stat.area14Missed,0)) * 100}</td>
+          </tr>                                            */}
+        </tbody>
+    </Table></Col>
+    </Row>
+    
   </Tab>
 </Tabs>
       

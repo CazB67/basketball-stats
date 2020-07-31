@@ -52,15 +52,48 @@ function Stats() {
     courtTime: 0,
     opponent:"",
     opponentScore: 0,
-    teamScore: 0
-  });
+    teamScore: 0,
+    area1Made: 0,
+    area2Made: 0,
+    area3Made: 0,
+    area4Made: 0,
+    area5Made: 0,
+    area6Made: 0,
+    area7Made: 0,
+    area8Made: 0,
+    area9Made: 0,
+    area10Made: 0,
+    area11Made: 0,
+    area12Made: 0,
+    area13Made: 0,
+    area14Made: 0,
+    area15Made: 0,
+    area16Made: 0,
+    area1Missed: 0,
+    area2Missed: 0,
+    area3Missed: 0,
+    area4Missed: 0,
+    area5Missed: 0,
+    area6Missed: 0,
+    area7Missed: 0,
+    area8Missed: 0,
+    area9Missed: 0,
+    area10Missed: 0,
+    area11Missed: 0,
+    area12Missed: 0,
+    area13Missed: 0,
+    area14Missed: 0,
+    area15Missed: 0,
+    area16Missed: 0
 
+  });
 
   const [seconds, setSeconds] = useState(0);
   const [clockId, setClockId] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
   const [show, setShow] = useState(false);
-  const [shotChartShow, setShotChartShow] = useState(false);
+  const [shotChartShowMade, setShotChartShowMade] = useState(false);
+  const [shotChartShowMissed, setShotChartShowMissed] = useState(false);
   const [open, setOpen] = useState(false);
   const [opponent, setOpponent] =useState("");
   const [opponentScore, setOpponentScore] =useState(0);
@@ -117,7 +150,8 @@ function Stats() {
   
   const handleClose2 = () => setOpen(false)
   const handleClose3 = () => setShow(false)
-  const handleClose4 = () => setShotChartShow(false)
+  const handleClose4 = () => setShotChartShowMade(false)
+  const handleClose5 = () => setShotChartShowMissed(false)
 
   function handleStartGame() {
     setVisibilityStart("d-none")
@@ -142,6 +176,38 @@ function Stats() {
       opponent:"",
       opponentScore: 0,
       teamScore: 0,
+      area1Made: 0,
+      area2Made: 0,
+      area3Made: 0,
+      area4Made: 0,
+      area5Made: 0,
+      area6Made: 0,
+      area7Made: 0,
+      area8Made: 0,
+      area9Made: 0,
+      area10Made: 0,
+      area11Made: 0,
+      area12Made: 0,
+      area13Made: 0,
+      area14Made: 0,
+      area15Made: 0,
+      area16Made: 0,
+      area1Missed: 0,
+      area2Missed: 0,
+      area3Missed: 0,
+      area4Missed: 0,
+      area5Missed: 0,
+      area6Missed: 0,
+      area7Missed: 0,
+      area8Missed: 0,
+      area9Missed: 0,
+      area10Missed: 0,
+      area11Missed: 0,
+      area12Missed: 0,
+      area13Missed: 0,
+      area14Missed: 0,
+      area15Missed: 0,
+      area16Missed: 0
     })
 }
 
@@ -185,6 +251,38 @@ const handleSavingGameData = event => {
     opponent:"",
     opponentScore: 0,
     teamScore: 0,
+    area1Made: 0,
+      area2Made: 0,
+      area3Made: 0,
+      area4Made: 0,
+      area5Made: 0,
+      area6Made: 0,
+      area7Made: 0,
+      area8Made: 0,
+      area9Made: 0,
+      area10Made: 0,
+      area11Made: 0,
+      area12Made: 0,
+      area13Made: 0,
+      area14Made: 0,
+      area15Made: 0,
+      area16Made: 0,
+      area1Missed: 0,
+      area2Missed: 0,
+      area3Missed: 0,
+      area4Missed: 0,
+      area5Missed: 0,
+      area6Missed: 0,
+      area7Missed: 0,
+      area8Missed: 0,
+      area9Missed: 0,
+      area10Missed: 0,
+      area11Missed: 0,
+      area12Missed: 0,
+      area13Missed: 0,
+      area14Missed: 0,
+      area15Missed: 0,
+      area16Missed: 0
   })
   setIsRunning(false)
   clearInterval(clockId)
@@ -210,6 +308,357 @@ const handleInputChangeOpponentScore = event => {
   const { value } = event.target;
   setOpponentScore(value)
  }
+
+ function handleOnClick(event ) {
+  event.preventDefault()
+  const { name } = event.target;
+  
+  switch(name) {
+    case "threePointerMade":
+      setCount({...count, threePointerMade: count.threePointerMade + 1})
+      setShotChartShowMade(true)
+      break;
+    case "threePointerMissed":
+      setCount({...count, threePointerMissed: count.threePointerMissed + 1})
+      setShotChartShowMissed(true)
+      break;
+    case "twoPointerMade":
+      setCount({...count, twoPointerMade: count.twoPointerMade + 1})
+      setShotChartShowMade(true)
+      break;
+    case "twoPointerMissed":
+      setCount({...count, twoPointerMissed: count.twoPointerMissed + 1})
+      setShotChartShowMissed(true)
+      break;
+    case "onePointerMade":
+      setCount({...count, onePointerMade: count.onePointerMade + 1})
+      setShotChartShowMade(true)
+      break;
+    case "onePointerMissed":
+      setCount({...count, onePointerMissed: count.onePointerMissed + 1})
+      setShotChartShowMissed(true)
+    break;
+    default:
+      // code block
+  }
+ 
+}
+
+const MAP = {
+  name: "my-map",
+  areas: [
+      {
+          name: "left three pointer baseline",
+          shape: "poly",
+          coords: [3,1,31,4,29,46,0,47],
+          value: 1,
+          alt: "left three pointer baseline",
+          preFillColor: "rgba(255, 255, 255, 0.3)",
+          strokeColor: "rgba(43, 22, 106, 1)"
+      },
+      {
+          name: "right three pointer baseline",
+          shape: "poly",
+          coords: [302,2,329,4,329,50,302,53],
+          value: 2,
+          alt:"right three pointer baseline",
+          preFillColor: "rgba(255, 255, 255, 0.3)",
+          strokeColor: "rgba(43, 22, 106, 1)"
+      },
+      {
+          name: "left three pointer 33degrees",
+          shape: "poly",
+          coords: [2,48,28,47,31,69,41,101,53,122,2,129],
+          alt:"left three pointer 33degrees",
+          value: 3,
+          preFillColor: "rgba(255, 255, 255, 0.3)",
+          strokeColor: "rgba(43, 22, 106, 1)"
+      },
+      {
+          name: "left three pointer 45degrees",
+          value: 4,
+          shape: "poly",
+          coords: [3,131,55,125,107,169,4,285],
+          alt:"left three pointer",
+          preFillColor: "rgba(43, 22, 106, 1)"
+      },
+      {
+          name: "right three pointer 33degrees",
+          alt: "right three pointer 33degrees",
+          value: 5,
+          shape: "poly",
+          coords: [302,56,327,54,329,133,274,131],
+          preFillColor: "rgba(255, 255, 255, 0.3)",
+          strokeColor: "rgba(43, 22, 106, 1)"
+      },
+      {
+          name: "right three pointer 45degrees",
+          alt: "right three pointer 45degrees",
+          value: 6,
+          shape: "poly",
+          coords: [271,127,328,132,329,284,223,172],
+          preFillColor: "rgba(43, 22, 106, 1)"
+      },
+      {
+          name: "centre three pointer",
+          alt: "centre three pointer",
+          value: 7,
+          shape: "poly",
+          coords: [102,171,65,215,259,215,219,171,187,177,146,180],
+          preFillColor: "rgba(255, 255, 255, 0.3)",
+          strokeColor: "rgba(43, 22, 106, 1)"
+      },
+      {
+          name: "centre deep three pointer",
+          alt: "centre deep three pointer",
+          value: 8,
+          shape: "poly",
+          coords: [1,290,325,292,326,284,260,218,66,219,59,228,51,236],
+          preFillColor: "rgba(255, 255, 255, 0.3)",
+          strokeColor: "rgba(43, 22, 106, 1)"
+      },
+      {
+          name: "left under hoop",
+          alt: "left under hoop",
+          value: 9,
+          shape: "rect",
+          coords: [127,24,166,58],
+          preFillColor: "rgba(255, 255, 255, 0.3)",
+          strokeColor: "rgba(43, 22, 106, 1)"
+      },
+      {
+          name: "right under hoop",
+          alt: "right under hoop",
+          value: 10,
+          shape: "rect",
+          coords: [168,26,202,58],
+          preFillColor: "rgba(255, 255, 255, 0.3)",
+          strokeColor: "rgba(43, 22, 106, 1)"
+      },
+      {
+          name: "right midrange",
+          alt: "right midrange",
+          value: 11,
+          shape: "poly",
+          coords: [206,28,301,26,302,46,296,66,288,84,280,104,271,123,249,142,229,162,213,169,204,171],
+          preFillColor: "rgba(43, 22, 106, 1)"
+      },
+      {
+          name: "left midrange",
+          alt: "left midrange",
+          value: 12,
+          shape: "poly",
+          coords: [125,25,31,26,33,49,37,80,47,110,64,129,81,142,89,153,112,166,123,175],
+          preFillColor: "rgba(43, 22, 106, 1)"
+      },
+      {
+          name: "deep midrange",
+          alt: "deep midrange",
+          value: 13,
+          shape: "poly",
+          coords: [124,131,203,126,201,176,126,174],
+          lineWidth: 2,
+          preFillColor: "rgba(255, 255, 255, 0.3)",
+          strokeColor: "rgba(43, 22, 106, 1)"
+      },
+      {
+          name: "left keyway",
+          alt: "left keyway",
+          value: 14,
+          shape: "poly",
+          coords: [128,61,162,61,165,117,125,118],
+          preFillColor: "rgba(255, 255, 255, 0.3)",
+          strokeColor: "rgba(43, 22, 106, 1)"
+      },
+      {
+          name: "right keyway",
+          alt: "right keyway",
+          value: 15,
+          shape: "poly",
+          coords: [165,63,202,63,202,114,168,115],
+          preFillColor: "rgba(255, 255, 255, 0.3)",
+          strokeColor: "rgba(43, 22, 106, 1)"
+      },
+      {
+          name: "foul",
+          alt: "foul",
+          value: 16,
+          shape: "poly",
+          coords: [127,122,199,117,200,126,127,130],
+          preFillColor: "rgba(255, 255, 255, 0.3)",
+          strokeColor: "rgba(43, 22, 106, 1)"
+      }
+
+  ]
+};
+
+function clicked(area, made) {
+  switch(area.value) {
+    case 1:
+      if(made === 1) {
+        setCount({...count, area1Made: count.area1Made + 1})
+        setShotChartShowMade(false)
+      }
+      else {
+        setCount({...count, area1Missed: count.area1Missed + 1})
+        setShotChartShowMissed(false)
+      }
+      break;
+    case 2:
+      if(made === 1) {
+        setCount({...count, area2Made: count.area2Made + 1})
+        setShotChartShowMade(false)
+      }
+      else {
+        setCount({...count, area2Missed: count.area2Missed + 1})
+        setShotChartShowMissed(false)
+      }
+      break;
+    case 3:
+      if(made === 1) {
+        setCount({...count, area3Made: count.area3Made + 1})
+        setShotChartShowMade(false)
+      }
+      else {
+        setCount({...count, area3Missed: count.area3Missed + 1})
+        setShotChartShowMissed(false)
+      }
+      break;
+    case 4:
+    if(made === 1) {
+      setCount({...count, area4Made: count.area4Made + 1})
+      setShotChartShowMade(false)
+    }
+    else {
+      setCount({...count, area4Missed: count.area4Missed + 1})
+      setShotChartShowMissed(false)
+    }
+    break;
+  case 5:
+    if(made === 1) {
+      setCount({...count, area5Made: count.area5Made + 1})
+      setShotChartShowMade(false)
+    }
+    else {
+      setCount({...count, area5Missed: count.area5Missed + 1})
+      setShotChartShowMissed(false)
+    }
+    break;
+  case 6:
+    if(made === 1) {
+      setCount({...count, area6Made: count.area6Made + 1})
+      setShotChartShowMade(false)
+    }
+    else {
+      setCount({...count, area6Missed: count.area6Missed + 1})
+      setShotChartShowMissed(false)
+    }
+    break;
+  case 7:
+    if(made === 1) {
+      setCount({...count, area7Made: count.area7Made + 1})
+      setShotChartShowMade(false)
+    }
+    else {
+      setCount({...count, area7Missed: count.area7Missed + 1})
+      setShotChartShowMissed(false)
+    }
+    break;
+  case 8:
+    if(made === 1) {
+      setCount({...count, area8Made: count.area8Made + 1})
+      setShotChartShowMade(false)
+    }
+    else {
+      setCount({...count, area8Missed: count.area8Missed + 1})
+      setShotChartShowMissed(false)
+    }
+    break;
+  case 9:
+    if(made === 1) {
+      setCount({...count, area9Made: count.area9Made + 1})
+      setShotChartShowMade(false)
+    }
+    else {
+      setCount({...count, area9Missed: count.area9Missed + 1})
+      setShotChartShowMissed(false)
+    }
+    break;
+  case 10:
+    if(made === 1) {
+      setCount({...count, area10Made: count.area10Made + 1})
+      setShotChartShowMade(false)
+    }
+    else {
+      setCount({...count, area10Missed: count.area10Missed + 1})
+      setShotChartShowMissed(false)
+    }
+    break;
+  case 11:
+    if(made === 1) {
+      setCount({...count, area11Made: count.area11Made + 1})
+      setShotChartShowMade(false)
+    }
+    else {
+      setCount({...count, area11Missed: count.area11Missed + 1})
+      setShotChartShowMissed(false)
+    }
+    break;
+  case 12:
+    if(made === 1) {
+      setCount({...count, area12Made: count.area12Made + 1})
+      setShotChartShowMade(false)
+    }
+    else {
+      setCount({...count, area12Missed: count.area12Missed + 1})
+      setShotChartShowMissed(false)
+    }
+    break;
+  case 13:
+    if(made === 1) {
+      setCount({...count, area13Made: count.area13Made + 1})
+      setShotChartShowMade(false)
+    }
+    else {
+      setCount({...count, area13Missed: count.area13Missed + 1})
+      setShotChartShowMissed(false)
+    }
+    break;
+  case 14:
+    if(made === 1) {
+      setCount({...count, area14Made: count.area14Made + 1})
+      setShotChartShowMade(false)
+    }
+    else {
+      setCount({...count, area14Missed: count.area14Missed + 1})
+      setShotChartShowMissed(false)
+    }
+    break;
+  case 15:
+    if(made === 1) {
+      setCount({...count, area15Made: count.area15Made + 1})
+      setShotChartShowMade(false)
+    }
+    else {
+      setCount({...count, area15Missed: count.area15Missed + 1})
+      setShotChartShowMissed(false)
+    }
+    break;
+    case 16:
+    if(made === 1) {
+      setCount({...count, area16Made: count.area16Made + 1})
+      setShotChartShowMade(false)
+    }
+    else {
+      setCount({...count, area16Missed: count.area16Missed + 1})
+      setShotChartShowMissed(false)
+    }
+    break;
+    default:
+      // code block
+  }
+  
+}
 
     return (
       <>
@@ -239,8 +688,16 @@ const handleInputChangeOpponentScore = event => {
         />
 
         <ShotChart
-          show={shotChartShow}
+          show={shotChartShowMade}
+          onClick={area => clicked(area,1)}
+          MAP={MAP}
           onHide={handleClose4}/>
+
+        <ShotChart
+          show={shotChartShowMissed}
+          onClick={area => clicked(area,0)}
+          MAP={MAP}
+          onHide={handleClose5}/>
 
         <Button
         visibilityStart={visibilityStart}
@@ -267,7 +724,7 @@ const handleInputChangeOpponentScore = event => {
               skill="3 pts made" 
               value=""
             >
-              <CountButtonUp onClick={() => setCount({...count, threePointerMade: count.threePointerMade + 1})}/>
+              <CountButtonUp name="threePointerMade" onClick={handleOnClick}/>
               <CountButtonShow> {count.threePointerMade} </CountButtonShow>
               <CountButtonDown onClick={() => count.threePointerMade > 0 ? setCount({...count,  threePointerMade: count.threePointerMade - 1}): 0}/>
             </StatsCard>
@@ -278,7 +735,7 @@ const handleInputChangeOpponentScore = event => {
               skill="3 pts missed" 
               value=""
             >
-              <CountButtonUp onClick={() => setCount({...count, threePointerMissed: count.threePointerMissed + 1})}/>
+              <CountButtonUp name="threePointerMissed" onClick={handleOnClick}/>
               <CountButtonShow> {count.threePointerMissed} </CountButtonShow>
               <CountButtonDown onClick={() => count.threePointerMissed > 0 ? setCount({...count,  threePointerMissed: count.threePointerMissed - 1}) : 0}/>
             </StatsCard>
@@ -289,7 +746,7 @@ const handleInputChangeOpponentScore = event => {
               skill="2 pts made" 
               value=""
             >
-              <CountButtonUp onClick={() => setCount({...count,    twoPointerMade: count.twoPointerMade + 1})}/>
+              <CountButtonUp name="twoPointerMade" onClick={handleOnClick}/>
               <CountButtonShow> {count.twoPointerMade} </CountButtonShow>
               <CountButtonDown onClick={() => count.twoPointerMade > 0 ? setCount({...count,  twoPointerMade: count.twoPointerMade - 1}): 0}/>
             </StatsCard>
@@ -300,7 +757,7 @@ const handleInputChangeOpponentScore = event => {
               skill="2 pts missed" 
               value=""
             >
-              <CountButtonUp onClick={() => setCount({...count,    twoPointerMissed: count.twoPointerMissed + 1})}/>
+              <CountButtonUp name="twoPointerMissed" onClick={handleOnClick}/>
               <CountButtonShow> {count.twoPointerMissed} </CountButtonShow>
               <CountButtonDown onClick={() => count.twoPointerMissed > 0 ? setCount({...count,  twoPointerMissed: count.twoPointerMissed - 1}) : 0}/>
             </StatsCard>
@@ -311,7 +768,7 @@ const handleInputChangeOpponentScore = event => {
               skill="1 pt made" 
               value=""
             >
-              <CountButtonUp onClick={() => setCount({...count,    onePointerMade: count.onePointerMade + 1})}/>
+              <CountButtonUp name="onePointerMade" onClick={handleOnClick}/>
               <CountButtonShow> {count.onePointerMade} </CountButtonShow>
               <CountButtonDown onClick={() => count.onePointerMade > 0 ? setCount({...count,  onePointerMade: count.onePointerMade - 1}): 0}/>
             </StatsCard>
@@ -322,7 +779,7 @@ const handleInputChangeOpponentScore = event => {
               skill="1 pt miss" 
               value=""
             >
-              <CountButtonUp onClick={() => setCount({...count,    onePointerMissed: count.onePointerMissed + 1})}/>
+              <CountButtonUp name="onePointerMissed" onClick={handleOnClick}/>
               <CountButtonShow> {count.onePointerMissed} </CountButtonShow>
               <CountButtonDown onClick={() => count.onePointerMissed > 0 ? setCount({...count,  onePointerMissed: count.onePointerMissed - 1}): 0}/>
             </StatsCard>

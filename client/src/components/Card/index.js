@@ -22,7 +22,7 @@ export function StatsCard(props) {
 
 export function CountButtonUp(props) { 
   return (
-        <img src={upArrow} className="mr-2 arrows" alt="uparrow" onClick={props.onClick}/>
+        <img src={upArrow} className="mr-2 arrows" alt="uparrow" name={props.name} onClick={props.onClick}/>
   );
 }
 

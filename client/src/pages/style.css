@@ -1,9 +1,9 @@
-a#uncontrolled-tab-example-tab-pergamestats:hover, a#uncontrolled-tab-example-tab-minutes:hover, a#uncontrolled-tab-example-tab-allstats:hover, a#uncontrolled-tab-example-tab-careerstats:hover {
+a#uncontrolled-tab-example-tab-pergamestats:hover, a#uncontrolled-tab-example-tab-shotchart:hover, a#uncontrolled-tab-example-tab-minutes:hover, a#uncontrolled-tab-example-tab-allstats:hover, a#uncontrolled-tab-example-tab-careerstats:hover {
     color: #0b53ef !important;
  
 }
 
-a#uncontrolled-tab-example-tab-pergamestats, a#uncontrolled-tab-example-tab-minutes, a#uncontrolled-tab-example-tab-allstats, a#uncontrolled-tab-example-tab-careerstats {
+a#uncontrolled-tab-example-tab-pergamestats, a#uncontrolled-tab-example-tab-shotchart, a#uncontrolled-tab-example-tab-minutes, a#uncontrolled-tab-example-tab-allstats, a#uncontrolled-tab-example-tab-careerstats {
     color: black !important;
  
 }
