@@ -245,7 +245,7 @@ function Display() {
       <StatsNav>
         <NavLink/>
       </StatsNav>
-      <Tabs defaultActiveKey="allstats" id="uncontrolled-tab-example" style={{fontFamily: 'Red Rose', backgroundColor: "#e0cdea"}}>
+      <Tabs responsive defaultActiveKey="allstats" id="uncontrolled-tab-example" style={{fontFamily: 'Red Rose', backgroundColor: "#e0cdea"}}>
       <Tab eventKey="allstats" title="Stats"  >
         <h3 className="mt-3 mb-3" style={{fontFamily: 'Red Rose'}}>All Stats</h3>
           <TableWrapper>
@@ -253,7 +253,7 @@ function Display() {
               {stats.map(stat => (
               <DataTable
                 key={stat._id}
-                date={stat.createdAt.substring(0,10)}
+                date={stat.createdAt.substring(0,10).split("-").reverse().join("-")}
                 opponent={stat.opponent
                   .toLowerCase()
                   .split(' ')

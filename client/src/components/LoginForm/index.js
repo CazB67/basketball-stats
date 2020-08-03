@@ -4,7 +4,7 @@ import "./style.css";
 import Form from 'react-bootstrap/Form';
 import {Button, Row, Col} from 'react-bootstrap';
 import axios from 'axios';
-import basketballers from '../../images/basketballers.png'
+import basketballers from '../../images/basketballers.png';
 
 function LoginForm(props) {
   const history = useHistory();
@@ -80,7 +80,7 @@ const onSubmit = async (event) => {
             ))}
           </Form.Group>
           <Button onClick={onSubmit} className="timer" variant="light" type="submit" active>
-          SIGN IN
+          {props.signin}
           </Button>
         </Form>
     </>
