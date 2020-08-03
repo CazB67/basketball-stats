@@ -119,6 +119,14 @@ function Display() {
       .catch(err => console.log(err));
   };
 
+  function handleDelete(id) {
+    API.deleteStat(id)
+    .then(res =>
+      getSavedStats()
+    ).catch(err => console.log(err));
+  };
+
+
   const barChartstate = {
     dataBar: {
       labels: stats.map(stat => (stat.opponent.toLowerCase()
@@ -245,7 +253,7 @@ function Display() {
       <StatsNav>
         <NavLink/>
       </StatsNav>
-      <Tabs responsive defaultActiveKey="allstats" id="uncontrolled-tab-example" style={{fontFamily: 'Red Rose', backgroundColor: "#e0cdea"}}>
+      <Tabs defaultActiveKey="allstats" id="uncontrolled-tab-example" style={{fontFamily: 'Red Rose', backgroundColor: "#e0cdea"}}>
       <Tab eventKey="allstats" title="Stats"  >
         <h3 className="mt-3 mb-3" style={{fontFamily: 'Red Rose'}}>All Stats</h3>
           <TableWrapper>
@@ -273,6 +281,7 @@ function Display() {
                 foul={stat.foul}
                 turnover={stat.turnover}
                 courttime={formatGameTime(stat.courtTime)}
+                onClick={() => handleDelete(stat._id)}
               />
               ))}
 

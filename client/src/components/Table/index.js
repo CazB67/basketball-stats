@@ -22,6 +22,7 @@ export function DataTable(props) {
               <td>{props.foul}</td>
               <td>{props.turnover}</td>
               <td>{props.courttime}</td>
+              <td><i onClick={props.onClick} className="fas fa-trash"></i></td>
             </tr>
           </tbody>
               </>
@@ -49,6 +50,7 @@ export function DataTable(props) {
               <th>Foul</th>
               <th>Turnover</th>
               <th>CourtTime</th>
+              <th>RemoveGame</th>
             </tr>
           </thead>
               </>
