@@ -138,7 +138,7 @@ function Display() {
       labels: stats.map(stat => (stat.opponent.toLowerCase()
       .split(' ')
       .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ') + " " + stat.createdAt.substring(5,10).split("-").reverse().join("-"))),
+      .join(' ') + " " + stat.createdAt.substring(5,10).split("-").reverse().join("/"))),
       datasets: [
         {
           label: "Minutes",
@@ -184,7 +184,7 @@ function Display() {
       labels:  stats.map(stat => (stat.opponent.toLowerCase()
       .split(' ')
       .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ') + " " + stat.createdAt.substring(5,10).split("-").reverse().join("-"))),
+      .join(' ') + " " + stat.createdAt.substring(5,10).split("-").reverse().join("/"))),
       datasets: [
         {
           label: "Total Points",
