@@ -9,7 +9,6 @@ module.exports = {
     },
     create: function(req, res) {
       const data = new db.Stat(req.body)
-      console.log(req.body);
       data.setFinalScore();
       data.setTotalPoints();
       data.setTotalRebounds();
@@ -20,7 +19,6 @@ module.exports = {
         .catch(err => res.status(422).json(err));
     },
     remove: function(req, res) {
-      console.log(req);
       db.Stat
         .findById({ _id: req.params.id })
         .then(dbModel => dbModel.remove())

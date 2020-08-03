@@ -7,7 +7,6 @@ export default {
         gameData.opponent = opponent;
         gameData.opponentScore = opponentScore;
         gameData.teamScore = teamScore
-        //gameData.user_id =  store.auth.authState.id;
         return axios.post("/api/stats/", gameData, {withCredentials: true})
     },
     getSavedStats: function() {

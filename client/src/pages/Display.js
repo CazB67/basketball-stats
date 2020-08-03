@@ -7,7 +7,7 @@ import axios from 'axios';
 import{ StatsNav, NavLink} from "../components/Navbar";
 import PieChart from "../components/PieChart";
 import * as d3 from "d3";
-import { Col, Row, Tabs, Tab, Table } from 'react-bootstrap';
+import { Col, Row, Tabs, Tab, Table, Modal, Button } from 'react-bootstrap';
 import Footer from "../components/Footer";
 import BarChart from "../components/BarChart";
 import LineChart from "../components/LineChart";
@@ -27,7 +27,8 @@ function Display() {
   const [generalPlay, setGeneralPlay] = useState([]);
   const [dataGeneralPlay, setDataGeneralPlay] = useState([]);
   const [stats, setStats] = useState([]);
-
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false)
   const generateReboundData = (value, length = 5) =>
     d3.range(length).map((item, index) => ({
       date: index,
@@ -118,14 +119,19 @@ function Display() {
       .then(res => setStats(res.data))
       .catch(err => console.log(err));
   };
-
-  function handleDelete(id) {
-    API.deleteStat(id)
-    .then(res =>
-      getSavedStats()
-    ).catch(err => console.log(err));
+  const [ selectedItem, setSelectedItem ] = useState()
+  function handleModal(id) {
+    setShow(true)
+    setSelectedItem(id)
   };
 
+  function handleDelete() {
+    
+    API.deleteStat(selectedItem)
+    .then(res => getSavedStats())
+    .then(setShow(false))
+    .catch(err => console.log(err));
+  };
 
   const barChartstate = {
     dataBar: {
@@ -249,7 +255,18 @@ function Display() {
   
     return (
       <>
+        <Modal backdrop="static" show={show} onHide={handleClose}>
       
+
+        <Modal.Body>
+          <p>Are you sure you want to delete game?</p>
+        </Modal.Body>
+
+        <Modal.Footer>
+          <Button variant="primary" onClick={handleDelete}>Yes</Button>
+          <Button variant="primary" onClick={() => setShow(false)}>No</Button>
+        </Modal.Footer>
+      </Modal>
       <StatsNav>
         <NavLink/>
       </StatsNav>
@@ -281,7 +298,7 @@ function Display() {
                 foul={stat.foul}
                 turnover={stat.turnover}
                 courttime={formatGameTime(stat.courtTime)}
-                onClick={() => handleDelete(stat._id)}
+                onClick={() => handleModal(stat._id)}
               />
               ))}
 

@@ -8,5 +8,10 @@ a#uncontrolled-tab-example-tab-pergamestats, a#uncontrolled-tab-example-tab-shot
  
 }
 
+button.btn.btn-primary {
+    font-family: 'Red Rose', cursive;
+    background-color: #26004d;
+}
+
 
 
