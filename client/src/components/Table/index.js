@@ -9,6 +9,9 @@ export function DataTable(props) {
       <>
          <tbody>
             <tr>
+              <td><EmailShareButton url={props.shareUrl} quote={title}><EmailIcon size={20} round className="mr-1"/></EmailShareButton>
+                  <FacebookShareButton url={props.shareUrl} quote={title}><FacebookIcon size={20} round className="mr-1" /></FacebookShareButton>
+                  <WhatsappShareButton url={props.shareUrl} quote={title}><WhatsappIcon size={20} round/></WhatsappShareButton></td>
               <td>{props.date}</td>
               <td>{props.opponent}</td>
               <td>{props.score}</td>
@@ -26,9 +29,6 @@ export function DataTable(props) {
               <td>{props.turnover}</td>
               <td>{props.courttime}</td>
               <td><i onClick={props.onClick} className="fas fa-trash"></i></td>
-              <td><EmailShareButton url={props.shareUrl} quote={title}><EmailIcon size={20} round className="mr-1"/></EmailShareButton>
-                  <FacebookShareButton url={props.shareUrl} quote={title}><FacebookIcon size={20} round className="mr-1" /></FacebookShareButton>
-                  <WhatsappShareButton url={props.shareUrl} quote={title}><WhatsappIcon size={20} round/></WhatsappShareButton></td>
             </tr>
           </tbody>
               </>
@@ -40,6 +40,7 @@ export function DataTable(props) {
       <>
        <thead>
             <tr>
+              <th>ShareGame</th>
               <th>DateOfGame</th>
               <th>Opponent</th>
               <th>FinalScore</th>
@@ -57,7 +58,6 @@ export function DataTable(props) {
               <th>Turnover</th>
               <th>CourtTime</th>
               <th>RemoveGame</th>
-              <th>ShareGame</th>
             </tr>
           </thead>
               </>
