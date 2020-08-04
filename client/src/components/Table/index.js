@@ -9,7 +9,7 @@ export function DataTable(props) {
       <>
          <tbody>
             <tr>
-              <td><EmailShareButton url={props.shareUrl} openShareDialogOnClick={true} Title={title}><EmailIcon size={20} round className="mr-1"/></EmailShareButton>
+              <td><EmailShareButton url={props.shareUrl} Title={title}><EmailIcon size={20} round className="mr-1"/></EmailShareButton>
                   <FacebookShareButton url={props.shareUrl} Title={title}><FacebookIcon size={20} round className="mr-1" /></FacebookShareButton>
                   <WhatsappShareButton url={props.shareUrl} Title={title}><WhatsappIcon size={20} round/></WhatsappShareButton></td>
               <td>{props.date}</td>
