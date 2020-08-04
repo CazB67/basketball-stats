@@ -7,6 +7,7 @@ router.route("/api/stats")
   .post(statsController.create);
 
 router.route("/api/stats/:id")
+.get(statsController.findById)
 .delete(statsController.remove);
 
 module.exports = router;

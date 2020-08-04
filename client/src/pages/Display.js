@@ -299,6 +299,7 @@ function Display() {
                 turnover={stat.turnover}
                 courttime={formatGameTime(stat.courtTime)}
                 onClick={() => handleModal(stat._id)}
+                shareUrl={"https://basketball-stats39.herokuapp.com/share/" + stat._id}
               />
               ))}
 
