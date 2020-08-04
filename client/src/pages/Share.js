@@ -37,7 +37,7 @@ function Share() {
       <Jumbotron fluid>
   <Container >
       <h1 className="text-center">{typeof(stats.createdAt) !== "undefined" ? stats.createdAt.substring(0,10).split("-").reverse().join("-") : "No Game"}</h1>
-      <h3 className="mb-5" className="text-center">Against {typeof(stats.opponent) !== "undefined" ? stats.opponent.toUpperCase() : "No opponent"}</h3>
+      <h3 className="mb-5 text-center">Against {typeof(stats.opponent) !== "undefined" ? stats.opponent.toUpperCase() : "No opponent"}</h3>
         <Table responsive="sm">
             <tbody >
             <tr>
