@@ -9,8 +9,12 @@ module.exports = (req, res, next) => {
             next()
         }
         else {
-            return res.redirect("/login")
-            
+            console.log(req);
+            res.status(401).json({
+                errors: [{
+                    msg: "Please log in."
+                }]
+            })
         }
     }
 }
