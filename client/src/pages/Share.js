@@ -17,7 +17,7 @@ function Share() {
 
     useEffect(() => {
         getGameStats();
-      })
+      },[])
 
     function formatGameTime(seconds) {
     let formattedTime = "";
