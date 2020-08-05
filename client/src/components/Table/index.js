@@ -4,14 +4,14 @@ import { EmailShareButton, FacebookShareButton, WhatsappShareButton,  FacebookIc
 
 export function DataTable(props) {
  
-  const title = 'Game Stats';
+  // const title = 'Game Stats';
     return (
       <>
          <tbody>
             <tr>
-              <td><EmailShareButton url={props.shareUrl} quote={title}><EmailIcon size={20} round className="mr-1"/></EmailShareButton>
+              {/* <td><EmailShareButton url={props.shareUrl} quote={title}><EmailIcon size={20} round className="mr-1"/></EmailShareButton>
                   <FacebookShareButton url={props.shareUrl} quote={title}><FacebookIcon size={20} round className="mr-1" /></FacebookShareButton>
-                  <WhatsappShareButton url={props.shareUrl} quote={title}><WhatsappIcon size={20} round/></WhatsappShareButton></td>
+                  <WhatsappShareButton url={props.shareUrl} quote={title}><WhatsappIcon size={20} round/></WhatsappShareButton></td> */}
               <td>{props.date}</td>
               <td>{props.opponent}</td>
               <td>{props.score}</td>
@@ -40,7 +40,7 @@ export function DataTable(props) {
       <>
        <thead>
             <tr>
-              <th>ShareGame</th>
+              {/* <th>ShareGame</th> */}
               <th>DateOfGame</th>
               <th>Opponent</th>
               <th>FinalScore</th>
