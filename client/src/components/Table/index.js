@@ -1,6 +1,6 @@
 import React from "react";
 import { Table } from 'react-bootstrap'
-import { EmailShareButton, FacebookShareButton, WhatsappShareButton,  FacebookIcon, WhatsappIcon, EmailIcon } from "react-share";
+//import { EmailShareButton, FacebookShareButton, WhatsappShareButton,  FacebookIcon, WhatsappIcon, EmailIcon } from "react-share";
 
 export function DataTable(props) {
  
