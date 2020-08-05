@@ -21,10 +21,10 @@ function App() {
                 <Route exact path="/signup" component={Signup} />
                 <Route exact path="/stats" component={Stats} />
                 <Route exact path="/display" component={Display} />
-                
+                <Route exact path="/share/:id" component={Share} />
                 </Switch>
           </GlobalStore.GlobalProvider>
-          <Route exact path="/share/:id" component={Share} />
+          
           </Container>
     </Router>
   );
