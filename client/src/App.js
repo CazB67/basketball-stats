@@ -23,7 +23,7 @@ function App() {
                 <Route exact path="/display" component={Display} />
                 </Switch>
           </GlobalStore.GlobalProvider>
-          <Route exact path="/share/:id" component={Share} />
+                <Route exact path="/share/:id" component={Share} />
           </Container>
     </Router>
   );
