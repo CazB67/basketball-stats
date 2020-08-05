@@ -15,6 +15,27 @@ import court2 from "../images/court2.png";
 import "./style.css";
 
 function Display() {
+
+  const store = GlobalStore.useGlobalContext()
+  const history = useHistory()
+ 
+  useEffect(() => {
+      axios.get('/current-user', {
+          withCredentials: true,
+      })
+          .then((response) => {
+              store.auth.dispatchAuth({
+                  type: 'set-user',
+                  payload: response.data.data
+              })
+          }).catch((err) => {
+              if(err.response.status === 401){
+                  return history.push('/')
+              }
+              console.log("Error " + {err});
+          })
+  }, [])
+
   const [rebounds, setRebounds] = useState([]);
   const [data, setData] = useState([]);
 
@@ -86,26 +107,6 @@ function Display() {
       setDataThreePoints(generateThreePointData());
       setDataGeneralPlay(generatePlayData());
     },[rebounds, twoPoints, threePoints, generalPlay]);
-
-  const store = GlobalStore.useGlobalContext()
-  const history = useHistory()
- 
-  useEffect(() => {
-      axios.get('/current-user', {
-          withCredentials: true,
-      })
-          .then((response) => {
-              store.auth.dispatchAuth({
-                  type: 'set-user',
-                  payload: response.data.data
-              })
-          }).catch((err) => {
-              if(err.response.status === 401){
-                  return history.push('/')
-              }
-              console.log("Error " + {err});
-          })
-  }, [])
 
   function getRebounds() {
     setRebounds([stats.reduce((acc, stat) => acc + stat.offRebound, 0), stats.reduce((acc, stat) => acc + stat.defRebound, 0)]);

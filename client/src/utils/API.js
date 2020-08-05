@@ -16,6 +16,6 @@ export default {
         return axios.delete("/api/stats/" + id, {withCredentials: true})
     },
     getStat: function(id) {
-        return axios.get("/api/stats/" + id);
+        return axios.get("/api/stats/" + id, {withCredentials: false});
       }
 }
