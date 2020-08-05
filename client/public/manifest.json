@@ -3,7 +3,7 @@
   "name": "Basketball Stats App",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "ball.png",
       "sizes": "64x64",
       "type": "image/png"
     }
