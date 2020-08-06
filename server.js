@@ -11,18 +11,18 @@ const routes = require("./routes");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/stats", { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/stats", { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true,
+useFindAndModify: false, });
 // Define middleware here
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 //app.use(cookieParser(process.env.SESSION_SECRET));
 app.use(cookieParser("SecretSecretSecret"));
-
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
 
 app.use(
   session({
@@ -52,6 +52,10 @@ app.use(routes);
 // Define any API routes before this runs
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
+
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/share.html"));
 });
 
 app.listen(PORT, function() {

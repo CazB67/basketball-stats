@@ -1,0 +1,20 @@
+{
+  "short_name": "Stats",
+  "name": "Basketball Stats App",
+  "icons": [
+    {
+      "src": "ball256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "ball3.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
