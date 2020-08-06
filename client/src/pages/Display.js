@@ -313,8 +313,8 @@ function Display() {
     <h3 className="mt-3 mb-3" style={{fontFamily: 'Red Rose'}}>Per Game Minutes</h3>
     <BarChart dataBar={barChartstate.dataBar} options={barChartstate.barChartOptions}/>
   </Tab>
-  <Tab eventKey="careerstats" title="Career" >
-    <h3 className="mt-3 mb-3" style={{fontFamily: 'Red Rose'}}>Career Stats</h3>
+  <Tab eventKey="careerstats" title="Season" >
+    <h3 className="mt-3 mb-3" style={{fontFamily: 'Red Rose'}}>Season Stats</h3>
     <Row className="text-center">
   
         <Col xs={12} md={6}>
