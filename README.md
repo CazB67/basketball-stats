@@ -24,7 +24,7 @@ This app uses [Create React App](https://github.com/facebook/create-react-app) a
 - npm start
 
 ## Usage
-* The URL of the deployed application is https://basketball-stats39.herokuapp.com/
+* The URL of the deployed application is https://node.bates.codes
 
 * The URL of the GitHub repository is https://github.com/CazB67/basketball-stats
 
